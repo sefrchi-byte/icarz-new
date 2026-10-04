@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>PayloadContent</key>
+    <array>
+        <dict>
+            <key>FullScreen</key>
+            <true/>
+            <key>IsRemovable</key>
+            <true/>
+            <key>Label</key>
+            <string>آی‌کارز</string>
+            <key>PayloadDescription</key>
+            <string>وب‌کلیپ رسمی سامانه هوشمند خودرو و موتوربانو آی‌کارز</string>
+            <key>PayloadDisplayName</key>
+            <string>iCARZ Web Clip</string>
+            <key>PayloadIdentifier</key>
+            <string>ir.icarz.webclip</string>
+            <key>PayloadType</key>
+            <string>com.apple.webClip.managed</string>
+            <key>PayloadUUID</key>
+            <string>98D80F3E-2F38-4A1B-8E4B-8E3B9F26E1A4</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>Precomposed</key>
+            <true/>
+            <key>URL</key>
+            <string>https://icarz.ir</string>
+        </dict>
+    </array>
+    <key>PayloadDisplayName</key>
+    <string>نصب اپلیکیشن آی‌کارز (iCARZ iOS)</string>
+    <key>PayloadIdentifier</key>
+    <string>ir.icarz.profile</string>
+    <key>PayloadRemovalDisallowed</key>
+    <false/>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadUUID</key>
+    <string>4C371B20-56E8-4F7F-9B6C-7F9154E22A70</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+</dict>
+</plist>

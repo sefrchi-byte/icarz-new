@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>پیش‌نمایش کارت گاراژ هوشمند — iCARZ</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+body { background:#EEF2F7; font-family:'YekanBakhFaNum', Vazirmatn, 'Segoe UI', Tahoma, sans-serif; }
+.phone { max-width:430px; margin:0 auto; padding:14px 12px 24px; }
+/* ==================== کارت گاراژ هوشمند — نسخهٔ خاص: آبی یخی + زرد ملایم ==================== */
+.vehicle-profile-hub {
+  background:
+    radial-gradient(90% 70% at 15% 0%, rgba(191, 219, 254, 0.35) 0%, rgba(191, 219, 254, 0) 60%),
+    radial-gradient(80% 60% at 90% 100%, rgba(253, 230, 138, 0.22) 0%, rgba(253, 230, 138, 0) 60%),
+    linear-gradient(165deg, #F8FBFF 0%, #FFFFFF 48%, #FFFDF6 100%) !important;
+  border: 1px solid #E7F0FB !important;
+  border-radius: 26px !important;
+  padding: 12px 14px 12px !important;
+  margin: 6px 2px 14px !important;
+  box-shadow: 0 10px 28px -14px rgba(59, 130, 246, 0.18), 0 3px 10px -4px rgba(180, 140, 20, 0.08) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  direction: rtl !important;
+}
+/* خط اکنت بالای کارت: آبی کم‌رنگ به زرد ملایم */
+.vehicle-profile-hub::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  left: 0 !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent 0%, #BFDBFE 30%, #FDE68A 70%, transparent 100%) !important;
+  z-index: 5 !important;
+}
+/* ۱. نوار بالای کارت: برند + سلامت خودرو */
+.vph-top-strip {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 8px !important;
+  margin-bottom: 2px !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+.vph-garage-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  background: #F0F7FF !important;
+  border: 1px solid #DBEAFE !important;
+  padding: 3px 9px !important;
+  border-radius: 9999px !important;
+  font-size: 8px !important;
+  font-weight: 800 !important;
+  color: #4A7DBF !important;
+  letter-spacing: 0.1px !important;
+}
+.vph-pulse-ring {
+  width: 5.5px !important;
+  height: 5.5px !important;
+  border-radius: 50% !important;
+  background: #FBBF24 !important;
+  box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.55) !important;
+  animation: vphPulseY 2.2s infinite !important;
+  flex-shrink: 0 !important;
+}
+@keyframes vphPulseY {
+  0% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.55); }
+  70% { box-shadow: 0 0 0 5px rgba(251, 191, 36, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0); }
+}
+.vph-verified-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  background: #FFFBEB !important;
+  border: 1px solid #FDE9A8 !important;
+  padding: 3px 8px !important;
+  border-radius: 9999px !important;
+  font-size: 8px !important;
+  font-weight: 800 !important;
+  color: #B45309 !important;
+}
+/* ۲. هیروی خودرو: ماشین بزرگ وسط با هالهٔ نور */
+.vph-hero {
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  padding: 6px 0 2px !important;
+  cursor: pointer !important;
+  user-select: none !important;
+  direction: ltr !important;
+  z-index: 2 !important;
+}
+.vph-hero-glow {
+  position: absolute !important;
+  top: 6px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 240px !important;
+  height: 88px !important;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(147, 197, 253, 0.30) 0%, rgba(147, 197, 253, 0) 72%) !important;
+  pointer-events: none !important;
+}
+.vph-avatar-shadow {
+  position: absolute !important;
+  top: 76px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 150px !important;
+  height: 7px !important;
+  border-radius: 50% !important;
+  background: radial-gradient(ellipse at center, rgba(30, 64, 120, 0.16) 0%, rgba(30, 64, 120, 0.04) 55%, transparent 80%) !important;
+  pointer-events: none !important;
+}
+.vph-line-car {
+  width: 190px !important;
+  height: auto !important;
+  display: block !important;
+  margin: 0 auto !important;
+  position: relative !important;
+  z-index: 2 !important;
+  filter: drop-shadow(0 4px 10px rgba(59, 130, 246, 0.16)) !important;
+  transition: transform .3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.vph-hero:hover .vph-line-car {
+  transform: translateY(-2px) scale(1.015) !important;
+}
+.unlock-flash .vph-line-car {
+  animation: vphUnlock 0.9s ease !important;
+}
+@keyframes vphUnlock {
+  0% { filter: drop-shadow(0 0 0 rgba(251, 191, 36, 0)); }
+  30% { filter: drop-shadow(0 0 14px rgba(251, 191, 36, 0.65)); }
+  100% { filter: drop-shadow(0 4px 10px rgba(59, 130, 246, 0.16)); }
+}
+.vph-name-row {
+  direction: rtl !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  margin-top: 2px !important;
+  flex-wrap: wrap !important;
+}
+.vph-car-title {
+  font-size: 15.5px !important;
+  font-weight: 900 !important;
+  color: #274B77 !important;
+  margin: 0 !important;
+  letter-spacing: -0.2px !important;
+  line-height: 1.3 !important;
+}
+.vph-plate-chip {
+  display: inline-flex !important;
+  align-items: center !important;
+  background: #FFFDF4 !important;
+  border: 1px solid #F3E3AC !important;
+  color: #8A6D1A !important;
+  font-size: 8.5px !important;
+  font-weight: 800 !important;
+  border-radius: 7px !important;
+  padding: 2.5px 7px !important;
+  box-shadow: inset 0 -1px 0 rgba(180, 140, 20, 0.08) !important;
+}
+.vph-plate-chip b {
+  font-weight: 900 !important;
+  color: #6B5900 !important;
+  letter-spacing: 0.5px !important;
+}
+.vph-switch-action-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  background: #FFFFFF !important;
+  border: 1.2px solid #DCE9FA !important;
+  color: #4A7DBF !important;
+  border-radius: 9999px !important;
+  padding: 4px 11px !important;
+  font-size: 9px !important;
+  font-weight: 800 !important;
+  cursor: pointer !important;
+  transition: all .2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: 0 1px 4px rgba(59, 130, 246, 0.10) !important;
+}
+.vph-switch-action-btn:hover {
+  background: #FFFBEA !important;
+  border-color: #F5D878 !important;
+  color: #B45309 !important;
+  transform: translateY(-0.5px) !important;
+}
+.vph-switch-action-btn:active {
+  transform: scale(0.96) !important;
+}
+/* ۳. نوار تلماتیکس زنده */
+.vph-telemetry {
+  display: flex !important;
+  gap: 6px !important;
+  margin: 8px 0 10px !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+.vph-tele-chip {
+  flex: 1 !important;
+  min-width: 0 !important;
+  background: rgba(240, 247, 255, 0.75) !important;
+  border: 1px solid #E3EEFB !important;
+  border-radius: 12px !important;
+  padding: 5px 8px 6px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.5px !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+.vph-tele-label {
+  font-size: 7.5px !important;
+  font-weight: 800 !important;
+  color: #8AA3C4 !important;
+}
+.vph-tele-val {
+  font-size: 8.8px !important;
+  font-weight: 800 !important;
+  color: #33507A !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  max-width: 100% !important;
+}
+.vph-tele-chip.gold {
+  background: rgba(255, 251, 235, 0.8) !important;
+  border-color: #F7E7B4 !important;
+}
+.vph-tele-chip.gold .vph-tele-val {
+  color: #96700A !important;
+}
+/* ۴. بخش قطعات مصرفی فابریک */
+.vph-deals-section {
+  border-top: 1px dashed #E3EDF9 !important;
+  padding-top: 10px !important;
+  margin-top: 2px !important;
+}
+.vph-deals-top {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin-bottom: 9px !important;
+  gap: 8px !important;
+}
+.vph-deals-badge {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+.vph-dot-ping {
+  width: 6px !important;
+  height: 6px !important;
+  border-radius: 50% !important;
+  background: #FBBF24 !important;
+  box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.5) !important;
+  animation: vphPulseY 2s infinite !important;
+  flex-shrink: 0 !important;
+}
+.vph-deals-heading {
+  font-size: 11.5px !important;
+  font-weight: 900 !important;
+  color: #33507A !important;
+  letter-spacing: -0.1px !important;
+}
+.vph-deals-note {
+  font-size: 8.5px !important;
+  font-weight: 700 !important;
+  color: #B45309 !important;
+  background: #FFFBEB !important;
+  border: 0.8px solid #FDE9A8 !important;
+  border-radius: 9999px !important;
+  padding: 2px 8px !important;
+  white-space: nowrap !important;
+}
+.vph-scroller {
+  display: flex !important;
+  gap: 8px !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  padding-bottom: 4px !important;
+  scrollbar-width: none !important;
+  -webkit-overflow-scrolling: touch !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+.vph-scroller::-webkit-scrollbar {
+  display: none !important;
+}
+.vph-item-card {
+  flex: 0 0 124px !important;
+  width: 124px !important;
+  background: #FFFFFF !important;
+  border: 1.2px solid #E7F0FB !important;
+  border-radius: 16px !important;
+  padding: 8px 7px 7px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  position: relative !important;
+  cursor: pointer !important;
+  transition: transform .2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow .2s ease, border-color .2s ease !important;
+  box-shadow: 0 2px 8px rgba(100, 140, 200, 0.07) !important;
+}
+.vph-item-card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 18px rgba(59, 130, 246, 0.14) !important;
+  border-color: #BFDBFE !important;
+}
+.vph-discount-tag {
+  position: absolute !important;
+  top: 5px !important;
+  right: 5px !important;
+  background: #FFFBEA !important;
+  border: 1px solid #F5DF9B !important;
+  color: #B45309 !important;
+  font-size: 8px !important;
+  font-weight: 900 !important;
+  padding: 1.5px 5.5px !important;
+  border-radius: 6px !important;
+  z-index: 2 !important;
+}
+.vph-item-stage {
+  width: 100% !important;
+  height: 64px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 5px !important;
+}
+.vph-item-stage img {
+  max-width: 90% !important;
+  max-height: 90% !important;
+  object-fit: contain !important;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.08)) !important;
+  transition: transform .2s ease !important;
+}
+.vph-item-card:hover .vph-item-stage img {
+  transform: scale(1.08) !important;
+}
+.vph-item-cat {
+  font-size: 8.5px !important;
+  font-weight: 800 !important;
+  color: #8AA3C4 !important;
+  line-height: 1.2 !important;
+}
+.vph-item-name {
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  color: #274B77 !important;
+  line-height: 1.35 !important;
+  height: 27px !important;
+  overflow: hidden !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  margin: 1px 0 4px !important;
+}
+.vph-item-foot {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin-top: auto !important;
+  padding-top: 5px !important;
+  border-top: 0.8px solid #EFF5FC !important;
+}
+.vph-price-box {
+  display: flex !important;
+  flex-direction: column !important;
+}
+.vph-item-old {
+  font-size: 8px !important;
+  color: #94A3B8 !important;
+  text-decoration: line-through !important;
+  line-height: 1 !important;
+}
+.vph-item-price {
+  font-size: 10.5px !important;
+  font-weight: 900 !important;
+  color: #274B77 !important;
+  line-height: 1.2 !important;
+}
+.vph-item-price span {
+  font-size: 7.5px !important;
+  font-weight: 500 !important;
+  color: #8AA3C4 !important;
+}
+.vph-add-btn {
+  width: 23px !important;
+  height: 23px !important;
+  border-radius: 7px !important;
+  background: linear-gradient(135deg, #5B9BF0, #3B82F6) !important;
+  border: none !important;
+  color: #FFFFFF !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  box-shadow: 0 2px 6px rgba(59, 130, 246, 0.28) !important;
+  transition: all .18s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  flex-shrink: 0 !important;
+}
+.vph-add-btn svg {
+  stroke: #FFFFFF !important;
+}
+.vph-add-btn:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.4) !important;
+}
+.vph-add-btn:active {
+  transform: scale(0.92) !important;
+}
+.vph-add-btn.added {
+  background: linear-gradient(135deg, #FBBF24, #F59E0B) !important;
+  box-shadow: 0 2px 6px rgba(245, 158, 11, 0.35) !important;
+}
+@media (min-width: 640px) {
+  .vph-line-car { width: 220px !important; }
+}
+</style>
+</head>
+<body>
+<div class="phone">
+<div class="vehicle-profile-hub" id="vehicleProfileHub">
+          <!-- نوار بالا: برند گاراژ + سلامت زندهٔ خودرو -->
+          <div class="vph-top-strip">
+            <span class="vph-garage-badge">
+              <span class="vph-pulse-ring"></span>
+              <span class="vph-badge-txt">گاراژ هوشمند آی‌کارز</span>
+            </span>
+            <span class="vph-verified-badge">
+              <svg viewBox="0 0 24 24" width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span id="vphHealthTxt">۸۸٪ سلامت</span>
+            </span>
+          </div>
+
+          <!-- هیروی خودرو: آواتار خطی بزرگ + نام + پلاک + تعویض -->
+          <div class="vph-hero" id="vphCarStage" onclick="openCarPicker()" title="کلیک برای تعویض خودرو">
+            <div class="vph-hero-glow"></div>
+            <div class="vph-avatar-shadow"></div>
+            <svg class="vph-line-car" viewBox="0 0 200 80" fill="none" aria-label="خودروی فعال">
+              <defs>
+                <linearGradient id="vphLineGrad" x1="16" y1="30" x2="172" y2="72" gradientUnits="userSpaceOnUse">
+                  <stop offset="0" stop-color="#8FC0F9"/>
+                  <stop offset="1" stop-color="#4A86E8"/>
+                </linearGradient>
+              </defs>
+              <path d="M16 60 C15 55 17 51 24 50 C31 49 37 48.5 42 47 C50 37 60 31.5 74 30.5 C84 29.8 98 30 106 32 C116 34.5 124 40 130 45 C140 47 152 48.5 160 50 C168 51.5 172 54.5 172 60" stroke="url(#vphLineGrad)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M16 60 L39 60 a13 13 0 0 1 26 0 L133 60 a13 13 0 0 1 26 0 L172 60" stroke="url(#vphLineGrad)" stroke-width="2.6" stroke-linecap="round"/>
+              <circle cx="52" cy="62" r="9.5" stroke="url(#vphLineGrad)" stroke-width="2.6"/>
+              <circle cx="52" cy="62" r="2.8" fill="#4A86E8"/>
+              <circle cx="146" cy="62" r="9.5" stroke="url(#vphLineGrad)" stroke-width="2.6"/>
+              <circle cx="146" cy="62" r="2.8" fill="#4A86E8"/>
+              <path d="M48 46 C55 38 63 34 75 33.5 C86 33 97 33.5 104 35.5 C112 37.5 119 42 124 46" stroke="rgba(73,110,163,0.45)" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M100 34 C101 39 101 43 101 47" stroke="rgba(73,110,163,0.4)" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M86 49 h8" stroke="rgba(73,110,163,0.5)" stroke-width="2" stroke-linecap="round"/>
+              <path d="M163 53 l8 1.2" stroke="#F6C243" stroke-width="2.6" stroke-linecap="round"/>
+              <path d="M17 53 l7 -1" stroke="#F19A9A" stroke-width="2.6" stroke-linecap="round"/>
+            </svg>
+            <div class="vph-name-row">
+              <h2 class="vph-car-title" id="vphCarName">سایپا پراید ۱۳۱ صبا</h2>
+              <span class="vph-plate-chip"><b id="vphPlateTxt">۳۱ ج ۵۶ • ایران ۴۵</b></span>
+              <button class="vph-switch-action-btn" onclick="event.stopPropagation(); openCarPicker()" title="تغییر خودروی فعال">
+                <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <path d="M7 16V4m0 0L3 8m4-4l4 4m6 4v12m0 0l4-4m-4 4l-4-4"/>
+                </svg>
+                <span>تعویض خودرو</span>
+                <svg viewBox="0 0 24 24" width="7" height="7" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- نوار تلماتیکس زندهٔ خودرو -->
+          <div class="vph-telemetry">
+            <div class="vph-tele-chip"><span class="vph-tele-label">موتور</span><span class="vph-tele-val" id="vphEngineTxt">—</span></div>
+            <div class="vph-tele-chip gold"><span class="vph-tele-label">روغن فابریک</span><span class="vph-tele-val" id="vphOilTxt">—</span></div>
+            <div class="vph-tele-chip"><span class="vph-tele-label">سرویس بعدی</span><span class="vph-tele-val" id="vphServiceTxt">—</span></div>
+          </div>
+
+          <!-- بخش اقلام مصرفی فابریک ویژه خودرو -->
+          <div class="vph-deals-section">
+            <div class="vph-deals-top">
+              <div class="vph-deals-badge">
+                <span class="vph-dot-ping"></span>
+                <span class="vph-deals-heading">قطعات مصرفی و دوره‌ای فابریک</span>
+              </div>
+              <span class="vph-deals-note">تضمین ۱۰۰٪ اصالت فیزیکی قطعات</span>
+            </div>
+
+            <!-- اسکرولر افقی کارت‌های مصرفی خودرو -->
+            <div class="vph-scroller" id="vphItemsScroller">
+              <div class="vph-item-card">
+                <span class="vph-discount-tag">۲۰٪-</span>
+                <div class="vph-item-stage"><img src="images/tiles/روغن_موتور.webp" alt="روغن"></div>
+                <div><div class="vph-item-cat">روغن موتور</div><div class="vph-item-name">روغن موتور تمام‌سنتتیک ۵W-30 فابریک پراید</div></div>
+                <div class="vph-item-foot">
+                  <div class="vph-price-box"><span class="vph-item-old">۱,۱۰۰,۰۰۰</span><div class="vph-item-price">۸۹۰,۰۰۰ <span>تومان</span></div></div>
+                  <button class="vph-add-btn"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+                </div>
+              </div>
+              <div class="vph-item-card">
+                <span class="vph-discount-tag">۲۵٪-</span>
+                <div class="vph-item-stage"><img src="images/tiles/لنت.webp" alt="لنت"></div>
+                <div><div class="vph-item-cat">لنت و ترمز</div><div class="vph-item-name">لنت ترمز جلو سرامیکی فابریک پراید</div></div>
+                <div class="vph-item-foot">
+                  <div class="vph-price-box"><span class="vph-item-old">۴۸۰,۰۰۰</span><div class="vph-item-price">۳۶۰,۰۰۰ <span>تومان</span></div></div>
+                  <button class="vph-add-btn"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+                </div>
+              </div>
+              <div class="vph-item-card">
+                <span class="vph-discount-tag">۲۰٪-</span>
+                <div class="vph-item-stage"><img src="images/tiles/باتری.webp" alt="باتری"></div>
+                <div><div class="vph-item-cat">باتری و برق</div><div class="vph-item-name">باتری ۵۰ آمپر اتمی سپاهان ویژه پراید</div></div>
+                <div class="vph-item-foot">
+                  <div class="vph-price-box"><span class="vph-item-old">۲,۳۰۰,۰۰۰</span><div class="vph-item-price">۱,۸۵۰,۰۰۰ <span>تومان</span></div></div>
+                  <button class="vph-add-btn"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+                </div>
+              </div>
+            
+              <!-- به صورت پویا با renderVehicleProfileHub(currentSelectedCar) پر می‌شود -->
+            </div>
+          </div>
+        </div>
+</div>
+</body>
+</html>

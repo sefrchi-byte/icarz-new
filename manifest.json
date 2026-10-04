@@ -1,0 +1,26 @@
+{
+  "name": "آی‌کارز | iCARZ - سامانه جامع خودرو و موتوربانو",
+  "short_name": "iCARZ",
+  "description": "سامانه هوشمند جامع خودرو، خدمات در محل و فروشگاه اختصاصی موتوربانو ویژه بانوان سراسر کشور",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#2563EB",
+  "orientation": "portrait",
+  "dir": "rtl",
+  "lang": "fa-IR",
+  "icons": [
+    {
+      "src": "i-minimal.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "i-minimal.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
