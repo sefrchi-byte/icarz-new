@@ -11,7 +11,7 @@
   <link rel="manifest" href="manifest.json">
 <title>آی کارز - iCARZ | دقیقا مثل عکس ۱</title>
 <style>
-@font-face{font-family:'Fredoka';src:url('fonts/fredoka-latin.woff2') format('woff2');font-weight:600;font-display:swap}@keyframes mkEye{0%,90%,100%{transform:scaleY(1)}93%,96%{transform:scaleY(.12)}}@keyframes mkPupil{0%,18%,100%{transform:translateX(0)}26%,40%{transform:translateX(-1.2px)}50%,64%{transform:translateX(1.2px)}74%,88%{transform:translateX(0)}}.ra-mark{margin-inline-start:auto;flex:0 0 auto;width:34px;height:34px;border-radius:12px;background:#FFFFFF;border:0.5px solid color-mix(in srgb, currentColor 14%, #FFFFFF);box-shadow:0 1px 6px rgba(15,23,42,.08);display:flex;flex-direction:column;align-items:center;justify-content:center;direction:ltr;gap:2px;transition:transform .25s}.ring-ad:active .ra-mark{transform:scale(1.08)}.ra-mark b{font-family:'Fredoka',system-ui,sans-serif;font-size:8.5px;font-weight:600;line-height:1;color:currentColor;letter-spacing:.2px}.mk-face{display:flex;flex-direction:column;align-items:center;gap:1.5px}.mk-eyes{display:flex;gap:5px}.mk-eyes i{position:relative;width:6px;height:7px;background:#FFFFFF;border-radius:50%;box-shadow:inset 0 0 0 .5px rgba(15,23,42,.14);overflow:hidden;animation:mkEye 4.2s ease-in-out infinite}.mk-eyes i::after{content:'';position:absolute;left:1.5px;top:2px;width:3px;height:3px;border-radius:50%;background:#2563EB;animation:mkPupil 7s ease-in-out infinite}.mk-face u{text-decoration:none;width:12px;height:5.5px;border:1.5px solid currentColor;border-top:none;border-radius:0 0 12px 12px;font-size:0;background:transparent}
+@font-face{font-family:'Fredoka';src:url('fonts/fredoka-latin.woff2') format('woff2');font-weight:600;font-display:swap}@keyframes mkBlink{0%,100%{opacity:1;box-shadow:0 0 5px rgba(59,130,246,.75)}50%{opacity:.25;box-shadow:0 0 1px rgba(59,130,246,.2)}}.ra-mark{margin-inline-start:auto;flex:0 0 auto;width:34px;height:34px;border-radius:12px;background:#FFFFFF;border:0.5px solid color-mix(in srgb, currentColor 14%, #FFFFFF);box-shadow:0 1px 6px rgba(15,23,42,.08);display:flex;flex-direction:column;align-items:center;justify-content:center;direction:ltr;gap:1.5px;transition:transform .25s}.ring-ad:active .ra-mark{transform:scale(1.08)}.ra-mark i{width:3.6px;height:3.6px;border-radius:50%;background:#3B82F6;animation:mkBlink 2.4s ease-in-out infinite}.ra-mark b{font-family:'Fredoka',system-ui,sans-serif;font-size:8.5px;font-weight:600;line-height:1;color:currentColor;letter-spacing:.2px}.ra-mark u{text-decoration:none;width:12px;height:5.5px;border:1.5px solid currentColor;border-top:none;border-radius:0 0 12px 12px;font-size:0;background:transparent}
 @font-face{font-family:'YekanBakhFaNum';src:url('fonts/YekanBakhFaNum-Thin.otf') format('opentype');font-weight:100;font-display:swap}
 @font-face{font-family:'YekanBakhFaNum';src:url('fonts/YekanBakhFaNum-Light.otf') format('opentype');font-weight:300;font-display:swap}
 @font-face{font-family:'YekanBakhFaNum';src:url('fonts/YekanBakhFaNum-Regular.otf') format('opentype');font-weight:400;font-display:swap}
@@ -13864,7 +13864,7 @@ div.phone.theme-shop-white div.ssh-search-bar {
           <div class="ring-ad ra-green" onclick="var el=document.getElementById('ring-market');if(el)el.scrollIntoView({behavior:'smooth',block:'start'})">
             <div class="ring-ad-ic"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l1-5h16l1 5"/><path d="M4 9v11h16V9"/><path d="M9 20v-6h6v6"/></svg></div>
             <div class="ring-ad-tx"><b>بازار فروشندگان</b><span>فروشندگان معتبر محصولات‌شان را مستقیم عرضه می‌کنند</span><div class="ring-ad-chips"><i>فروشندهٔ معتبر</i><i>قیمت رقابتی</i><i>تنوع بالا</i></div></div>
-          <span class="ra-mark"><b>carz</b><span class="mk-face"><span class="mk-eyes"><i></i><i></i></span><u>)</u></span></span>
+          <span class="ra-mark"><i></i><b>carz</b><u>)</u></span>
           </div>
           <div class="shop-carousel-section" id="ring-market">
             <div class="scs-header">
@@ -13888,7 +13888,7 @@ div.phone.theme-shop-white div.ssh-search-bar {
             <div class="ring-ad-ic"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 13l2-5a2 2 0 0 1 2-1.3h10A2 2 0 0 1 19 8l2 5v5a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-5z"/><path d="M7 13h.01M17 13h.01"/></svg></div>
             <div class="ring-ad-tx"><b>خرید خودرو صفر (صفرچی)</b><span>خودروهای صفر کیلومتر با قیمت کف، کارشناسی و تحویل فوری</span><div class="ring-ad-chips"><i>بدون واسطه</i><i>کارشناسی رسمی</i><i>تحویل فوری</i></div></div>
             
-          <span class="ra-mark"><b>carz</b><span class="mk-face"><span class="mk-eyes"><i></i><i></i></span><u>)</u></span></span>
+          <span class="ra-mark"><i></i><b>carz</b><u>)</u></span>
           </div>
           <div class="shop-carousel-section" id="ring-sefrechi">
             <div class="scs-header">
@@ -13919,7 +13919,7 @@ div.phone.theme-shop-white div.ssh-search-bar {
             <div class="ring-ad-ic"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-3 11.5V14l-3-3 4-3 2 3h2"/></svg></div>
             <div class="ring-ad-tx"><b>موتوربانو</b><span>خرید موتورسیکلت و اکسسوری تخصصی بانوان با قیمت روز</span><div class="ring-ad-chips"><i>تنوع مدل‌ها</i><i>قیمت روز</i><i>اکسسوری بانوان</i></div></div>
             
-          <span class="ra-mark"><b>carz</b><span class="mk-face"><span class="mk-eyes"><i></i><i></i></span><u>)</u></span></span>
+          <span class="ra-mark"><i></i><b>carz</b><u>)</u></span>
           </div>
           <div class="shop-carousel-section" id="ring-motorbano">
             <div class="scs-header">
@@ -13981,7 +13981,7 @@ div.phone.theme-shop-white div.ssh-search-bar {
             <div class="ring-ad-ic"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg></div>
             <div class="ring-ad-tx"><b>روغن و سرویس دوره‌ای</b><span>روغن، فیلتر و سرویس‌های پرمصرف خودرو در یک نگاه</span><div class="ring-ad-chips"><i>روغن اورجینال</i><i>فیلتر و سرویس</i><i>یادآور تعویض</i></div></div>
             
-          <span class="ra-mark"><b>carz</b><span class="mk-face"><span class="mk-eyes"><i></i><i></i></span><u>)</u></span></span>
+          <span class="ra-mark"><i></i><b>carz</b><u>)</u></span>
           </div>
           <div class="shop-carousel-section" id="ring-oil">
             <div class="scs-header">
@@ -14012,7 +14012,7 @@ div.phone.theme-shop-white div.ssh-search-bar {
             <div class="ring-ad-ic"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/></svg></div>
             <div class="ring-ad-tx"><b>لنت و ترمز</b><span>داغ‌ترین اقلام ترمز و لنت مخصوص خودروی تو</span><div class="ring-ad-chips"><i>لنت فابریک</i><i>دیسک ترمز</i><i>مشاوره رایگان</i></div></div>
             
-          <span class="ra-mark"><b>carz</b><span class="mk-face"><span class="mk-eyes"><i></i><i></i></span><u>)</u></span></span>
+          <span class="ra-mark"><i></i><b>carz</b><u>)</u></span>
           </div>
           <div class="shop-carousel-section" id="ring-lent">
             <div class="scs-header">
@@ -14043,7 +14043,7 @@ div.phone.theme-shop-white div.ssh-search-bar {
             <div class="ring-ad-ic"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="13" rx="2"/><path d="M6 7V4M18 7V4M8 12h3M14.5 12h3M16 10.5v3"/></svg></div>
             <div class="ring-ad-tx"><b>آی‌باتری</b><span>خرید باتری و لوازم برق خودرو با ارسال سریع</span><div class="ring-ad-chips"><i>ارسال سریع</i><i>ضمانت اصالت</i><i>تعویض در محل</i></div></div>
             
-          <span class="ra-mark"><b>carz</b><span class="mk-face"><span class="mk-eyes"><i></i><i></i></span><u>)</u></span></span>
+          <span class="ra-mark"><i></i><b>carz</b><u>)</u></span>
           </div>
           <div class="shop-carousel-section" id="ring-battery">
             <div class="scs-header">
@@ -14074,7 +14074,7 @@ div.phone.theme-shop-white div.ssh-search-bar {
             <div class="ring-ad-ic"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
             <div class="ring-ad-tx"><b>دیسک و صفحه کلاچ</b><span>پیشنهاد‌های ویژهٔ سیستم کلاچ برای هر خودرو</span><div class="ring-ad-chips"><i>دیسک و صفحه</i><i>کیت کامل</i><i>برند معتبر</i></div></div>
             
-          <span class="ra-mark"><b>carz</b><span class="mk-face"><span class="mk-eyes"><i></i><i></i></span><u>)</u></span></span>
+          <span class="ra-mark"><i></i><b>carz</b><u>)</u></span>
           </div>
           <div class="shop-carousel-section" id="ring-clutch">
             <div class="scs-header">
@@ -14105,7 +14105,7 @@ div.phone.theme-shop-white div.ssh-search-bar {
             <div class="ring-ad-ic"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg></div>
             <div class="ring-ad-tx"><b>شمع و جرقه</b><span>شمع‌های اورجینال برای کارکرد نرم و بی‌صدا موتور</span><div class="ring-ad-chips"><i>شمع اورجینال</i><i>جرقه بهینه</i><i>مصرف کمتر</i></div></div>
             
-          <span class="ra-mark"><b>carz</b><span class="mk-face"><span class="mk-eyes"><i></i><i></i></span><u>)</u></span></span>
+          <span class="ra-mark"><i></i><b>carz</b><u>)</u></span>
           </div>
           <div class="shop-carousel-section" id="ring-spark">
             <div class="scs-header">
@@ -14136,7 +14136,7 @@ div.phone.theme-shop-white div.ssh-search-bar {
             <div class="ring-ad-ic"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 1 6 6c0 2-1 3.5-2 4.5V16H8v-2.5C7 12.5 6 11 6 9a6 6 0 0 1 6-6z"/></svg></div>
             <div class="ring-ad-tx"><b>هدلایت و روشنایی</b><span>نور قوی‌تر، دید بهتر و رانندگی امن‌تر در شب</span><div class="ring-ad-chips"><i>نور قدرتمند</i><i>نصب آسان</i><i>گارانتی‌دار</i></div></div>
             
-          <span class="ra-mark"><b>carz</b><span class="mk-face"><span class="mk-eyes"><i></i><i></i></span><u>)</u></span></span>
+          <span class="ra-mark"><i></i><b>carz</b><u>)</u></span>
           </div>
           <div class="shop-carousel-section" id="ring-headlight">
             <div class="scs-header">
