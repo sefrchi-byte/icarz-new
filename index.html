@@ -347,11 +347,11 @@ body{background:#eef1f6;display:flex;justify-content:center;padding:20px 0;min-h
 .ring-ad-ic{width:30px;height:30px;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 6px rgba(15,23,42,.08);flex:0 0 30px}
 .ring-ad-ic svg{width:14px;height:14px}
 @keyframes chipFlow{0%,12%{transform:translateX(0)}45%,62%{transform:translateX(var(--slide,0px))}95%,100%{transform:translateX(0)}}
-.ring-ad-tx{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:3px;flex:1;min-width:0;overflow:hidden}
-.ring-ad-tx b{font-size:11.5px;font-weight:800;color:#0F172A;white-space:nowrap;max-width:100%}
+.ring-ad-tx{display:flex;align-items:center;gap:8px;flex:1;flex-wrap:nowrap;overflow:hidden;min-width:0}
+.ring-ad-tx b{font-size:11.5px;font-weight:800;color:#0F172A;white-space:nowrap}
 .ring-ad-tx span{display:none}
-.ring-ad-chips{display:flex;gap:5px;overflow:hidden;max-width:100%}
-.ring-ad-chips.flow{animation:chipFlow 7s ease-in-out infinite}
+.ring-ad-chips{display:flex;gap:5px;overflow:hidden;min-width:0;flex:1}
+.ring-ad-chips.flow i{animation:chipFlow 7s ease-in-out infinite}
 .ring-ad-chips i{font-style:normal;font-size:9px;font-weight:700;height:20px;display:inline-flex;align-items:center;padding:0 9px;border-radius:999px;white-space:nowrap}
 /* تم‌های رنگی بر اساس حلقهٔ زیرین */
 .ring-ad.ra-blue{background:linear-gradient(to left,#DBEAFE 0%,transparent 80%);border-color:#DBEAFE;color:#2563EB}
