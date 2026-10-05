@@ -346,10 +346,12 @@ body{background:#eef1f6;display:flex;justify-content:center;padding:20px 0;min-h
 @keyframes mkDot{0%,100%{box-shadow:0 0 2px rgba(59,130,246,.3)}50%{box-shadow:0 0 6px rgba(59,130,246,.6)}}@keyframes mkGrin{0%,100%{transform:scaleX(1)}50%{transform:scaleX(1.08)}}.ra-mark{margin-inline-start:auto;flex:0 0 auto;width:34px;height:34px;border-radius:12px;background:#FFFFFF;border:0.5px solid color-mix(in srgb, currentColor 14%, #FFFFFF);box-shadow:0 1px 6px rgba(15,23,42,.08);display:flex;flex-direction:column;align-items:center;justify-content:center;direction:ltr;gap:2px;transition:transform .25s}.ring-ad:active .ra-mark{transform:scale(1.08)}.ra-mark i{width:4.5px;height:4.5px;border-radius:50%;background:#3B82F6;animation:mkDot 3.8s ease-in-out infinite}.ra-mark b{font-size:8px;font-weight:800;line-height:1;color:currentColor;letter-spacing:.4px}.ra-mark u{text-decoration:none;width:12px;height:5.5px;border:1.5px solid currentColor;border-top:none;border-radius:0 0 12px 12px;font-size:0;background:transparent;animation:mkGrin 3.8s ease-in-out infinite}
 .ring-ad-ic{width:30px;height:30px;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 6px rgba(15,23,42,.08);flex:0 0 30px}
 .ring-ad-ic svg{width:14px;height:14px}
-.ring-ad-tx{display:flex;align-items:center;gap:8px;flex:1;flex-wrap:nowrap;overflow:hidden;min-width:0}
-.ring-ad-tx b{font-size:11.5px;font-weight:800;color:#0F172A;white-space:nowrap}
+@keyframes chipFlow{0%,12%{transform:translateX(0)}45%,62%{transform:translateX(var(--slide,0px))}95%,100%{transform:translateX(0)}}
+.ring-ad-tx{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:3px;flex:1;min-width:0;overflow:hidden}
+.ring-ad-tx b{font-size:11.5px;font-weight:800;color:#0F172A;white-space:nowrap;max-width:100%}
 .ring-ad-tx span{display:none}
-.ring-ad-chips{display:flex;gap:5px}
+.ring-ad-chips{display:flex;gap:5px;overflow:hidden;max-width:100%}
+.ring-ad-chips.flow{animation:chipFlow 7s ease-in-out infinite}
 .ring-ad-chips i{font-style:normal;font-size:9px;font-weight:700;height:20px;display:inline-flex;align-items:center;padding:0 9px;border-radius:999px;white-space:nowrap}
 /* تم‌های رنگی بر اساس حلقهٔ زیرین */
 .ring-ad.ra-blue{background:linear-gradient(to left,#DBEAFE 0%,transparent 80%);border-color:#DBEAFE;color:#2563EB}
@@ -22300,6 +22302,10 @@ function sellerAddProduct(){
   rd.readAsDataURL(f);
 }
 mkSeed(); renderMarketCards();
+</script>
+<script>
+function mkFitFlow(){document.querySelectorAll('.ring-ad-tx').forEach(tx=>{const ch=tx.querySelector('.ring-ad-chips');if(!ch)return;const d=ch.scrollWidth-ch.clientWidth;if(d>2){ch.style.setProperty('--slide',d+'px');ch.classList.add('flow')}else{ch.classList.remove('flow')}})}
+window.addEventListener('load',()=>setTimeout(mkFitFlow,400));
 </script>
 </body>
 </html>
