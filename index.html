@@ -12454,6 +12454,15 @@ div.phone.theme-shop-white div.ssh-search-bar {
   z-index: 0 !important;
   opacity: .85 !important;
 }
+.vph-blend i {
+  position: absolute !important;
+  inset: -24px !important;
+  background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27140%27%20height%3D%27140%27%3E%3Cfilter%20id%3D%27n%27%3E%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%270.85%27%20numOctaves%3D%272%27%20stitchTiles%3D%27stitch%27/%3E%3CfeColorMatrix%20type%3D%27saturate%27%20values%3D%270%27/%3E%3C/filter%3E%3Crect%20width%3D%27140%27%20height%3D%27140%27%20filter%3D%27url%28%23n%29%27/%3E%3C/svg%3E") repeat !important;
+  background-size: 140px 140px !important;
+  opacity: .08 !important;
+  mix-blend-mode: soft-light !important;
+  pointer-events: none !important;
+}
 .vph-blend::before, .vph-blend::after {
   content: '' !important;
   position: absolute !important;
@@ -12461,18 +12470,18 @@ div.phone.theme-shop-white div.ssh-search-bar {
 }
 .vph-blend::before {
   width: 128px !important; height: 96px !important; left: 10px !important; top: 6px !important;
-  background: radial-gradient(circle at 45% 45%, rgba(96,165,250,.68) 0%, rgba(96,165,250,0) 70%) !important;
+  background: radial-gradient(circle at 45% 45%, rgba(96,165,250,.68) 0%, rgba(96,165,250,.34) 42%, rgba(96,165,250,0) 78%) !important;
   animation: vphBlendA 9s ease-in-out infinite alternate, vphHueA 13s ease-in-out infinite !important;
 }
 .vph-blend::after {
   width: 128px !important; height: 96px !important; right: 10px !important; top: 10px !important;
-  background: radial-gradient(circle at 55% 45%, rgba(252,211,77,.62) 0%, rgba(252,211,77,0) 70%) !important;
+  background: radial-gradient(circle at 55% 45%, rgba(252,211,77,.62) 0%, rgba(252,211,77,.31) 42%, rgba(252,211,77,0) 78%) !important;
   animation: vphBlendB 11s ease-in-out infinite alternate, vphHueB 17s ease-in-out infinite !important;
 }
 @keyframes vphBlendA { from { transform: translateX(-12px) scale(1); } to { transform: translateX(42px) scale(1.2); } }
 @keyframes vphBlendB { from { transform: translateX(12px) scale(1.14); } to { transform: translateX(-42px) scale(1); } }
-@keyframes vphHueA { 0%,100% { filter: blur(24px) hue-rotate(0deg); } 50% { filter: blur(24px) hue-rotate(42deg); } }
-@keyframes vphHueB { 0%,100% { filter: blur(24px) hue-rotate(0deg); } 50% { filter: blur(24px) hue-rotate(-46deg); } }
+@keyframes vphHueA { 0%,100% { filter: blur(32px) hue-rotate(0deg); } 50% { filter: blur(32px) hue-rotate(42deg); } }
+@keyframes vphHueB { 0%,100% { filter: blur(32px) hue-rotate(0deg); } 50% { filter: blur(32px) hue-rotate(-46deg); } }
 .vph-avatar-shadow {
   position: absolute !important;
   top: 76px !important;
@@ -13681,7 +13690,7 @@ div.phone.theme-shop-white div.ssh-search-bar {
 
           <!-- هیروی خودرو: آواتار خطی بزرگ + نام + پلاک + تعویض -->
           <div class="vph-hero" id="vphCarStage" onclick="openCarPicker()" title="کلیک برای تعویض خودرو">
-            <div class="vph-blend" aria-hidden="true"></div>
+            <div class="vph-blend" aria-hidden="true"><i></i></div>
             <img id="vphCarImage" class="vph-car-photo" src="images/cars_front/front-pride.png" alt="خودروی فعال">
             <div class="vph-name-row">
               <h2 class="vph-car-title" id="vphCarName">سایپا پراید ۱۳۱ صبا</h2>
