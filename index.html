@@ -12445,33 +12445,34 @@ div.phone.theme-shop-white div.ssh-search-bar {
 }
 .vph-blend {
   position: absolute !important;
-  top: 0 !important;
+  top: 4px !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
-  width: 300px !important;
-  height: 130px !important;
+  width: 250px !important;
+  height: 108px !important;
   pointer-events: none !important;
   z-index: 0 !important;
-  opacity: .6 !important;
+  opacity: .85 !important;
 }
 .vph-blend::before, .vph-blend::after {
   content: '' !important;
   position: absolute !important;
   border-radius: 50% !important;
-  filter: blur(26px) !important;
 }
 .vph-blend::before {
-  width: 160px !important; height: 115px !important; left: 16px !important; top: 4px !important;
-  background: radial-gradient(circle at 45% 45%, rgba(147,197,253,.55) 0%, rgba(147,197,253,0) 70%) !important;
-  animation: vphBlendA 9s ease-in-out infinite alternate !important;
+  width: 128px !important; height: 96px !important; left: 10px !important; top: 6px !important;
+  background: radial-gradient(circle at 45% 45%, rgba(96,165,250,.68) 0%, rgba(96,165,250,0) 70%) !important;
+  animation: vphBlendA 9s ease-in-out infinite alternate, vphHueA 13s ease-in-out infinite !important;
 }
 .vph-blend::after {
-  width: 160px !important; height: 115px !important; right: 16px !important; top: 8px !important;
-  background: radial-gradient(circle at 55% 45%, rgba(253,230,138,.5) 0%, rgba(253,230,138,0) 70%) !important;
-  animation: vphBlendB 11s ease-in-out infinite alternate !important;
+  width: 128px !important; height: 96px !important; right: 10px !important; top: 10px !important;
+  background: radial-gradient(circle at 55% 45%, rgba(252,211,77,.62) 0%, rgba(252,211,77,0) 70%) !important;
+  animation: vphBlendB 11s ease-in-out infinite alternate, vphHueB 17s ease-in-out infinite !important;
 }
-@keyframes vphBlendA { from { transform: translateX(-16px) scale(1); } to { transform: translateX(52px) scale(1.18); } }
-@keyframes vphBlendB { from { transform: translateX(16px) scale(1.12); } to { transform: translateX(-52px) scale(1); } }
+@keyframes vphBlendA { from { transform: translateX(-12px) scale(1); } to { transform: translateX(42px) scale(1.2); } }
+@keyframes vphBlendB { from { transform: translateX(12px) scale(1.14); } to { transform: translateX(-42px) scale(1); } }
+@keyframes vphHueA { 0%,100% { filter: blur(24px) hue-rotate(0deg); } 50% { filter: blur(24px) hue-rotate(42deg); } }
+@keyframes vphHueB { 0%,100% { filter: blur(24px) hue-rotate(0deg); } 50% { filter: blur(24px) hue-rotate(-46deg); } }
 .vph-avatar-shadow {
   position: absolute !important;
   top: 76px !important;
