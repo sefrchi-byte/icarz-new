@@ -12443,6 +12443,35 @@ div.phone.theme-shop-white div.ssh-search-bar {
   background: radial-gradient(50% 50% at 50% 50%, rgba(147, 197, 253, 0.30) 0%, rgba(147, 197, 253, 0) 72%) !important;
   pointer-events: none !important;
 }
+.vph-blend {
+  position: absolute !important;
+  top: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 300px !important;
+  height: 130px !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+  opacity: .6 !important;
+}
+.vph-blend::before, .vph-blend::after {
+  content: '' !important;
+  position: absolute !important;
+  border-radius: 50% !important;
+  filter: blur(26px) !important;
+}
+.vph-blend::before {
+  width: 160px !important; height: 115px !important; left: 16px !important; top: 4px !important;
+  background: radial-gradient(circle at 45% 45%, rgba(147,197,253,.55) 0%, rgba(147,197,253,0) 70%) !important;
+  animation: vphBlendA 9s ease-in-out infinite alternate !important;
+}
+.vph-blend::after {
+  width: 160px !important; height: 115px !important; right: 16px !important; top: 8px !important;
+  background: radial-gradient(circle at 55% 45%, rgba(253,230,138,.5) 0%, rgba(253,230,138,0) 70%) !important;
+  animation: vphBlendB 11s ease-in-out infinite alternate !important;
+}
+@keyframes vphBlendA { from { transform: translateX(-16px) scale(1); } to { transform: translateX(52px) scale(1.18); } }
+@keyframes vphBlendB { from { transform: translateX(16px) scale(1.12); } to { transform: translateX(-52px) scale(1); } }
 .vph-avatar-shadow {
   position: absolute !important;
   top: 76px !important;
@@ -13651,7 +13680,8 @@ div.phone.theme-shop-white div.ssh-search-bar {
 
           <!-- هیروی خودرو: آواتار خطی بزرگ + نام + پلاک + تعویض -->
           <div class="vph-hero" id="vphCarStage" onclick="openCarPicker()" title="کلیک برای تعویض خودرو">
-            <img id="vphCarImage" class="vph-car-photo" src="images/cars_studio/front-pride.png" alt="خودروی فعال">
+            <div class="vph-blend" aria-hidden="true"></div>
+            <img id="vphCarImage" class="vph-car-photo" src="images/cars_front/front-pride.png" alt="خودروی فعال">
             <div class="vph-name-row">
               <h2 class="vph-car-title" id="vphCarName">سایپا پراید ۱۳۱ صبا</h2>
               <button class="vph-switch-action-btn" onclick="event.stopPropagation(); openCarPicker()" title="تغییر خودروی فعال">
@@ -17940,7 +17970,7 @@ function renderVehicleProfileHub(carKey = currentSelectedCar){
   }
 
   if(imgEl) {
-    const realImg = (frontCfg.img || '').replace('images/cars_front/', 'images/cars_studio/');
+    const realImg = (frontCfg.img || '');
     imgEl.onload = () => {
       imgEl.style.opacity = '1';
       imgEl.style.transform = 'scale(1)';
