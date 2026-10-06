@@ -12443,78 +12443,11 @@ div.phone.theme-shop-white div.ssh-search-bar {
   background: radial-gradient(50% 50% at 50% 50%, rgba(147, 197, 253, 0.30) 0%, rgba(147, 197, 253, 0) 72%) !important;
   pointer-events: none !important;
 }
-.vph-offer-tag {
-  position: absolute !important;
-  top: 0px !important;
-  right: 8px !important;
-  z-index: 5 !important;
-  direction: rtl !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: 5px !important;
-  background: linear-gradient(180deg, rgba(255,255,255,.96), rgba(255,251,235,.9)) !important;
-  backdrop-filter: blur(12px) saturate(1.35) !important;
-  -webkit-backdrop-filter: blur(12px) saturate(1.35) !important;
-  border: 1px solid rgba(252,211,77,.75) !important;
-  color: #B45309 !important;
-  border-radius: 16px !important;
-  padding: 6px 11px !important;
-  font-size: 9.5px !important;
-  font-weight: 800 !important;
-  box-shadow: 0 2px 6px rgba(180,83,9,.10), 0 14px 34px rgba(180,83,9,.17), inset 0 1px 0 #FFFFFF, inset 0 -1px 0 rgba(253,230,138,.55) !important;
-  opacity: 0 !important;
-  transform: scale(.55) translateY(10px) rotate(5deg) !important;
-  transform-origin: top right !important;
-  pointer-events: none !important;
-  transition: opacity .45s cubic-bezier(.34,1.56,.64,1), transform .45s cubic-bezier(.34,1.56,.64,1) !important;
-}
-.vph-offer-tag::before {
-  content: '' !important;
-  position: absolute !important;
-  inset: 0 !important;
-  border-radius: inherit !important;
-  background: linear-gradient(105deg, transparent 42%, rgba(255,255,255,.95) 50%, transparent 58%) !important;
-  background-size: 250% 100% !important;
-  background-position: 130% 0 !important;
-  animation: vphTagShine 4.6s ease-in-out 1.2s infinite !important;
-  pointer-events: none !important;
-}
-@keyframes vphTagShine { 0% { background-position: 130% 0; } 45%, 100% { background-position: -130% 0; } }
-.vph-offer-tag::after {
-  content: '' !important;
-  position: absolute !important;
-  width: 26px !important;
-  height: 20px !important;
-  bottom: -13px !important;
-  left: 12px !important;
-  background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2028%2022%27%3E%3Cpath%20d%3D%27M27%200%20C25%2010%2018%2016%204%2021%20C13%2018%2020%2010%2020%200%20Z%27%20fill%3D%27%23FFFEFB%27/%3E%3C/svg%3E") no-repeat center / 100% 100% !important;
 
-  filter: drop-shadow(0 3px 3px rgba(180,83,9,.10)) !important;}
-.vph-offer-tag span {
-  background: linear-gradient(90deg, #B45309, #DB2777, #7C3AED, #2563EB, #B45309) !important;
-  background-size: 300% 100% !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  color: transparent !important;
-  animation: vphTagRainbow 4s linear infinite !important;
-}
-@keyframes vphTagRainbow { from { background-position: 0% 0; } to { background-position: -300% 0; } }
-.vph-offer-tag.show { opacity: 1 !important; transform: scale(1) translateY(0) !important; animation: vphTagFloat 3.4s ease-in-out .5s infinite !important; }
-@keyframes vphTagFloat { 0%,100% { margin-top: 0; } 50% { margin-top: -3px; } }
-.vph-offer-tag svg {
-  animation: vphTagFlick 1.6s ease-in-out infinite, vphBadgePulse 2.6s ease-out infinite !important;
-  background: linear-gradient(135deg, #F59E0B, #FBBF24) !important;
-  color: #FFFFFF !important;
-  border-radius: 50% !important;
-  padding: 3.5px !important;
-  width: 17px !important;
-  height: 17px !important;
-  box-sizing: border-box !important;
-  box-shadow: 0 2px 6px rgba(245,158,11,.4) !important;
-  flex: 0 0 auto !important;
-}
-@keyframes vphTagFlick { 0%,100% { transform: scale(1); } 50% { transform: scale(1.15) rotate(-4deg); } }
-@keyframes vphBadgePulse { 0% { box-shadow: 0 2px 6px rgba(245,158,11,.4), 0 0 0 0 rgba(245,158,11,.45); } 70% { box-shadow: 0 2px 6px rgba(245,158,11,.4), 0 0 0 7px rgba(245,158,11,0); } 100% { box-shadow: 0 2px 6px rgba(245,158,11,.4), 0 0 0 0 rgba(245,158,11,0); } }
+
+
+
+
 .vph-blend {
   position: absolute !important;
   top: 4px !important;
@@ -13765,7 +13698,6 @@ div.phone.theme-shop-white div.ssh-search-bar {
           <!-- هیروی خودرو: آواتار خطی بزرگ + نام + پلاک + تعویض -->
           <div class="vph-hero" id="vphCarStage" onclick="openCarPicker()" title="کلیک برای تعویض خودرو">
             <div class="vph-blend" aria-hidden="true"><i></i></div>
-            <div class="vph-offer-tag" id="vphOfferTag"><svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c1 4-4 6-4 11a4 4 0 0 0 8 0c0-2-1-3.5-2-5-1 1.5-2 1.5-2 0 0-2 .5-4 0-6z"/></svg><span>آفرهای جدید برات نمایش داده میشه</span></div>
             <img id="vphCarImage" class="vph-car-photo" src="images/cars_front/front-pride.png" alt="خودروی فعال">
             <div class="vph-name-row">
               <h2 class="vph-car-title" id="vphCarName">سایپا پراید ۱۳۱ صبا</h2>
@@ -18177,7 +18109,6 @@ function setCarFilter(carKey, btn){
   playCarChirpSound();
   currentSelectedCar = carKey;
   renderVehicleProfileHub(carKey);
-  setTimeout(showVphOfferTag, 500);
   const data = carDataMap[carKey] || carDataMap['pride'];
   const carCleanName = data.name.split('/')[0].trim();
 
@@ -22424,13 +22355,5 @@ function mkFitFlow(){document.querySelectorAll('.ring-ad-tx').forEach(tx=>{const
 window.addEventListener('load',()=>setTimeout(mkFitFlow,400));
 </script>
 
-<script>
-function showVphOfferTag(){
-  const t=document.getElementById('vphOfferTag'); if(!t) return;
-  t.classList.add('show');
-  clearTimeout(t._h);
-  t._h=setTimeout(function(){ t.classList.remove('show'); }, 7000);
-}
-</script>
 </body>
 </html>
