@@ -342,7 +342,7 @@ body{background:#eef1f6;display:flex;justify-content:center;padding:20px 0;min-h
 /* بنر تبلیغ میان‌حلقه‌ای — نسخهٔ مرتب و حرفه‌ای */
 .ra-more{margin-inline-start:auto;flex:0 0 auto;width:23px;height:23px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:currentColor;opacity:.8;border:1.5px solid color-mix(in srgb, currentColor 28%, transparent);transition:transform .25s,opacity .25s}
 .ring-ad:active .ra-more{transform:translateX(-3px);opacity:1}
-.ring-ad{position:relative;display:flex;align-items:center;gap:10px;margin:2px -8px 10px;height:56px;padding:0 12px;border-radius:16px;border:1px solid #E4EDF9;background:linear-gradient(90deg,#F0F7FF 0%,#FFFFFF 48%,#FFF6DC 100%);cursor:pointer;box-shadow:0 1px 2px rgba(15,23,42,.04);transition:transform .18s}
+.ring-ad{position:relative;display:flex;align-items:center;gap:7px;margin:2px -8px 10px;height:56px;padding:0 10px;border-radius:16px;border:1px solid #E4EDF9;background:linear-gradient(90deg,#F0F7FF 0%,#FFFFFF 48%,#FFF6DC 100%);cursor:pointer;box-shadow:0 1px 2px rgba(15,23,42,.04);transition:transform .18s}
 .ring-ad:active{transform:scale(.985)}
 .ring-ad-ic{width:30px;height:30px;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 6px rgba(15,23,42,.08);flex:0 0 30px}
 .ring-ad-ic svg{width:14px;height:14px}
@@ -13823,15 +13823,7 @@ div.phone.theme-shop-white div.ssh-search-bar {
                 <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#2563EB" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg>
                 دسته‌بندی تخصصی قطعات خودرو
               </span>
-              <div class="scs-nav-btns">
-                <button class="scs-nav-btn" onclick="scrollTrack('shopCatScroller', 'left')" title="اسکرول به چپ">
-                  <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-                </button>
-                <button class="scs-nav-btn" onclick="scrollTrack('shopCatScroller', 'right')" title="اسکرول به راست">
-                  <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-                </button>
               </div>
-            </div>
             <div class="shop-cat-scroller" id="shopCatScroller">
               <!-- صفرچی: خرید خودرو صفر (تم آبی منوی همبرگری) -->
               <div class="scs-item" onclick="openSefrechiModal()" style="position:relative;">
@@ -13916,10 +13908,7 @@ div.phone.theme-shop-white div.ssh-search-bar {
           <span class="ra-more" title="نمایش همه"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span></div>
           <div class="shop-carousel-section" id="ring-market">
             <div class="scs-header">
-              <h3 class="scs-heading">
-                <span class="scs-icon" style="background:linear-gradient(135deg,#ECFDF5,#D1FAE5);color:#059669;">
-                  <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 9l1-5h16l1 5"/><path d="M4 9v11h16V9"/><path d="M9 20v-6h6v6"/></svg>
-                </span></h3>
+              
               <div class="scs-actions">
                 <button class="mk-cta" onclick="openSellerEntry()"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="opacity:.95"><path d="M4 9.5 5.2 4h13.6L20 9.5"/><path d="M4 9.5a2.67 2.67 0 0 0 5.33 0 2.67 2.67 0 0 0 5.34 0 2.67 2.67 0 0 0 5.33 0"/><path d="M5.5 12.5V20h13v-7.5"/><path d="M9.5 20v-4.5h5V20"/></svg> فروشنده شوید</button>
               </div>
@@ -13938,23 +13927,6 @@ div.phone.theme-shop-white div.ssh-search-bar {
           
           <span class="ra-more" title="نمایش همه"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span></div>
           <div class="shop-carousel-section" id="ring-sefrechi">
-            <div class="scs-header">
-              <h3 class="scs-heading">
-                <span class="scs-icon scs-icon-blue" style="background:linear-gradient(135deg, #EFF6FF, #DBEAFE);color:#2563EB;">
-                  <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9L2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
-                </span></h3>
-              <div class="scs-actions">
-                <div class="scs-nav-btns">
-                  <button class="scs-nav-btn" onclick="scrollTrack('sefrechiSliderTrack', 'left')" title="اسکرول به چپ">
-                    <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-                  </button>
-                  <button class="scs-nav-btn" onclick="scrollTrack('sefrechiSliderTrack', 'right')" title="اسکرول به راست">
-                    <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-                  </button>
-                </div>
-                <span class="scs-all-link" onclick="openSefrechiModal()"><span>همه</span><svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg></span>
-              </div>
-            </div>
             <div class="tapsi-carousel-track" id="sefrechiSliderTrack"></div>
           </div>
 
@@ -13968,31 +13940,6 @@ div.phone.theme-shop-white div.ssh-search-bar {
           
           <span class="ra-more" title="نمایش همه"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span></div>
           <div class="shop-carousel-section" id="ring-motorbano">
-            <div class="scs-header">
-              <h3 class="scs-heading">
-                <span class="scs-icon scs-icon-rose" style="background:linear-gradient(135deg, #FFF1F5, #FFE4ED);color:#FF0F68;">
-                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="5" cy="16" r="3"/>
-                    <circle cx="19" cy="16" r="3"/>
-                    <circle cx="5" cy="16" r="1" fill="currentColor"/>
-                    <circle cx="19" cy="16" r="1" fill="currentColor"/>
-                    <path d="M7.5 14h5l4-4h4m-4 0v4"/>
-                    <path d="M10.5 6.5l2.5 3.5"/>
-                    <path d="M9 6h2"/>
-                  </svg>
-                </span></h3>
-              <div class="scs-actions">
-                <div class="scs-nav-btns">
-                  <button class="scs-nav-btn" onclick="scrollTrack('motorbanoSliderTrack', 'left')" title="اسکرول به چپ">
-                    <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-                  </button>
-                  <button class="scs-nav-btn" onclick="scrollTrack('motorbanoSliderTrack', 'right')" title="اسکرول به راست">
-                    <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-                  </button>
-                </div>
-                <span class="scs-all-link" onclick="openMotorBanoModal()"><span>همه</span><svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg></span>
-              </div>
-            </div>
             <div class="tapsi-carousel-track" id="motorbanoSliderTrack"></div>
           </div>
 
@@ -14029,23 +13976,6 @@ div.phone.theme-shop-white div.ssh-search-bar {
           
           <span class="ra-more" title="نمایش همه"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span></div>
           <div class="shop-carousel-section" id="ring-oil">
-            <div class="scs-header">
-              <h3 class="scs-heading">
-                <span class="scs-icon scs-icon-emerald">
-                  <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
-                </span></h3>
-              <div class="scs-actions">
-                <div class="scs-nav-btns">
-                  <button class="scs-nav-btn" onclick="scrollTrack('track-oil', 'left')" title="اسکرول به چپ">
-                    <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-                  </button>
-                  <button class="scs-nav-btn" onclick="scrollTrack('track-oil', 'right')" title="اسکرول به راست">
-                    <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-                  </button>
-                </div>
-                <span class="scs-all-link" onclick="openCategoryModal('oil')"><span>همه</span><svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg></span>
-              </div>
-            </div>
             <div class="tapsi-carousel-track" id="track-oil"></div>
           </div>
 
@@ -14059,23 +13989,6 @@ div.phone.theme-shop-white div.ssh-search-bar {
           
           <span class="ra-more" title="نمایش همه"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span></div>
           <div class="shop-carousel-section" id="ring-lent">
-            <div class="scs-header">
-              <h3 class="scs-heading">
-                <span class="scs-icon scs-icon-red">
-                  <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/></svg>
-                </span></h3>
-              <div class="scs-actions">
-                <div class="scs-nav-btns">
-                  <button class="scs-nav-btn" onclick="scrollTrack('track-lent', 'left')" title="اسکرول به چپ">
-                    <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-                  </button>
-                  <button class="scs-nav-btn" onclick="scrollTrack('track-lent', 'right')" title="اسکرول به راست">
-                    <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-                  </button>
-                </div>
-                <span class="scs-all-link" onclick="openCategoryModal('lent')"><span>همه</span><svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg></span>
-              </div>
-            </div>
             <div class="tapsi-carousel-track" id="track-lent"></div>
           </div>
 
@@ -14089,23 +14002,6 @@ div.phone.theme-shop-white div.ssh-search-bar {
           
           <span class="ra-more" title="نمایش همه"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span></div>
           <div class="shop-carousel-section" id="ring-battery">
-            <div class="scs-header">
-              <h3 class="scs-heading">
-                <span class="scs-icon scs-icon-amber" style="background:linear-gradient(135deg, #FFF7ED, #FFEDD5);color:#EA580C;">
-                  <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 2v2M8 2v2M3 6h18v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6z"/><path d="M7 12h3M14 12h3M15.5 10.5v3"/></svg>
-                </span></h3>
-              <div class="scs-actions">
-                <div class="scs-nav-btns">
-                  <button class="scs-nav-btn" onclick="scrollTrack('track-battery', 'left')" title="اسکرول به چپ">
-                    <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-                  </button>
-                  <button class="scs-nav-btn" onclick="scrollTrack('track-battery', 'right')" title="اسکرول به راست">
-                    <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-                  </button>
-                </div>
-                <span class="scs-all-link" onclick="openCategoryModal('battery')"><span>همه</span><svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg></span>
-              </div>
-            </div>
             <div class="tapsi-carousel-track" id="track-battery"></div>
           </div>
 
@@ -14119,23 +14015,6 @@ div.phone.theme-shop-white div.ssh-search-bar {
           
           <span class="ra-more" title="نمایش همه"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span></div>
           <div class="shop-carousel-section" id="ring-clutch">
-            <div class="scs-header">
-              <h3 class="scs-heading">
-                <span class="scs-icon scs-icon-amber">
-                  <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-                </span></h3>
-              <div class="scs-actions">
-                <div class="scs-nav-btns">
-                  <button class="scs-nav-btn" onclick="scrollTrack('track-clutch', 'left')" title="اسکرول به چپ">
-                    <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-                  </button>
-                  <button class="scs-nav-btn" onclick="scrollTrack('track-clutch', 'right')" title="اسکرول به راست">
-                    <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-                  </button>
-                </div>
-                <span class="scs-all-link" onclick="openCategoryModal('clutch')"><span>همه</span><svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg></span>
-              </div>
-            </div>
             <div class="tapsi-carousel-track" id="track-clutch"></div>
           </div>
 
@@ -14149,23 +14028,6 @@ div.phone.theme-shop-white div.ssh-search-bar {
           
           <span class="ra-more" title="نمایش همه"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span></div>
           <div class="shop-carousel-section" id="ring-spark">
-            <div class="scs-header">
-              <h3 class="scs-heading">
-                <span class="scs-icon scs-icon-indigo">
-                  <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                </span></h3>
-              <div class="scs-actions">
-                <div class="scs-nav-btns">
-                  <button class="scs-nav-btn" onclick="scrollTrack('track-spark', 'left')" title="اسکرول به چپ">
-                    <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-                  </button>
-                  <button class="scs-nav-btn" onclick="scrollTrack('track-spark', 'right')" title="اسکرول به راست">
-                    <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-                  </button>
-                </div>
-                <span class="scs-all-link" onclick="openCategoryModal('spark')"><span>همه</span><svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg></span>
-              </div>
-            </div>
             <div class="tapsi-carousel-track" id="track-spark"></div>
           </div>
 
@@ -14179,29 +14041,6 @@ div.phone.theme-shop-white div.ssh-search-bar {
           
           <span class="ra-more" title="نمایش همه"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span></div>
           <div class="shop-carousel-section" id="ring-headlight">
-            <div class="scs-header">
-              <h3 class="scs-heading">
-                <span class="scs-icon scs-icon-purple" title="هدلایت و روشنایی خودرو">
-                  <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M13 5.5c4.2 0 7.5 2.9 7.5 6.5s-3.3 6.5-7.5 6.5h-2v-13h2z"/>
-                    <line x1="7.5" y1="7.5" x2="2.5" y2="9.8"/>
-                    <line x1="7.5" y1="10.5" x2="2.5" y2="12.8"/>
-                    <line x1="7.5" y1="13.5" x2="2.5" y2="15.8"/>
-                    <line x1="7.5" y1="16.5" x2="2.5" y2="18.8"/>
-                  </svg>
-                </span></h3>
-              <div class="scs-actions">
-                <div class="scs-nav-btns">
-                  <button class="scs-nav-btn" onclick="scrollTrack('track-headlight', 'left')" title="اسکرول به چپ">
-                    <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-                  </button>
-                  <button class="scs-nav-btn" onclick="scrollTrack('track-headlight', 'right')" title="اسکرول به راست">
-                    <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-                  </button>
-                </div>
-                <span class="scs-all-link" onclick="openCategoryModal('headlight')"><span>همه</span><svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg></span>
-              </div>
-            </div>
             <div class="tapsi-carousel-track" id="track-headlight"></div>
           </div>
 
