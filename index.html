@@ -1376,7 +1376,7 @@ body{background:#eef1f6;display:flex;justify-content:center;padding:20px 0;min-h
 
 /* مودال‌های داخلی گوشی (position: absolute برای عدم بیرون زدن از قالب موبایل) */
 .cat-modal {
-  position: absolute;
+  position: fixed;
   inset: 0;
   background: #FFFFFF;
   z-index: 120;
@@ -8704,7 +8704,7 @@ div.phone.theme-shop-white div.ssh-search-bar {
 
 /* ==================== استایل‌های بخش و مودال اختصاصی موتوربانو ==================== */
 .motorbano-modal {
-  position: absolute;
+  position: fixed;
   inset: 0;
   background: #FFFFFF;
   z-index: 800;
@@ -9822,7 +9822,7 @@ div.phone.theme-shop-white div.ssh-search-bar {
 
 /* مودال‌های اختصاصی صفرچی (پنهان به صورت پیش‌فرض) */
 .sefrechi-modal, .sefrechi-order-modal, .sefrechi-spec-modal {
-  position: absolute !important;
+  position: fixed !important;
   inset: 0 !important;
   display: none !important;
   direction: rtl !important;
@@ -13905,7 +13905,7 @@ div.phone.theme-shop-white div.ssh-search-bar {
             <div class="ring-ad-tx"><b>بازار فروشندگان آی‌کارز</b><span>فروشندگان معتبر محصولات‌شان را مستقیم عرضه می‌کنند</span><div class="ring-ad-chips"><i>فروشندهٔ معتبر</i><i>قیمت رقابتی</i><i>تنوع بالا</i></div></div>
           
           
-          <span class="ra-more" title="نمایش همه"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span></div>
+          <span class="ra-more" title="نمایش همه" onclick="event.stopPropagation();var el=document.getElementById('ring-market');if(el)el.scrollIntoView({behavior:'smooth',block:'start'})"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span></div>
           <div class="shop-carousel-section" id="ring-market">
             <div class="scs-header">
               
@@ -13925,7 +13925,7 @@ div.phone.theme-shop-white div.ssh-search-bar {
             
           
           
-          <span class="ra-more" title="نمایش همه"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span></div>
+          <span class="ra-more" title="نمایش همه" onclick="event.stopPropagation();openSefrechiModal()"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span></div>
           <div class="shop-carousel-section" id="ring-sefrechi">
             <div class="tapsi-carousel-track" id="sefrechiSliderTrack"></div>
           </div>
@@ -13938,7 +13938,7 @@ div.phone.theme-shop-white div.ssh-search-bar {
             
           
           
-          <span class="ra-more" title="نمایش همه"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span></div>
+          <span class="ra-more" title="نمایش همه" onclick="event.stopPropagation();openMotorBanoModal()"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span></div>
           <div class="shop-carousel-section" id="ring-motorbano">
             <div class="tapsi-carousel-track" id="motorbanoSliderTrack"></div>
           </div>
@@ -13974,7 +13974,7 @@ div.phone.theme-shop-white div.ssh-search-bar {
             
           
           
-          <span class="ra-more" title="نمایش همه"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span></div>
+          <span class="ra-more" title="نمایش همه" onclick="event.stopPropagation();openCategoryModal('oil')"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span></div>
           <div class="shop-carousel-section" id="ring-oil">
             <div class="tapsi-carousel-track" id="track-oil"></div>
           </div>
@@ -13987,7 +13987,7 @@ div.phone.theme-shop-white div.ssh-search-bar {
             
           
           
-          <span class="ra-more" title="نمایش همه"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span></div>
+          <span class="ra-more" title="نمایش همه" onclick="event.stopPropagation();openCategoryModal('lent')"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span></div>
           <div class="shop-carousel-section" id="ring-lent">
             <div class="tapsi-carousel-track" id="track-lent"></div>
           </div>
@@ -14000,7 +14000,7 @@ div.phone.theme-shop-white div.ssh-search-bar {
             
           
           
-          <span class="ra-more" title="نمایش همه"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span></div>
+          <span class="ra-more" title="نمایش همه" onclick="event.stopPropagation();openCategoryModal('battery')"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span></div>
           <div class="shop-carousel-section" id="ring-battery">
             <div class="tapsi-carousel-track" id="track-battery"></div>
           </div>
@@ -14013,7 +14013,7 @@ div.phone.theme-shop-white div.ssh-search-bar {
             
           
           
-          <span class="ra-more" title="نمایش همه"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span></div>
+          <span class="ra-more" title="نمایش همه" onclick="event.stopPropagation();openCategoryModal('clutch')"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span></div>
           <div class="shop-carousel-section" id="ring-clutch">
             <div class="tapsi-carousel-track" id="track-clutch"></div>
           </div>
@@ -14026,7 +14026,7 @@ div.phone.theme-shop-white div.ssh-search-bar {
             
           
           
-          <span class="ra-more" title="نمایش همه"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span></div>
+          <span class="ra-more" title="نمایش همه" onclick="event.stopPropagation();openCategoryModal('spark')"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span></div>
           <div class="shop-carousel-section" id="ring-spark">
             <div class="tapsi-carousel-track" id="track-spark"></div>
           </div>
@@ -14039,7 +14039,7 @@ div.phone.theme-shop-white div.ssh-search-bar {
             
           
           
-          <span class="ra-more" title="نمایش همه"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span></div>
+          <span class="ra-more" title="نمایش همه" onclick="event.stopPropagation();openCategoryModal('headlight')"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span></div>
           <div class="shop-carousel-section" id="ring-headlight">
             <div class="tapsi-carousel-track" id="track-headlight"></div>
           </div>
