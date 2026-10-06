@@ -12448,48 +12448,6 @@ div.phone.theme-shop-white div.ssh-search-bar {
 
 
 
-.vph-car-wrap { position: relative !important; display: block !important; width: fit-content !important; margin: 0 auto !important; z-index: 2 !important; }
-.vph-plate {
-  position: absolute !important;
-  display: flex !important;
-  align-items: stretch !important;
-  direction: ltr !important;
-  background: linear-gradient(180deg, #FCFCFA 0%, #ECECE8 70%, #DDDDD8 100%) !important;
-  border: 1.5px solid #101014 !important;
-  border-radius: 3px !important;
-  box-shadow: 0 2px 4px rgba(0,0,0,.42), 0 0 1px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.95), inset 0 -1px 0 rgba(0,0,0,.18) !important;
-  opacity: 0 !important;
-  transition: opacity .35s !important;
-  overflow: hidden !important;
-  z-index: 6 !important;
-}
-.vph-plate.on { opacity: 1 !important; }
-.vp-band {
-  width: 17% !important;
-  background: linear-gradient(180deg, #2A55E8 0%, #16389F 100%) !important;
-  border-right: 1.5px solid #101014 !important;
-  color: #FFFFFF !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  font-family: system-ui, sans-serif !important;
-  font-weight: 700 !important;
-  font-size: .62em !important;
-  letter-spacing: .5px !important;
-  text-shadow: 0 1px 1px rgba(0,0,0,.5) !important;
-}
-.vph-plate b {
-  flex: 1 !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  font-family: system-ui, sans-serif !important;
-  font-weight: 800 !important;
-  font-size: .78em !important;
-  letter-spacing: 1.5px !important;
-  color: #17171C !important;
-  text-shadow: 0 1px 0 rgba(255,255,255,.6), 0 -1px 0 rgba(0,0,0,.25) !important;
-}
 .vph-blend {
   position: absolute !important;
   top: 4px !important;
@@ -13740,7 +13698,7 @@ div.phone.theme-shop-white div.ssh-search-bar {
           <!-- هیروی خودرو: آواتار خطی بزرگ + نام + پلاک + تعویض -->
           <div class="vph-hero" id="vphCarStage" onclick="openCarPicker()" title="کلیک برای تعویض خودرو">
             <div class="vph-blend" aria-hidden="true"><i></i></div>
-            <span class="vph-car-wrap"><img id="vphCarImage" class="vph-car-photo" src="images/cars_front/front-pride.png" alt="خودروی فعال"><span class="vph-plate" id="vphPlate" dir="ltr"><span class="vp-band">IR</span><b>icarz</b></span></span>
+            <img id="vphCarImage" class="vph-car-photo" src="images/cars_front/front-pride.png" alt="خودروی فعال">
             <div class="vph-name-row">
               <h2 class="vph-car-title" id="vphCarName">سایپا پراید ۱۳۱ صبا</h2>
               <button class="vph-switch-action-btn" onclick="event.stopPropagation(); openCarPicker()" title="تغییر خودروی فعال">
@@ -17955,22 +17913,6 @@ function getCarTelematics(carKey){
   return CAR_TELEMATICS_MAP[k] || CAR_TELEMATICS_MAP['pride'];
 }
 
-const PLATE_POS = {
-  'front-206.png': [41.2,64.4,19.6,6.2], 'front-207.png': [40.2,64.4,20.6,7.2],
-  'front-dena.png': [42.2,59.4,19.6,6.2], 'front-l90.png': [41.2,61.4,19.6,6.2],
-  'front-nissan.png': [40.2,59.4,20.6,7.2], 'front-pars.png': [40.2,59.9,20.6,7.2],
-  'front-pride.png': [39.0,64.2,25.0,10.0], 'front-quik.png': [43.2,61.4,18.6,6.2],
-  'front-saina.png': [41.2,59.4,19.6,6.6], 'front-samand.png': [39.2,61.9,21.6,7.2],
-  'front-shahin.png': [41.2,61.4,19.6,6.6], 'front-soren.png': [41.2,60.4,20.6,7.2],
-  'front-tara.png': [43.2,59.4,17.6,6.2], 'front-tiba.png': [40.2,64.4,20.6,6.6]
-};
-function placeVphPlate(realImg){
-  const el = document.getElementById('vphPlate'); if(!el) return;
-  const key = (realImg||'').split('/').pop();
-  const P = PLATE_POS[key];
-  if(P){ el.style.left=P[0]+'%'; el.style.top=P[1]+'%'; el.style.width=P[2]+'%'; el.style.height=P[3]+'%'; el.classList.add('on'); requestAnimationFrame(function(){ el.style.fontSize = Math.max(6, el.offsetHeight*0.62)+'px'; }); }
-  else el.classList.remove('on');
-}
 // ==================== تابع رندر هوشمند پروفایل خودرو و اقلام مصرفی پرتخفیف ====================
 function renderVehicleProfileHub(carKey = currentSelectedCar){
   const car = carDataMap[carKey] || carDataMap['pride'];
@@ -18055,7 +17997,6 @@ function renderVehicleProfileHub(carKey = currentSelectedCar){
       imgEl.style.opacity = '1';
       imgEl.style.transform = 'scale(1)';
     };
-    placeVphPlate(realImg);
     if(imgEl.getAttribute('src') !== realImg) {
       imgEl.style.opacity = '0.35';
       imgEl.style.transform = 'scale(0.96)';
