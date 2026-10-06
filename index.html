@@ -12452,22 +12452,34 @@ div.phone.theme-shop-white div.ssh-search-bar {
   display: flex !important;
   align-items: center !important;
   gap: 5px !important;
-  background: rgba(255,255,255,.86) !important;
-  backdrop-filter: blur(10px) saturate(1.25) !important;
-  -webkit-backdrop-filter: blur(10px) saturate(1.25) !important;
-  border: 1px solid rgba(253,230,138,.95) !important;
+  background: linear-gradient(180deg, rgba(255,255,255,.96), rgba(255,251,235,.9)) !important;
+  backdrop-filter: blur(12px) saturate(1.35) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(1.35) !important;
+  border: 1px solid rgba(252,211,77,.75) !important;
   color: #B45309 !important;
-  border-radius: 15px !important;
+  border-radius: 16px !important;
   padding: 6px 11px !important;
   font-size: 9.5px !important;
   font-weight: 800 !important;
-  box-shadow: 0 8px 24px rgba(180,83,9,.14), inset 0 1px 0 rgba(255,255,255,.9) !important;
+  box-shadow: 0 2px 6px rgba(180,83,9,.10), 0 14px 34px rgba(180,83,9,.17), inset 0 1px 0 #FFFFFF, inset 0 -1px 0 rgba(253,230,138,.55) !important;
   opacity: 0 !important;
-  transform: scale(.6) translateY(6px) !important;
+  transform: scale(.55) translateY(10px) rotate(5deg) !important;
   transform-origin: top right !important;
   pointer-events: none !important;
   transition: opacity .45s cubic-bezier(.34,1.56,.64,1), transform .45s cubic-bezier(.34,1.56,.64,1) !important;
 }
+.vph-offer-tag::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  border-radius: inherit !important;
+  background: linear-gradient(105deg, transparent 42%, rgba(255,255,255,.95) 50%, transparent 58%) !important;
+  background-size: 250% 100% !important;
+  background-position: 130% 0 !important;
+  animation: vphTagShine 4.6s ease-in-out 1.2s infinite !important;
+  pointer-events: none !important;
+}
+@keyframes vphTagShine { 0% { background-position: 130% 0; } 45%, 100% { background-position: -130% 0; } }
 .vph-offer-tag::after {
   content: '' !important;
   position: absolute !important;
@@ -12476,7 +12488,8 @@ div.phone.theme-shop-white div.ssh-search-bar {
   bottom: -13px !important;
   left: 12px !important;
   background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2028%2022%27%3E%3Cpath%20d%3D%27M27%200%20C25%2010%2018%2016%204%2021%20C13%2018%2020%2010%2020%200%20Z%27%20fill%3D%27%23FFFEFB%27/%3E%3C/svg%3E") no-repeat center / 100% 100% !important;
-}
+
+  filter: drop-shadow(0 3px 3px rgba(180,83,9,.10)) !important;}
 .vph-offer-tag span {
   background: linear-gradient(90deg, #B45309, #DB2777, #7C3AED, #2563EB, #B45309) !important;
   background-size: 300% 100% !important;
@@ -12489,7 +12502,7 @@ div.phone.theme-shop-white div.ssh-search-bar {
 .vph-offer-tag.show { opacity: 1 !important; transform: scale(1) translateY(0) !important; animation: vphTagFloat 3.4s ease-in-out .5s infinite !important; }
 @keyframes vphTagFloat { 0%,100% { margin-top: 0; } 50% { margin-top: -3px; } }
 .vph-offer-tag svg {
-  animation: vphTagFlick 1.6s ease-in-out infinite !important;
+  animation: vphTagFlick 1.6s ease-in-out infinite, vphBadgePulse 2.6s ease-out infinite !important;
   background: linear-gradient(135deg, #F59E0B, #FBBF24) !important;
   color: #FFFFFF !important;
   border-radius: 50% !important;
@@ -12501,6 +12514,7 @@ div.phone.theme-shop-white div.ssh-search-bar {
   flex: 0 0 auto !important;
 }
 @keyframes vphTagFlick { 0%,100% { transform: scale(1); } 50% { transform: scale(1.15) rotate(-4deg); } }
+@keyframes vphBadgePulse { 0% { box-shadow: 0 2px 6px rgba(245,158,11,.4), 0 0 0 0 rgba(245,158,11,.45); } 70% { box-shadow: 0 2px 6px rgba(245,158,11,.4), 0 0 0 7px rgba(245,158,11,0); } 100% { box-shadow: 0 2px 6px rgba(245,158,11,.4), 0 0 0 0 rgba(245,158,11,0); } }
 .vph-blend {
   position: absolute !important;
   top: 4px !important;
