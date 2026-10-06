@@ -12452,14 +12452,16 @@ div.phone.theme-shop-white div.ssh-search-bar {
   display: flex !important;
   align-items: center !important;
   gap: 5px !important;
-  background: #FFFBEB !important;
-  border: 1px solid #FDE68A !important;
+  background: rgba(255,255,255,.86) !important;
+  backdrop-filter: blur(10px) saturate(1.25) !important;
+  -webkit-backdrop-filter: blur(10px) saturate(1.25) !important;
+  border: 1px solid rgba(253,230,138,.95) !important;
   color: #B45309 !important;
-  border-radius: 999px !important;
-  padding: 5px 10px !important;
-  font-size: 9px !important;
+  border-radius: 15px !important;
+  padding: 6px 11px !important;
+  font-size: 9.5px !important;
   font-weight: 800 !important;
-  box-shadow: 0 3px 10px rgba(180,83,9,.15) !important;
+  box-shadow: 0 8px 24px rgba(180,83,9,.14), inset 0 1px 0 rgba(255,255,255,.9) !important;
   opacity: 0 !important;
   transform: scale(.6) translateY(6px) !important;
   transform-origin: top right !important;
@@ -12473,11 +12475,11 @@ div.phone.theme-shop-white div.ssh-search-bar {
   height: 17px !important;
   bottom: -14px !important;
   left: 12px !important;
-  background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2028%2020%27%3E%3Cpath%20d%3D%27M26%200%20C24%209%2017%2015%204%2019%20C13%2016%2019%209%2019%200%20Z%27%20fill%3D%27%23FFFBEB%27/%3E%3C/svg%3E") no-repeat center / contain !important;
+  background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2028%2020%27%3E%3Cpath%20d%3D%27M26%200%20C24%209%2017%2015%204%2019%20C13%2016%2019%209%2019%200%20Z%27%20fill%3D%27%23FFFEFB%27/%3E%3C/svg%3E") no-repeat center / contain !important;
   filter: drop-shadow(0 0 1px #FDE68A) drop-shadow(0 0 1px #FDE68A) !important;
 }
 .vph-offer-tag span {
-  background: linear-gradient(90deg, #D97706, #EC4899, #8B5CF6, #3B82F6, #10B981, #D97706) !important;
+  background: linear-gradient(90deg, #B45309, #DB2777, #7C3AED, #2563EB, #B45309) !important;
   background-size: 300% 100% !important;
   -webkit-background-clip: text !important;
   background-clip: text !important;
@@ -12485,8 +12487,20 @@ div.phone.theme-shop-white div.ssh-search-bar {
   animation: vphTagRainbow 4s linear infinite !important;
 }
 @keyframes vphTagRainbow { from { background-position: 0% 0; } to { background-position: -300% 0; } }
-.vph-offer-tag.show { opacity: 1 !important; transform: scale(1) translateY(0) !important; }
-.vph-offer-tag svg { animation: vphTagFlick 1.6s ease-in-out infinite; }
+.vph-offer-tag.show { opacity: 1 !important; transform: scale(1) translateY(0) !important; animation: vphTagFloat 3.4s ease-in-out .5s infinite !important; }
+@keyframes vphTagFloat { 0%,100% { margin-top: 0; } 50% { margin-top: -3px; } }
+.vph-offer-tag svg {
+  animation: vphTagFlick 1.6s ease-in-out infinite !important;
+  background: linear-gradient(135deg, #F59E0B, #FBBF24) !important;
+  color: #FFFFFF !important;
+  border-radius: 50% !important;
+  padding: 3.5px !important;
+  width: 17px !important;
+  height: 17px !important;
+  box-sizing: border-box !important;
+  box-shadow: 0 2px 6px rgba(245,158,11,.4) !important;
+  flex: 0 0 auto !important;
+}
 @keyframes vphTagFlick { 0%,100% { transform: scale(1); } 50% { transform: scale(1.15) rotate(-4deg); } }
 .vph-blend {
   position: absolute !important;
