@@ -1395,13 +1395,6 @@ body{background:#eef1f6;display:flex;justify-content:center;padding:20px 0;min-h
 .qb-tile img{width:100%;height:100%;object-fit:contain;padding:9px 7px 24px;position:relative;transition:transform .25s}
 .qb-tile:active img{transform:scale(1.07)}
 .qb-cap{position:absolute;bottom:6px;left:50%;transform:translateX(-50%);white-space:nowrap;background:color-mix(in srgb,var(--qbg) 45%, #FFFFFF);color:var(--qc);border:1px solid color-mix(in srgb,var(--qc) 32%, #FFFFFF);padding:3px 10px;border-radius:999px;font-size:8.5px;font-weight:800}
-.brand-wall{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:0 -8px 10px}
-.bw-tile{aspect-ratio:1;border-radius:16px;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;background:linear-gradient(160deg,var(--qbg) 0%,#FFFFFF 82%);border:1px solid color-mix(in srgb,var(--qbg) 80%, #FFFFFF);cursor:pointer;direction:ltr;box-shadow:0 2px 8px color-mix(in srgb,var(--qbg) 40%, transparent);transition:transform .2s}
-.bw-tile:active{transform:scale(.96)}
-.bw-tile::before{content:'';position:absolute;inset:0;background:radial-gradient(75% 60% at 50% 30%, color-mix(in srgb,var(--qbg) 80%, transparent), transparent 75%);pointer-events:none}
-.bw-tile::after{content:attr(data-l);position:absolute;font-size:58px;font-weight:900;line-height:1;color:color-mix(in srgb,var(--qc) 13%, transparent);right:8px;bottom:-10px;pointer-events:none}
-.bw-logo{font-weight:900;font-size:13px;letter-spacing:1.2px;color:var(--qc);position:relative;text-shadow:0 1px 0 #FFFFFF}
-.bw-fa{font-size:8.5px;font-weight:800;color:color-mix(in srgb,var(--qc) 80%, #0F172A);background:rgba(255,255,255,.85);padding:2.5px 9px;border-radius:999px;border:1px solid color-mix(in srgb,var(--qc) 28%, #FFFFFF);direction:rtl;position:relative}
 .cat-modal {
   position: fixed;
   inset: 0;
@@ -14015,18 +14008,7 @@ div.phone.theme-shop-white div.ssh-search-bar {
             <div class="qb-tile" onclick="openCategoryModal('lent')" style="--qc:#E11D48;--qbg:#FECDD3"><img src="images/tiles/لنت.webp" alt="لنت و ترمز"><span class="qb-cap">لنت و ترمز</span></div>
             <div class="qb-tile" onclick="openCategoryModal('headlight')" style="--qc:#0891B2;--qbg:#A5F3FC"><img src="images/tiles/هدلایت_و_چراغ.webp" alt="هدلایت"><span class="qb-cap">هدلایت</span></div>
           </div>
-          <!-- دیوار برندها: ۹ مربع برند -->
-          <div class="brand-wall">
-            <div class="bw-tile" data-l="B" style="--qc:#B45309;--qbg:#FDE68A" onclick="openCategoryModalBrand('oil','BEHRAN')"><span class="bw-logo">BEHRAN</span><span class="bw-fa">روغن بهران</span></div>
-            <div class="bw-tile" data-l="C" style="--qc:#15803D;--qbg:#BBF7D0" onclick="openCategoryModalBrand('oil','CASTROL')"><span class="bw-logo">CASTROL</span><span class="bw-fa">روغن کاسترول</span></div>
-            <div class="bw-tile" data-l="S" style="--qc:#DC2626;--qbg:#FECACA" onclick="openCategoryModalBrand('battery','SUZUKI JAPAN')"><span class="bw-logo">SUZUKI</span><span class="bw-fa">باتری سوزوکی</span></div>
-            <div class="bw-tile" data-l="O" style="--qc:#475569;--qbg:#E2E8F0" onclick="openCategoryModalBrand('battery','ORBITAL SILVER')"><span class="bw-logo">ORBITAL</span><span class="bw-fa">باتری اوربیتال</span></div>
-            <div class="bw-tile" data-l="N" style="--qc:#EA580C;--qbg:#FED7AA" onclick="openCategoryModalBrand('spark','NGK')"><span class="bw-logo">NGK</span><span class="bw-fa">شمع ان‌جی‌کی</span></div>
-            <div class="bw-tile" data-l="B" style="--qc:#2563EB;--qbg:#BFDBFE" onclick="openCategoryModalBrand('spark','BOSCH')"><span class="bw-logo">BOSCH</span><span class="bw-fa">بوش آلمان</span></div>
-            <div class="bw-tile" data-l="K" style="--qc:#0F766E;--qbg:#99F6E4" onclick="openCategoryModalBrand('tire','KAVIR TIRE')"><span class="bw-logo">KAVIR</span><span class="bw-fa">لاستیک کویر</span></div>
-            <div class="bw-tile" data-l="Y" style="--qc:#7C3AED;--qbg:#DDD6FE" onclick="openCategoryModalBrand('tire','YAZD TIRE')"><span class="bw-logo">YAZD</span><span class="bw-fa">لاستیک یزد</span></div>
-            <div class="bw-tile" data-l="B" style="--qc:#E11D48;--qbg:#FECDD3" onclick="openCategoryModalBrand('lent','BREMBO')"><span class="bw-logo">BREMBO</span><span class="bw-fa">لنت برمبو</span></div>
-          </div>
+                    </div>
 
 <div class="ring-ad ra-rose" onclick="var el=document.getElementById('ring-lent');if(el)el.scrollIntoView({behavior:'smooth',block:'start'})">
             <div class="ring-ad-ic"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/></svg></div>
@@ -18207,12 +18189,6 @@ function applyCatFilters(){
     const car = carDataMap[currentSelectedCar] || carDataMap['pride'];
     subEl.textContent = `نمایش ${list.length.toLocaleString('fa-IR')} کالا از ${lastCatBase.length.toLocaleString('fa-IR')} • سازگار با ${car.name.split('/')[0].split('(')[0].trim()}`;
   }
-}
-
-function openCategoryModalBrand(cat, brand){
-  openCategoryModal(cat);
-  const ix = catBrandList.findIndex(b => b.startsWith(brand) || brand.startsWith(b));
-  if(ix >= 0){ catFilterIdx.brand = ix+1; buildCatFilterUI(); applyCatFilters(); }
 }
 
 function sortCatProducts(sortType, btn){
