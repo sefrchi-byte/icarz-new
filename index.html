@@ -12466,6 +12466,16 @@ div.phone.theme-shop-white div.ssh-search-bar {
   pointer-events: none !important;
   transition: opacity .45s cubic-bezier(.34,1.56,.64,1), transform .45s cubic-bezier(.34,1.56,.64,1) !important;
 }
+.vph-offer-tag::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -6px !important;
+  left: 22px !important;
+  border-width: 7px 7px 0 !important;
+  border-style: solid !important;
+  border-color: #FFFBEB transparent transparent transparent !important;
+  filter: drop-shadow(0 1.5px 0 #FDE68A) !important;
+}
 .vph-offer-tag.show { opacity: 1 !important; transform: scale(1) translateY(0) !important; }
 .vph-offer-tag svg { animation: vphTagFlick 1.6s ease-in-out infinite; }
 @keyframes vphTagFlick { 0%,100% { transform: scale(1); } 50% { transform: scale(1.15) rotate(-4deg); } }
