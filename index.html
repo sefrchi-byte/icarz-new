@@ -12857,6 +12857,19 @@ div.phone.theme-shop-white div.ssh-search-bar {
 html{scroll-behavior:smooth}
 .shop-carousel-section{scroll-margin-top:10px}
 body.modal-open{overflow:hidden}
+/* ===== اسکرول حرفه‌ای و شخصی‌سازی‌شدهٔ آی‌کارز ===== */
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#3B82F6,#F59E0B);border-radius:99px}
+html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent}
+.scroll-progress{position:fixed;top:0;right:0;height:3px;width:0;background:linear-gradient(to left,#2563EB,#F59E0B);z-index:999;border-radius:0 0 0 6px;pointer-events:none;box-shadow:0 1px 4px rgba(37,99,235,.35)}
+.to-top{position:fixed;bottom:84px;inset-inline-end:14px;width:40px;height:40px;border-radius:50%;background:#FFFFFF;border:1px solid #E2E8F0;box-shadow:0 4px 14px rgba(15,23,42,.14);display:flex;align-items:center;justify-content:center;color:#2563EB;opacity:0;transform:translateY(14px);pointer-events:none;transition:all .3s;z-index:60;cursor:pointer}
+.to-top.show{opacity:1;transform:none;pointer-events:auto}
+.to-top:active{transform:scale(.92)}
+.bottom-nav{transition:transform .3s ease}
+.bottom-nav.nav-hidden{transform:translateY(110%)}
+.rv{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+.rv.rv-in{opacity:1;transform:none}
 /* ===== ریسپانسیو موبایل/تبلت/دسکتاپ (نسخه هاست) ===== */
 .status-bar,.system-nav{display:none!important}
 @media (min-width:481px){
@@ -12886,6 +12899,8 @@ body.modal-open{overflow:hidden}
 <body>
 <div class="phone theme-shop-white">
   <div class="toast" id="toast"><span id="toastText"></span></div>
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <button class="to-top" id="toTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="بازگشت به بالا"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg></button>
   <!-- منوی کشویی جانبی (عرض ۵۲٪ دقیقاً نصف صفحه) با تایپوگرافی سبک و آیکون‌های وکتور اختصاصی -->
   <div class="drawer" id="drawer" onclick="closeDrawer(event)"><div class="drawer-panel" onclick="event.stopPropagation()">
     <div class="drawer-head">
@@ -22299,6 +22314,30 @@ mkSeed(); renderMarketCards();
 <script>
 function mkFitFlow(){document.querySelectorAll('.ring-ad-tx').forEach(tx=>{const ch=tx.querySelector('.ring-ad-chips');if(!ch)return;const d=ch.scrollWidth-ch.clientWidth;if(d>2){ch.style.setProperty('--slide',d+'px');ch.classList.add('flow')}else{ch.classList.remove('flow')}})}
 window.addEventListener('load',()=>setTimeout(mkFitFlow,400));
+// ===== مدیریت اسکرول حرفه‌ای آی‌کارز =====
+(function(){
+  const prog = document.getElementById('scrollProgress');
+  const toTop = document.getElementById('toTop');
+  const nav = document.querySelector('.bottom-nav');
+  let lastY = window.scrollY, ticking = false;
+  function upd(){
+    const y = window.scrollY;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    if(prog) prog.style.width = (max>0 ? (y/max)*100 : 0) + '%';
+    if(toTop) toTop.classList.toggle('show', y > 600);
+    if(nav){
+      if(y > lastY + 8 && y > 160 && !document.body.classList.contains('modal-open')) nav.classList.add('nav-hidden');
+      else if(y < lastY - 8) nav.classList.remove('nav-hidden');
+    }
+    lastY = y; ticking = false;
+  }
+  window.addEventListener('scroll', ()=>{ if(!ticking){ ticking = true; requestAnimationFrame(upd); } }, {passive:true});
+  upd();
+  // ظهور نرم بخش‌ها هنگام اسکرول
+  const io = new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('rv-in'); io.unobserve(e.target); } }); }, {threshold:.1});
+  document.querySelectorAll('.quad-banners,.shop-carousel-section').forEach(el=>{ el.classList.add('rv'); io.observe(el); });
+})();
+
 </script>
 
 </body>
