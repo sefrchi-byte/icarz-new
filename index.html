@@ -12469,13 +12469,24 @@ div.phone.theme-shop-white div.ssh-search-bar {
 .vph-offer-tag::after {
   content: '' !important;
   position: absolute !important;
-  bottom: -6px !important;
-  left: 22px !important;
-  border-width: 7px 7px 0 !important;
+  bottom: -7px !important;
+  left: 14px !important;
+  border-width: 8px 7px 0 !important;
   border-style: solid !important;
   border-color: #FFFBEB transparent transparent transparent !important;
+  transform: rotate(38deg) !important;
+  transform-origin: top left !important;
   filter: drop-shadow(0 1.5px 0 #FDE68A) !important;
 }
+.vph-offer-tag span {
+  background: linear-gradient(90deg, #D97706, #EC4899, #8B5CF6, #3B82F6, #10B981, #D97706) !important;
+  background-size: 300% 100% !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  animation: vphTagRainbow 4s linear infinite !important;
+}
+@keyframes vphTagRainbow { from { background-position: 0% 0; } to { background-position: -300% 0; } }
 .vph-offer-tag.show { opacity: 1 !important; transform: scale(1) translateY(0) !important; }
 .vph-offer-tag svg { animation: vphTagFlick 1.6s ease-in-out infinite; }
 @keyframes vphTagFlick { 0%,100% { transform: scale(1); } 50% { transform: scale(1.15) rotate(-4deg); } }
