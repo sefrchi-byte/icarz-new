@@ -12854,6 +12854,9 @@ div.phone.theme-shop-white div.ssh-search-bar {
 }
 
 
+html{scroll-behavior:smooth}
+.shop-carousel-section{scroll-margin-top:10px}
+body.modal-open{overflow:hidden}
 /* ===== ریسپانسیو موبایل/تبلت/دسکتاپ (نسخه هاست) ===== */
 .status-bar,.system-nav{display:none!important}
 @media (min-width:481px){
@@ -16007,11 +16010,13 @@ function openSefrechiModal(){
   if(!m) return;
   renderSefrechiModalCatalog('all');
   m.classList.add('open');
+  document.body.classList.add('modal-open');
 }
 
 function closeSefrechiModal(){
   const m = document.getElementById('sefrechiModal');
   if(m) m.classList.remove('open');
+  document.body.classList.remove('modal-open');
 }
 
 function filterSefrechiCatalog(brand, btnElem){
@@ -16058,11 +16063,13 @@ function openMotorBanoModal(){
   if(!m) return;
   renderMotorBanoProducts();
   m.classList.add('open');
+  document.body.classList.add('modal-open');
 }
 
 function closeMotorBanoModal(){
   const m = document.getElementById('motorBanoModal');
   if(m) m.classList.remove('open');
+  document.body.classList.remove('modal-open');
 }
 
 function renderMotorBanoProducts(){
@@ -16242,6 +16249,7 @@ function navigateTo(page, title){
 
   // پنهان کردن تمام صفحات
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  window.scrollTo({top:0, behavior:'instant'});
 
   // به‌روزرسانی فعال بودن آیتم‌های bottom nav
   document.querySelectorAll('.bottom-nav .nav-item').forEach(item => {
@@ -18094,12 +18102,14 @@ function openCategoryModal(catKey){
 
   if(modal){
     modal.classList.add('open');
+    document.body.classList.add('modal-open');
   }
 }
 
 function closeCategoryModal(){
   const modal = document.getElementById('catModal');
   if(modal) modal.classList.remove('open');
+  document.body.classList.remove('modal-open');
 }
 
 function renderCategoryProducts(products){
