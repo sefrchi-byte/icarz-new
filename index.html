@@ -1375,6 +1375,14 @@ body{background:#eef1f6;display:flex;justify-content:center;padding:20px 0;min-h
 }
 
 /* مودال‌های داخلی گوشی (position: absolute برای عدم بیرون زدن از قالب موبایل) */
+.cm-filter-groups{display:flex;flex-direction:column;gap:5px;padding:7px 12px 9px;background:#F8FAFC;border-top:1px solid #EEF2F7}
+.cm-fg-row{display:flex;align-items:center;gap:6px;overflow-x:auto;scrollbar-width:none}
+.cm-fg-row::-webkit-scrollbar{display:none}
+.cm-fg-label{flex:0 0 auto;font-size:9px;font-weight:800;color:#64748B}
+.cm-fg-chip{flex:0 0 auto;font-size:9.5px;font-weight:700;padding:4px 10px;border-radius:999px;background:#FFFFFF;border:1px solid #E2E8F0;color:#334155;cursor:pointer;font-family:inherit;transition:all .15s}
+.cm-fg-chip.active{background:#2563EB;border-color:#2563EB;color:#FFFFFF}
+.tc-meta{display:flex;gap:4px;align-items:center;font-size:9px;color:#64748B;margin-top:3px}
+.tc-meta i{font-style:normal;color:#CBD5E1}
 .cat-modal {
   position: fixed;
   inset: 0;
@@ -14168,6 +14176,7 @@ div.phone.theme-shop-white div.ssh-search-bar {
         <button class="cm-sort-pill" onclick="sortCatProducts('expensive', this)">گران‌ترین</button>
         <button class="cm-sort-pill" onclick="sortCatProducts('discount', this)">بیشترین تخفیف</button>
       </div>
+      <div class="cm-filter-groups" id="cmFilterGroups"></div>
     </div>
 
     <!-- لیست کارت‌های محصولات دسته‌بندی -->
@@ -18033,7 +18042,11 @@ function openCategoryModal(catKey){
   if(subEl) subEl.textContent = `نمایش قطعات فابریک و سازگار با ${carCleanName} (${adaptedProducts.length} کالا)`;
   if(carTag) carTag.textContent = carCleanName;
 
-  renderCategoryProducts(adaptedProducts);
+  lastCatBase = adaptedProducts;
+  catFilterIdx = {brand:0, price:0, rating:0, sales:0};
+  currentCatSort = 'all';
+  buildCatFilterUI();
+  applyCatFilters();
 
   if(modal){
     modal.classList.add('open');
@@ -18070,6 +18083,7 @@ function renderCategoryProducts(products){
           ${isBat ? '<span class="tc-badge-service">نصب در محل</span>' : ''}
         </div>
         <div class="tc-title" title="${p.title}">${p.title}</div>
+        <div class="tc-meta"><span>★ ${(p.rating||0).toLocaleString('fa-IR')}</span><i>•</i><span>فروش ${(p.sales||0).toLocaleString('fa-IR')}</span></div>
         <div class="tc-compat">فابریک ${car.name.split('/')[0].split('(')[0].trim()}</div>
       </div>
       <div class="tc-foot">
@@ -18084,35 +18098,83 @@ function renderCategoryProducts(products){
   });
 }
 
-function sortCatProducts(sortType, btn){
-  document.querySelectorAll('.cm-sort-pill').forEach(p => p.classList.remove('active'));
-  if(btn) btn.classList.add('active');
+let catFilterIdx = {brand:0, price:0, rating:0, sales:0};
+let currentCatSort = 'all';
+let lastCatBase = [];
+let catPriceBuckets = [];
+let catBrandList = [];
 
-  const cat = categoryDataMap[currentOpenCategory] || categoryDataMap['battery'];
-  let sorted = [...cat.products];
+function catHashSales(id){ let s=7; for(let i=0;i<id.length;i++){ s=(s*31+id.charCodeAt(i))%997; } return 60+s; }
+function faCompact(v){
+  if(v>=1000000){ const x=Math.round(v/100000)/10; return x.toLocaleString('fa-IR')+' میلیون'; }
+  return Math.round(v/1000).toLocaleString('fa-IR')+' هزار';
+}
+function catBrandOf(p){ return (p.brand||'').split('•')[0].trim(); }
 
-  if(sortType === 'compatible'){
+function buildCatFilterUI(){
+  const wrap = document.getElementById('cmFilterGroups');
+  if(!wrap) return;
+  catBrandList = [...new Set(lastCatBase.map(catBrandOf))].filter(Boolean);
+  lastCatBase.forEach(p=>{ if(p.sales==null) p.sales = catHashSales(p.id); });
+  const prices = lastCatBase.map(p=>p.price||0);
+  const mn = Math.min.apply(null,prices), mx = Math.max.apply(null,prices);
+  catPriceBuckets = [];
+  const step = ((mx-mn)/4)||1;
+  for(let i=0;i<4;i++){ catPriceBuckets.push([mn+step*i, i===3?mx+1:mn+step*(i+1)]); }
+  const rows = [
+    {key:'brand', label:'برند', chips:['همه'].concat(catBrandList)},
+    {key:'price', label:'قیمت', chips:['همه'].concat(catPriceBuckets.map(b=>faCompact(b[0])+' تا '+faCompact(b[1])))},
+    {key:'rating', label:'امتیاز', chips:['همه','۴ ستاره به بالا','۴٫۵ ستاره به بالا']},
+    {key:'sales', label:'فروش', chips:['همه','فروش ۱۰۰+','فروش ۵۰۰+']}
+  ];
+  wrap.innerHTML = '';
+  rows.forEach(r=>{
+    const row = document.createElement('div'); row.className='cm-fg-row';
+    const lb = document.createElement('span'); lb.className='cm-fg-label'; lb.textContent = r.label+':';
+    row.appendChild(lb);
+    r.chips.forEach((c,ix)=>{
+      const b = document.createElement('button');
+      b.className = 'cm-fg-chip'+(catFilterIdx[r.key]===ix?' active':'');
+      b.textContent = c;
+      b.onclick = ()=>{ catFilterIdx[r.key]=ix; buildCatFilterUI(); applyCatFilters(); };
+      row.appendChild(b);
+    });
+    wrap.appendChild(row);
+  });
+}
+
+function applyCatFilters(){
+  let list = [...lastCatBase];
+  if(catFilterIdx.brand>0) list = list.filter(p=>catBrandOf(p)===catBrandList[catFilterIdx.brand-1]);
+  if(catFilterIdx.price>0){ const b=catPriceBuckets[catFilterIdx.price-1]; if(b) list=list.filter(p=>(p.price||0)>=b[0]&&(p.price||0)<b[1]); }
+  if(catFilterIdx.rating>0) list = list.filter(p=>(p.rating||0)>= [0,4,4.5][catFilterIdx.rating]);
+  if(catFilterIdx.sales>0) list = list.filter(p=>(p.sales||0)>= [0,100,500][catFilterIdx.sales]);
+  if(currentCatSort==='compatible'){
     const car = carDataMap[currentSelectedCar] || carDataMap['pride'];
     const carShort = car.name.split('/')[0].split('(')[0].trim().toLowerCase();
-    sorted = sorted.filter(p => {
+    const f = list.filter(p => {
       const cText = ((p.compat || '') + ' ' + ((carCompatDb[p.id] && carCompatDb[p.id].compat) || '')).toLowerCase();
       return cText.includes(carShort) || cText.includes(car.name.toLowerCase().slice(0, 4)) || cText.includes('تمامی') || cText.includes('کلیه');
     });
-    if(sorted.length === 0){
-      sorted = [...cat.products];
-      showToast(`کلیه قطعات این دسته‌بندی استانداردهای فابریک ${car.name.split('/')[0].trim()} را پشتیبانی می‌کنند.`);
-    } else {
-      showToast(`${sorted.length} قطعه کاملاً فابریک و منطبق با «${car.name.split('/')[0].trim()}» یافت شد.`);
-    }
-  } else if(sortType === 'cheapest'){
-    sorted.sort((a,b) => a.price - b.price);
-  } else if(sortType === 'expensive'){
-    sorted.sort((a,b) => b.price - a.price);
-  } else if(sortType === 'discount'){
-    sorted.sort((a,b) => parseInt(b.discount || '0') - parseInt(a.discount || '0'));
+    if(f.length===0){ showToast(`کلیه قطعات این دسته‌بندی استانداردهای فابریک ${car.name.split('/')[0].trim()} را پشتیبانی می‌کنند.`); }
+    else { showToast(`${f.length.toLocaleString('fa-IR')} قطعه کاملاً فابریک و منطبق با «${car.name.split('/')[0].trim()}» یافت شد.`); list = f; }
+  } else if(currentCatSort==='cheapest'){ list.sort((a,b)=>(a.price||0)-(b.price||0)); }
+  else if(currentCatSort==='expensive'){ list.sort((a,b)=>(b.price||0)-(a.price||0)); }
+  else if(currentCatSort==='bestseller'){ list.sort((a,b)=>(b.sales||0)-(a.sales||0)); }
+  else if(currentCatSort==='discount'){ list.sort((a,b)=>parseInt(b.discount||'0')-parseInt(a.discount||'0')); }
+  renderCategoryProducts(list);
+  const subEl = document.getElementById('cmSub');
+  if(subEl){
+    const car = carDataMap[currentSelectedCar] || carDataMap['pride'];
+    subEl.textContent = `نمایش ${list.length.toLocaleString('fa-IR')} کالا از ${lastCatBase.length.toLocaleString('fa-IR')} • سازگار با ${car.name.split('/')[0].split('(')[0].trim()}`;
   }
+}
 
-  renderCategoryProducts(sorted);
+function sortCatProducts(sortType, btn){
+  document.querySelectorAll('.cm-sort-pill').forEach(p => p.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  currentCatSort = sortType;
+  applyCatFilters();
 }
 
 // ۳. سیستم مقایسه هوشمند و فوق‌العاده حرفه‌ای کالاها (Showdown Pro Comparison System)
