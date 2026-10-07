@@ -12877,6 +12877,13 @@ html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent;scrollbar-gutter:s
 .rv.rv-in{opacity:1;transform:none}
 /* مودال‌های sheet در نسخه وب ثابت نسبت به ویوپورت */
 .car-picker-modal,.profile-modal,.drawer,.compare-modal,.cart-checkout-modal,.vehicle-resume-modal,.product-spec-modal,.download-modal,.ios-install-modal,.orders-modal,.invoice-modal,.map-modal,.sefrechi-order-modal,.sefrechi-spec-modal,.sefrechi-story-modal,.story-viewer-modal,.mk-modal,.b3d-overlay{position:fixed!important}
+.ring-credit{display:flex;align-items:center;gap:10px;margin:0 -8px 10px;padding:10px 12px;border-radius:16px;background:linear-gradient(135deg,var(--qbg) 0%,#FFFFFF 72%);border:1px solid color-mix(in srgb,var(--qbg) 80%, #FFFFFF);box-shadow:0 2px 8px color-mix(in srgb,var(--qbg) 40%, transparent)}
+.rc-tx{flex:1;min-width:0}
+.rc-tx b{display:block;font-size:11px;font-weight:900;color:var(--qc)}
+.rc-tx span{display:block;font-size:9px;font-weight:600;color:#475569;margin-top:2px}
+.rc-tx i{display:block;font-style:normal;font-size:8.5px;font-weight:700;color:var(--qc);margin-top:3px;opacity:.85}
+.rc-cta{flex:0 0 auto;background:var(--qc);color:#FFFFFF;font-size:9.5px;font-weight:800;padding:8px 13px;border-radius:999px;border:none;cursor:pointer;white-space:nowrap;box-shadow:0 3px 10px color-mix(in srgb,var(--qc) 40%, transparent);font-family:inherit;transition:transform .2s}
+.rc-cta:active{transform:scale(.95)}
 /* ===== ریسپانسیو موبایل/تبلت/دسکتاپ (نسخه هاست) ===== */
 .status-bar,.system-nav{display:none!important}
 @media (min-width:481px){
@@ -13984,6 +13991,10 @@ html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent;scrollbar-gutter:s
                 <button class="mk-cta" onclick="openSellerEntry()"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="opacity:.95"><path d="M4 9.5 5.2 4h13.6L20 9.5"/><path d="M4 9.5a2.67 2.67 0 0 0 5.33 0 2.67 2.67 0 0 0 5.34 0 2.67 2.67 0 0 0 5.33 0"/><path d="M5.5 12.5V20h13v-7.5"/><path d="M9.5 20v-4.5h5V20"/></svg> فروشنده شوید</button>
               </div>
             </div>
+            <div class="ring-credit" style="--qc:#047857;--qbg:#BBF7D0">
+              <div class="rc-tx"><b>اعتبار فوری ۲ میلیون تومانی بازار</b><span>خرید اقساطی قطعات خودرو</span><i>۴ قسط بدون سود و کارمزد • بدون چک و ضامن</i></div>
+              <button class="rc-cta" onclick="var el=document.getElementById('ring-market');if(el)el.scrollIntoView({behavior:'smooth',block:'start'})">مشاهده و دریافت اعتبار</button>
+            </div>
             <div class="tapsi-carousel-track" id="marketSliderTrack"></div>
           </div>
 
@@ -13998,6 +14009,10 @@ html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent;scrollbar-gutter:s
           
           <span class="ra-more" title="نمایش همه" onclick="event.stopPropagation();openSefrechiModal()"><i><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></i><b>همه</b></span></div>
           <div class="shop-carousel-section" id="ring-sefrechi">
+            <div class="ring-credit" style="--qc:#2563EB;--qbg:#DBEAFE">
+              <div class="rc-tx"><b>پیش‌پرداخت اعتباری خودرو صفر</b><span>خرید اقساطی قطعات خودرو</span><i>۴ قسط بدون سود و کارمزد • بدون چک و ضامن</i></div>
+              <button class="rc-cta" onclick="openSefrechiModal()">مشاهده و دریافت اعتبار</button>
+            </div>
             <div class="tapsi-carousel-track" id="sefrechiSliderTrack"></div>
           </div>
 
@@ -14011,6 +14026,10 @@ html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent;scrollbar-gutter:s
           
           <span class="ra-more" title="نمایش همه" onclick="event.stopPropagation();openMotorBanoModal()"><i><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></i><b>همه</b></span></div>
           <div class="shop-carousel-section" id="ring-motorbano">
+            <div class="ring-credit" style="--qc:#FF0F68;--qbg:#FFE4ED">
+              <div class="rc-tx"><b>اعتبار فوری ۷۰۰ هزار تومانی موتوربانو</b><span>خرید اقساطی قطعات خودرو</span><i>۴ قسط بدون سود و کارمزد • بدون چک و ضامن</i></div>
+              <button class="rc-cta" onclick="openMotorBanoModal()">مشاهده و دریافت اعتبار</button>
+            </div>
             <div class="tapsi-carousel-track" id="motorbanoSliderTrack"></div>
           </div>
 
@@ -14047,6 +14066,10 @@ html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent;scrollbar-gutter:s
           
           <span class="ra-more" title="نمایش همه" onclick="event.stopPropagation();openCategoryModal('oil')"><i><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></i><b>همه</b></span></div>
           <div class="shop-carousel-section" id="ring-oil">
+            <div class="ring-credit" style="--qc:#B45309;--qbg:#FDE68A">
+              <div class="rc-tx"><b>اعتبار فوری ۵۰۰ هزار تومانی روغن</b><span>خرید اقساطی قطعات خودرو</span><i>۴ قسط بدون سود و کارمزد • بدون چک و ضامن</i></div>
+              <button class="rc-cta" onclick="openCategoryModal('oil')">مشاهده و دریافت اعتبار</button>
+            </div>
             <div class="tapsi-carousel-track" id="track-oil"></div>
           </div>
 
@@ -14069,6 +14092,10 @@ html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent;scrollbar-gutter:s
           
           <span class="ra-more" title="نمایش همه" onclick="event.stopPropagation();openCategoryModal('lent')"><i><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></i><b>همه</b></span></div>
           <div class="shop-carousel-section" id="ring-lent">
+            <div class="ring-credit" style="--qc:#E11D48;--qbg:#FECDD3">
+              <div class="rc-tx"><b>اعتبار فوری ۸۰۰ هزار تومانی لنت</b><span>خرید اقساطی قطعات خودرو</span><i>۴ قسط بدون سود و کارمزد • بدون چک و ضامن</i></div>
+              <button class="rc-cta" onclick="openCategoryModal('lent')">مشاهده و دریافت اعتبار</button>
+            </div>
             <div class="tapsi-carousel-track" id="track-lent"></div>
           </div>
 
@@ -14082,6 +14109,10 @@ html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent;scrollbar-gutter:s
           
           <span class="ra-more" title="نمایش همه" onclick="event.stopPropagation();openCategoryModal('battery')"><i><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></i><b>همه</b></span></div>
           <div class="shop-carousel-section" id="ring-battery">
+            <div class="ring-credit" style="--qc:#EA580C;--qbg:#FDBA74">
+              <div class="rc-tx"><b>اعتبار فوری ۱٫۵ میلیون تومانی باتری</b><span>خرید اقساطی قطعات خودرو</span><i>۴ قسط بدون سود و کارمزد • بدون چک و ضامن</i></div>
+              <button class="rc-cta" onclick="openCategoryModal('battery')">مشاهده و دریافت اعتبار</button>
+            </div>
             <div class="tapsi-carousel-track" id="track-battery"></div>
           </div>
 
@@ -14095,6 +14126,10 @@ html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent;scrollbar-gutter:s
           
           <span class="ra-more" title="نمایش همه" onclick="event.stopPropagation();openCategoryModal('clutch')"><i><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></i><b>همه</b></span></div>
           <div class="shop-carousel-section" id="ring-clutch">
+            <div class="ring-credit" style="--qc:#7C3AED;--qbg:#DDD6FE">
+              <div class="rc-tx"><b>اعتبار فوری ۲ میلیون تومانی کلاچ</b><span>خرید اقساطی قطعات خودرو</span><i>۴ قسط بدون سود و کارمزد • بدون چک و ضامن</i></div>
+              <button class="rc-cta" onclick="openCategoryModal('clutch')">مشاهده و دریافت اعتبار</button>
+            </div>
             <div class="tapsi-carousel-track" id="track-clutch"></div>
           </div>
 
@@ -14108,6 +14143,10 @@ html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent;scrollbar-gutter:s
           
           <span class="ra-more" title="نمایش همه" onclick="event.stopPropagation();openCategoryModal('spark')"><i><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></i><b>همه</b></span></div>
           <div class="shop-carousel-section" id="ring-spark">
+            <div class="ring-credit" style="--qc:#4D7C0F;--qbg:#D9F99D">
+              <div class="rc-tx"><b>اعتبار فوری ۴۰۰ هزار تومانی شمع</b><span>خرید اقساطی قطعات خودرو</span><i>۴ قسط بدون سود و کارمزد • بدون چک و ضامن</i></div>
+              <button class="rc-cta" onclick="openCategoryModal('spark')">مشاهده و دریافت اعتبار</button>
+            </div>
             <div class="tapsi-carousel-track" id="track-spark"></div>
           </div>
 
@@ -14121,6 +14160,10 @@ html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent;scrollbar-gutter:s
           
           <span class="ra-more" title="نمایش همه" onclick="event.stopPropagation();openCategoryModal('headlight')"><i><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></i><b>همه</b></span></div>
           <div class="shop-carousel-section" id="ring-headlight">
+            <div class="ring-credit" style="--qc:#0891B2;--qbg:#A5F3FC">
+              <div class="rc-tx"><b>اعتبار فوری ۱ میلیون تومانی هدلایت</b><span>خرید اقساطی قطعات خودرو</span><i>۴ قسط بدون سود و کارمزد • بدون چک و ضامن</i></div>
+              <button class="rc-cta" onclick="openCategoryModal('headlight')">مشاهده و دریافت اعتبار</button>
+            </div>
             <div class="tapsi-carousel-track" id="track-headlight"></div>
           </div>
 
