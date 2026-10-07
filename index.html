@@ -12873,8 +12873,6 @@ html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent;scrollbar-gutter:s
 .to-top{position:fixed;bottom:84px;inset-inline-end:14px;width:40px;height:40px;border-radius:50%;background:#FFFFFF;border:1px solid #E2E8F0;box-shadow:0 4px 14px rgba(15,23,42,.14);display:flex;align-items:center;justify-content:center;color:#2563EB;opacity:0;transform:translateY(14px);pointer-events:none;transition:all .3s;z-index:60;cursor:pointer}
 .to-top.show{opacity:1;transform:none;pointer-events:auto}
 .to-top:active{transform:scale(.92)}
-.bottom-nav{transition:transform .3s ease}
-.bottom-nav.nav-hidden{transform:translateY(110%)}
 .rv{opacity:0;transform:translateY(10px);transition:opacity .4s ease,transform .4s ease}
 .rv.rv-in{opacity:1;transform:none}
 /* مودال‌های sheet در نسخه وب ثابت نسبت به ویوپورت */
@@ -22329,17 +22327,12 @@ window.addEventListener('load',()=>setTimeout(mkFitFlow,400));
 (function(){
   const prog = document.getElementById('scrollProgress');
   const toTop = document.getElementById('toTop');
-  const nav = document.querySelector('.bottom-nav');
   let lastY = window.scrollY, ticking = false;
   function upd(){
     const y = window.scrollY;
     const max = document.documentElement.scrollHeight - window.innerHeight;
     if(prog) prog.style.width = (max>0 ? (y/max)*100 : 0) + '%';
     if(toTop) toTop.classList.toggle('show', y > 600);
-    if(nav){
-      if(y > lastY + 8 && y > 160 && !document.body.classList.contains('modal-open')) nav.classList.add('nav-hidden');
-      else if(y < lastY - 8) nav.classList.remove('nav-hidden');
-    }
     lastY = y; ticking = false;
   }
   window.addEventListener('scroll', ()=>{ if(!ticking){ ticking = true; requestAnimationFrame(upd); } }, {passive:true});
