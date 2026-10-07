@@ -12884,6 +12884,11 @@ html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent;scrollbar-gutter:s
 .rc-tx i{display:block;font-style:normal;font-size:8.5px;font-weight:700;color:var(--qc);margin-top:3px;opacity:.85}
 .rc-cta{flex:0 0 auto;background:var(--qc);color:#FFFFFF;font-size:9.5px;font-weight:800;padding:8px 13px;border-radius:999px;border:none;cursor:pointer;white-space:nowrap;box-shadow:0 3px 10px color-mix(in srgb,var(--qc) 40%, transparent);font-family:inherit;transition:transform .2s}
 .rc-cta:active{transform:scale(.95)}
+.ring-credit.rc-third{max-width:33.4%;flex-direction:column;align-items:stretch;gap:6px;padding:8px 10px;margin:0 0 8px}
+.rc-third .rc-tx b{font-size:8.5px}
+.rc-third .rc-tx span{font-size:7px;margin-top:1px}
+.rc-third .rc-tx i{font-size:6.5px;margin-top:2px}
+.rc-third .rc-cta{font-size:7.5px;padding:5px 9px;align-self:flex-start}
 /* ===== ریسپانسیو موبایل/تبلت/دسکتاپ (نسخه هاست) ===== */
 .status-bar,.system-nav{display:none!important}
 @media (min-width:481px){
@@ -14005,7 +14010,7 @@ html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent;scrollbar-gutter:s
           
           <span class="ra-more" title="نمایش همه" onclick="event.stopPropagation();openSefrechiModal()"><i><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></i><b>همه</b></span></div>
           <div class="shop-carousel-section" id="ring-sefrechi">
-            <div class="ring-credit" style="--qc:#2563EB;--qbg:#DBEAFE">
+            <div class="ring-credit rc-third" style="--qc:#2563EB;--qbg:#DBEAFE">
               <div class="rc-tx"><b>پیش‌پرداخت اعتباری خودرو صفر</b><span>خرید اقساطی قطعات خودرو</span><i>۴ قسط بدون سود و کارمزد • بدون چک و ضامن</i></div>
               <button class="rc-cta" onclick="openSefrechiModal()">مشاهده و دریافت اعتبار</button>
             </div>
