@@ -5473,7 +5473,7 @@ function attachDragScrollToElement(slider){
   slider.style.cursor = 'grab';
   slider.style.userSelect = 'none';
   slider.style.webkitUserSelect = 'none';
-  slider.style.touchAction = 'pan-y';
+  slider.style.touchAction = 'pan-x pan-y';
 
   // غیرفعال‌سازی درگ تصاویر
   slider.querySelectorAll('img').forEach(img => {
@@ -5494,7 +5494,8 @@ function attachDragScrollToElement(slider){
 
   // استفاده از Pointer Events برای سازگاری همزمان با ماوس، لمس دست، ترک‌پد و قلم
   slider.addEventListener('pointerdown', (e) => {
-    if(e.button !== 0 && e.pointerType === 'mouse') return;
+    if(e.pointerType !== 'mouse') return; // لمس: اسکرول بومی با اینرسی
+    if(e.button !== 0) return;
     isDown = true;
     hasMoved = false;
     startX = e.clientX;
