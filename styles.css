@@ -12871,3 +12871,9 @@ html .car-picker-modal,html .top-actions .icon-btn,html .header-ticker,html div.
 .lite *,.lite *::before,.lite *::after{box-shadow:none!important;text-shadow:none!important}
 .lite .bottom-nav{box-shadow:0 6px 24px rgba(15,23,42,.14)!important}
 .lite .tc-add-btn,.lite .rc-cta,.lite .cta{box-shadow:0 2px 6px rgba(15,23,42,.2)!important}
+
+/* ===== حس لمسی و روانی سبک iOS ===== */
+html{-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+a,.menu-item,.qb-tile,.pill,.icon-btn,.tc-add-btn,.nav-item,.rc-cta,.cta,.vph-switch-action-btn{touch-action:manipulation;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.menu-item:active,.qb-tile:active,.pill:active,.icon-btn:active,.tc-add-btn:active,.nav-item:active,.rc-cta:active,.cta:active,.vph-switch-action-btn:active{transform:scale(.96)!important;transition:transform .09s cubic-bezier(.2,.8,.2,1)!important}
+.sheet-content,.drawer-panel,[class$="-modal"]{-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
