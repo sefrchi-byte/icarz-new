@@ -4331,7 +4331,6 @@ body{background:#eef1f6;display:flex;justify-content:center;padding:20px 0;min-h
   box-sizing: border-box;
   cursor: grab;
   user-select: none;
-  touch-action: pan-x pan-y !important;
 }
 .shop-cat-scroller:active {
   cursor: grabbing;
@@ -4551,6 +4550,7 @@ body{background:#eef1f6;display:flex;justify-content:center;padding:20px 0;min-h
   display: flex;
   gap: 11px;
   overflow-x: auto;
+  touch-action: pan-x;
   padding: 4px 6px 12px;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
@@ -4558,8 +4558,6 @@ body{background:#eef1f6;display:flex;justify-content:center;padding:20px 0;min-h
   max-width: 100%;
   box-sizing: border-box;
   cursor: grab;
-  user-select: none;
-  touch-action: pan-x pan-y !important;
 }
 .tapsi-carousel-track:active {
   cursor: grabbing;
@@ -4733,7 +4731,6 @@ body{background:#eef1f6;display:flex;justify-content:center;padding:20px 0;min-h
   direction: rtl;
   user-select: none;
   -webkit-user-select: none;
-  touch-action: pan-x pan-y;
   cursor: grab;
 }
 .shop-header-stage.is-dragging {
@@ -4745,7 +4742,6 @@ body{background:#eef1f6;display:flex;justify-content:center;padding:20px 0;min-h
   overflow: hidden;
   position: relative;
   border-radius: 18px;
-  touch-action: pan-x pan-y;
 }
 .shs-slider-track {
   display: flex;
@@ -6972,8 +6968,6 @@ div.phone:not(.theme-shop-white) div.top-actions div.icon-btn:hover,
   padding: 2px 2px 10px !important;
   scrollbar-width: none !important;
   -webkit-overflow-scrolling: touch !important;
-  scroll-snap-type: x proximity !important;
-  overscroll-behavior-x: contain !important;
 }
 
 .tapsi-carousel-track::-webkit-scrollbar {
@@ -6982,7 +6976,6 @@ div.phone:not(.theme-shop-white) div.top-actions div.icon-btn:hover,
 
 /* ۶. کارت‌های کالا (tc-card): فوق‌العاده مینیمال، باکلاس، دارای فضای تنفس و بدون شلوغی */
 .tc-card {
-  scroll-snap-align: start;
   width: 154px !important;
   background: #FFFFFF !important;
   border: 1px solid #F1F5F9 !important;
@@ -12818,8 +12811,8 @@ html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent;scrollbar-gutter:s
 .to-top{position:fixed;bottom:84px;inset-inline-end:14px;width:40px;height:40px;border-radius:50%;background:#FFFFFF;border:1px solid #E2E8F0;box-shadow:0 4px 14px rgba(15,23,42,.14);display:flex;align-items:center;justify-content:center;color:#2563EB;opacity:0;transform:translateY(14px);pointer-events:none;transition:all .3s;z-index:60;cursor:pointer}
 .to-top.show{opacity:1;transform:none;pointer-events:auto}
 .to-top:active{transform:scale(.92)}
-.rv{opacity:0;transform:translateY(10px);transition:opacity .4s ease,transform .4s ease}
-.rv.rv-in{opacity:1;transform:none}
+.rv{opacity:0;transition:opacity .4s ease}
+.rv.rv-in{opacity:1}
 /* مودال‌های sheet در نسخه وب ثابت نسبت به ویوپورت */
 .car-picker-modal,.profile-modal,.drawer,.compare-modal,.cart-checkout-modal,.vehicle-resume-modal,.product-spec-modal,.download-modal,.ios-install-modal,.orders-modal,.invoice-modal,.map-modal,.sefrechi-order-modal,.sefrechi-spec-modal,.sefrechi-story-modal,.story-viewer-modal,.mk-modal,.b3d-overlay{position:fixed!important}
 .ring-credit{display:flex;align-items:center;gap:10px;margin:0 -8px 10px;padding:10px 12px;border-radius:16px;background:linear-gradient(135deg,var(--qbg) 0%,#FFFFFF 72%);border:1px solid color-mix(in srgb,var(--qbg) 80%, #FFFFFF);box-shadow:0 2px 8px color-mix(in srgb,var(--qbg) 40%, transparent)}
