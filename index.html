@@ -12507,8 +12507,8 @@ div.phone.theme-shop-white div.ssh-search-bar {
 }
 @keyframes vphOrbitA { 0% { transform: translate(-10px, 0) scale(1); } 25% { transform: translate(18px, 10px) scale(1.08); } 50% { transform: translate(48px, 0) scale(1.18); } 75% { transform: translate(18px, -8px) scale(1.08); } 100% { transform: translate(-10px, 0) scale(1); } }
 @keyframes vphOrbitB { 0% { transform: translate(10px, 0) scale(1.14); } 25% { transform: translate(-18px, -8px) scale(1.06); } 50% { transform: translate(-48px, 0) scale(1); } 75% { transform: translate(-18px, 10px) scale(1.06); } 100% { transform: translate(10px, 0) scale(1.14); } }
-@keyframes vphHueA { 0%,100% { filter: blur(32px) hue-rotate(0deg); } 50% { filter: blur(32px) hue-rotate(42deg); } }
-@keyframes vphHueB { 0%,100% { filter: blur(32px) hue-rotate(0deg); } 50% { filter: blur(32px) hue-rotate(-46deg); } }
+@keyframes vphHueA { 0%,100% { filter: hue-rotate(0deg); } 50% { filter: hue-rotate(42deg); } }
+@keyframes vphHueB { 0%,100% { filter: hue-rotate(0deg); } 50% { filter: hue-rotate(-46deg); } }
 .vph-avatar-shadow {
   position: absolute !important;
   top: 76px !important;
@@ -12884,6 +12884,15 @@ html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent;scrollbar-gutter:s
 .rc-tx i{display:block;font-style:normal;font-size:8.5px;font-weight:700;color:var(--qc);margin-top:3px;opacity:.85}
 .rc-cta{flex:0 0 auto;background:var(--qc);color:#FFFFFF;font-size:9.5px;font-weight:800;padding:8px 13px;border-radius:999px;border:none;cursor:pointer;white-space:nowrap;box-shadow:0 3px 10px color-mix(in srgb,var(--qc) 40%, transparent);font-family:inherit;transition:transform .2s}
 .rc-cta:active{transform:scale(.95)}
+/* ===== بهینه‌سازی عملکرد (حذف blur زنده + توقف انیمیشن خارج دید) ===== */
+*,*::before,*::after{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+html .car-picker-modal,html .top-actions .icon-btn,html .header-ticker,html div.phone:not(.theme-shop-white) #headerTicker,html .phone:not(.theme-shop-white) .top-actions .icon-btn,html .phone:not(.theme-shop-white) .header-ticker,html .phone:not(.theme-shop-white) .pill.active,html .phone.theme-shop-white .ssh-car-btn,html div.phone.theme-shop-white button.ssh-car-btn,html .phone.theme-shop-white .ssh-search-bar,html div.phone.theme-shop-white div.ssh-search-bar,html .pdp-bottom-bar,html .pdp-top-nav,html .orders-modal,html .invoice-modal,html .map-modal,html .sefrechi-order-modal,html .sefrechi-story-modal{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+.header-ticker{background:rgba(255,255,255,.22)!important}
+.top-actions .icon-btn{background:rgba(255,255,255,.24)!important}
+.pdp-top-nav,.pdp-bottom-bar{background:rgba(255,255,255,.97)!important}
+.anim-off,.anim-off::before,.anim-off::after,.anim-off *,.anim-off *::before,.anim-off *::after{animation-play-state:paused!important}
+.shop-carousel-section,.quad-banners{content-visibility:auto;contain-intrinsic-size:auto 500px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01s!important;animation-iteration-count:1!important;transition-duration:.01s!important}}
 /* ===== ریسپانسیو موبایل/تبلت/دسکتاپ (نسخه هاست) ===== */
 .status-bar,.system-nav{display:none!important}
 @media (min-width:481px){
@@ -13388,14 +13397,14 @@ html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent;scrollbar-gutter:s
     <div class="sheet-content">
       <div class="page" id="page-services">
       <div class="grid">
-        <div class="menu-item" onclick="navigateTo('tire', 'لاستیک')"><div class="icon-box ib-tire"><img src="images/photo1/tire.png?v=clean_trans_v5" alt="لاستیک"><div class="badge-discount">٪۱۵</div></div><span class="label">لاستیک</span></div>
-        <div class="menu-item" onclick="navigateTo('battery', 'باتری')"><div class="icon-box ib-battery"><img src="images/photo1/battery.png?v=clean_trans_v5" alt="باتری"><div class="badge-discount">٪۲۰</div></div><span class="label">آی باتری</span></div>
-        <div class="menu-item" onclick="navigateTo('oil', 'روغن موتور')"><div class="icon-box ib-oil"><img src="images/photo1/oil.png?v=clean_trans_v5" alt="روغن"></div><span class="label">روغن</span></div>
-        <div class="menu-item" onclick="navigateTo('carwash', 'کارواش سیار')"><div class="icon-box ib-carwash"><img src="images/photo1/carwash.png?v=clean_trans_v5" alt="کارواش"><div class="badge-discount">٪۴۰</div></div><span class="label">کارواش</span></div>
-        <div class="menu-item" onclick="navigateTo('fuel', 'سوخت رسانی')"><div class="icon-box ib-gas"><img src="images/photo1/gas.png?v=clean_trans_v5" alt="سوخت رسانی"></div><span class="label">سوخت رسانی</span></div>
-        <div class="menu-item" onclick="navigateTo('fine', 'استعلام خلافی')"><div class="icon-box ib-police"><img src="images/photo1/police.png?v=clean_trans_v5" alt="خلافی"><div class="badge-blue"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg></div></div><span class="label">استعلام خلافی</span></div>
-        <div class="menu-item" onclick="navigateTo('insurance-body', 'بیمه بدنه')"><div class="icon-box ib-insurance-body"><img src="images/photo1/insurance-body.png?v=clean_trans_v5" alt="بیمه بدنه"></div><span class="label">بیمه بدنه</span></div>
-        <div class="menu-item" onclick="navigateTo('insurance-third', 'بیمه شخص ثالث')"><div class="icon-box ib-insurance-third"><img src="images/photo1/insurance-third.png?v=beloved_original_v10" alt="بیمه ثالث"><div class="badge-new">جدید</div></div><span class="label">بیمه شخص ثالث</span></div>
+        <div class="menu-item" onclick="navigateTo('tire', 'لاستیک')"><div class="icon-box ib-tire"><img loading="lazy" decoding="async"  src="images/photo1/tire.webp?v=clean_trans_v5" alt="لاستیک"><div class="badge-discount">٪۱۵</div></div><span class="label">لاستیک</span></div>
+        <div class="menu-item" onclick="navigateTo('battery', 'باتری')"><div class="icon-box ib-battery"><img loading="lazy" decoding="async"  src="images/photo1/battery.webp?v=clean_trans_v5" alt="باتری"><div class="badge-discount">٪۲۰</div></div><span class="label">آی باتری</span></div>
+        <div class="menu-item" onclick="navigateTo('oil', 'روغن موتور')"><div class="icon-box ib-oil"><img loading="lazy" decoding="async"  src="images/photo1/oil.webp?v=clean_trans_v5" alt="روغن"></div><span class="label">روغن</span></div>
+        <div class="menu-item" onclick="navigateTo('carwash', 'کارواش سیار')"><div class="icon-box ib-carwash"><img loading="lazy" decoding="async"  src="images/photo1/carwash.webp?v=clean_trans_v5" alt="کارواش"><div class="badge-discount">٪۴۰</div></div><span class="label">کارواش</span></div>
+        <div class="menu-item" onclick="navigateTo('fuel', 'سوخت رسانی')"><div class="icon-box ib-gas"><img loading="lazy" decoding="async"  src="images/photo1/gas.png?v=clean_trans_v5" alt="سوخت رسانی"></div><span class="label">سوخت رسانی</span></div>
+        <div class="menu-item" onclick="navigateTo('fine', 'استعلام خلافی')"><div class="icon-box ib-police"><img loading="lazy" decoding="async"  src="images/photo1/police.webp?v=clean_trans_v5" alt="خلافی"><div class="badge-blue"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg></div></div><span class="label">استعلام خلافی</span></div>
+        <div class="menu-item" onclick="navigateTo('insurance-body', 'بیمه بدنه')"><div class="icon-box ib-insurance-body"><img loading="lazy" decoding="async"  src="images/photo1/insurance-body.webp?v=clean_trans_v5" alt="بیمه بدنه"></div><span class="label">بیمه بدنه</span></div>
+        <div class="menu-item" onclick="navigateTo('insurance-third', 'بیمه شخص ثالث')"><div class="icon-box ib-insurance-third"><img loading="lazy" decoding="async"  src="images/photo1/insurance-third.webp?v=beloved_original_v10" alt="بیمه ثالث"><div class="badge-new">جدید</div></div><span class="label">بیمه شخص ثالث</span></div>
       </div>
 
                         <div class="banner" onclick="navigateTo('insurance-installment', 'خرید اقساطی بیمه ۶ ماهه')">
@@ -13439,7 +13448,7 @@ html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent;scrollbar-gutter:s
               <div class="ms-cta-row"><span class="ms-cta amber">درخواست تعویض باتری ‹</span></div>
             </div>
             <div class="ms-visual-wrap amber-bg">
-              <img src="images/photo1/battery.png?v=clean_trans_v5" alt="آی باتری">
+              <img loading="lazy" decoding="async"  src="images/photo1/battery.webp?v=clean_trans_v5" alt="آی باتری">
             </div>
           </div>
 
@@ -13455,7 +13464,7 @@ html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent;scrollbar-gutter:s
               <div class="ms-cta-row"><span class="ms-cta violet">انتخاب سایز لاستیک ‹</span></div>
             </div>
             <div class="ms-visual-wrap violet-bg">
-              <img src="images/photo1/tire.png?v=clean_trans_v5" alt="لاستیک">
+              <img loading="lazy" decoding="async"  src="images/photo1/tire.webp?v=clean_trans_v5" alt="لاستیک">
             </div>
           </div>
 
@@ -13471,7 +13480,7 @@ html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent;scrollbar-gutter:s
               <div class="ms-cta-row"><span class="ms-cta emerald">رزرو سرویس روغن ‹</span></div>
             </div>
             <div class="ms-visual-wrap emerald-bg">
-              <img src="images/photo1/oil.png?v=clean_trans_v5" alt="روغن موتور">
+              <img loading="lazy" decoding="async"  src="images/photo1/oil.webp?v=clean_trans_v5" alt="روغن موتور">
             </div>
           </div>
 
@@ -13487,7 +13496,7 @@ html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent;scrollbar-gutter:s
               <div class="ms-cta-row"><span class="ms-cta cyan">رزرو آنلاین کارواش ‹</span></div>
             </div>
             <div class="ms-visual-wrap cyan-bg">
-              <img src="images/photo1/carwash.png?v=clean_trans_v5" alt="کارواش">
+              <img loading="lazy" decoding="async"  src="images/photo1/carwash.webp?v=clean_trans_v5" alt="کارواش">
             </div>
           </div>
 
@@ -13503,7 +13512,7 @@ html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent;scrollbar-gutter:s
               <div class="ms-cta-row"><span class="ms-cta rose">درخواست سوخت سیار ‹</span></div>
             </div>
             <div class="ms-visual-wrap rose-bg">
-              <img src="images/photo1/gas.png?v=clean_trans_v5" alt="سوخت رسانی">
+              <img loading="lazy" decoding="async"  src="images/photo1/gas.png?v=clean_trans_v5" alt="سوخت رسانی">
             </div>
           </div>
 
@@ -13519,7 +13528,7 @@ html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent;scrollbar-gutter:s
               <div class="ms-cta-row"><span class="ms-cta blue">استعلام رایگان خلافی ‹</span></div>
             </div>
             <div class="ms-visual-wrap blue-bg">
-              <img src="images/photo1/police.png?v=clean_trans_v5" alt="استعلام خلافی">
+              <img loading="lazy" decoding="async"  src="images/photo1/police.webp?v=clean_trans_v5" alt="استعلام خلافی">
             </div>
           </div>
 
@@ -13535,7 +13544,7 @@ html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent;scrollbar-gutter:s
               <div class="ms-cta-row"><span class="ms-cta indigo">محاسبه آنلاین نرخ بیمه ‹</span></div>
             </div>
             <div class="ms-visual-wrap indigo-bg">
-              <img src="images/photo1/insurance-body.png?v=clean_trans_v5" alt="بیمه بدنه">
+              <img loading="lazy" decoding="async"  src="images/photo1/insurance-body.webp?v=clean_trans_v5" alt="بیمه بدنه">
             </div>
           </div>
 
@@ -13551,7 +13560,7 @@ html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent;scrollbar-gutter:s
               <div class="ms-cta-row"><span class="ms-cta teal">استعلام و صدور فوری ‹</span></div>
             </div>
             <div class="ms-visual-wrap teal-bg">
-              <img src="images/photo1/insurance-third.png?v=beloved_original_v10" alt="بیمه شخص ثالث">
+              <img loading="lazy" decoding="async"  src="images/photo1/insurance-third.webp?v=beloved_original_v10" alt="بیمه شخص ثالث">
             </div>
           </div>
         </div>
@@ -13570,10 +13579,10 @@ html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent;scrollbar-gutter:s
       </div>
 
       <div class="grid">
-        <div class="menu-item" onclick="navigateTo('inspection', 'معاینه فنی')"><div class="icon-box ib-inspection"><img src="images/photo1/inspection.png?v=clean_trans_v5" alt="معاینه"></div><span class="label">معاینه فنی</span></div>
-        <div class="menu-item" onclick="navigateTo('toll', 'عوارض آزادراهی')"><div class="icon-box ib-toll"><img src="images/photo1/toll.png?v=clean_trans_v5" alt="عوارض"></div><span class="label">عوارض</span></div>
-        <div class="menu-item" onclick="navigateTo('transfer', 'انتقال سند')"><div class="icon-box ib-transfer"><img src="images/photo1/transfer.png?v=clean_trans_v5" alt="انتقال"></div><span class="label">انتقال سند</span></div>
-        <div class="menu-item" onclick="navigateTo('emergency', 'امداد خودرو')"><div class="icon-box ib-emergency"><img src="images/photo1/emergency.png?v=clean_trans_v5" alt="امداد"></div><span class="label">امداد</span></div>
+        <div class="menu-item" onclick="navigateTo('inspection', 'معاینه فنی')"><div class="icon-box ib-inspection"><img loading="lazy" decoding="async"  src="images/photo1/inspection.webp?v=clean_trans_v5" alt="معاینه"></div><span class="label">معاینه فنی</span></div>
+        <div class="menu-item" onclick="navigateTo('toll', 'عوارض آزادراهی')"><div class="icon-box ib-toll"><img loading="lazy" decoding="async"  src="images/photo1/toll.png?v=clean_trans_v5" alt="عوارض"></div><span class="label">عوارض</span></div>
+        <div class="menu-item" onclick="navigateTo('transfer', 'انتقال سند')"><div class="icon-box ib-transfer"><img loading="lazy" decoding="async"  src="images/photo1/transfer.webp?v=clean_trans_v5" alt="انتقال"></div><span class="label">انتقال سند</span></div>
+        <div class="menu-item" onclick="navigateTo('emergency', 'امداد خودرو')"><div class="icon-box ib-emergency"><img loading="lazy" decoding="async"  src="images/photo1/emergency.webp?v=clean_trans_v5" alt="امداد"></div><span class="label">امداد</span></div>
       </div>
 
       </div>
@@ -13776,7 +13785,7 @@ html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent;scrollbar-gutter:s
           <!-- هیروی خودرو: آواتار خطی بزرگ + نام + پلاک + تعویض -->
           <div class="vph-hero" id="vphCarStage" onclick="openCarPicker()" title="کلیک برای تعویض خودرو">
             <div class="vph-blend" aria-hidden="true"><i></i></div>
-            <img id="vphCarImage" class="vph-car-photo" src="images/cars_front/front-pride.png" alt="خودروی فعال">
+            <img loading="lazy" decoding="async"  id="vphCarImage" class="vph-car-photo" src="images/cars_front/front-pride.webp" alt="خودروی فعال">
             <div class="vph-name-row">
               <h2 class="vph-car-title" id="vphCarName">سایپا پراید ۱۳۱ صبا</h2>
               <button class="vph-switch-action-btn" onclick="event.stopPropagation(); openCarPicker()" title="تغییر خودروی فعال">
@@ -13858,26 +13867,26 @@ html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent;scrollbar-gutter:s
       <div class="shs-slider-track" id="shsSliderTrack" style="direction: ltr !important;">
         <!-- بنر ۱ فوق حماسی: صفرچی - سامانه تخصصی فروش آنلاین خودروهای صفر کیلومتر ایرانی با تحویل فوری -->
         <div class="shs-slide" onclick="openSefrechiModal()" title="صفرچی • فروش آنلاین خودروهای صفر کیلومتر ایرانی با تحویل فوری (sefrchi.com)">
-          <img src="images/shop/banner-sefrchi-white-v5.jpg?v=10.0_fakher" class="shs-banner-img-full" alt="صفرچی فروشگاه آنلاین خودرو صفر کیلومتر ایرانی">
+          <img loading="lazy" decoding="async"  src="images/shop/banner-sefrchi-white-v5.webp?v=10.0_fakher" class="shs-banner-img-full" alt="صفرچی فروشگاه آنلاین خودرو صفر کیلومتر ایرانی">
         </div>
         <!-- بنر ۱ فوق حماسی: موتوربانو - اولین سامانه تخصصی خرید موتورسیکلت و اکسسوری ویژه بانوان سراسر کشور -->
         <div class="shs-slide" onclick="openMotorBanoModal()" title="موتوربانو • اولین فروشگاه تخصصی موتورسیکلت و اکسسوری بانوان کشور (motorbano.ir)">
-          <img src="images/shop/banner-motorbano-white-v5.jpg?v=11.0_hijab" class="shs-banner-img-full" alt="موتور بانو جامعه بانوان موتور سوار ایران">
+          <img loading="lazy" decoding="async"  src="images/shop/banner-motorbano-white-v5.webp?v=11.0_hijab" class="shs-banner-img-full" alt="موتور بانو جامعه بانوان موتور سوار ایران">
         </div>
 
         <!-- بنر ۲ فوق حماسی: ارسال موشکی و تعویض فوری باتری در محل (ibatri.com) -->
         <div class="shs-slide" onclick="openCategoryModal('battery')" title="ارسال موشکی و تعویض فوری باتری در محل (ibatri.com)">
-          <img src="images/shop/banner-ibatri-white-v5.jpg?v=10.0_fakher" class="shs-banner-img-full" alt="ارسال موشکی و تعویض فوری باتری در محل آی‌باتری">
+          <img loading="lazy" decoding="async"  src="images/shop/banner-ibatri-white-v5.webp?v=10.0_fakher" class="shs-banner-img-full" alt="ارسال موشکی و تعویض فوری باتری در محل آی‌باتری">
         </div>
 
         <!-- بنر ۳ فوق حماسی: اسکن لیزری کارنامه سلامت و تشخیص رنگ خودرو (Live API) -->
         <div class="shs-slide" onclick="openVehicleResumeModal()" title="مشاهده کارنامه تشخیص رنگ و رزومه فنی خودرو">
-          <img src="images/shop/banner-inspection-white-v5.jpg?v=10.0_fakher" class="shs-banner-img-full" alt="اسکن لیزری و کارنامه تشخیص رنگ خودرو">
+          <img loading="lazy" decoding="async"  src="images/shop/banner-inspection-white-v5.webp?v=10.0_fakher" class="shs-banner-img-full" alt="اسکن لیزری و کارنامه تشخیص رنگ خودرو">
         </div>
 
         <!-- بنر ۴ فوق حماسی: قطعات پرفورمنس، دیسک‌های برمبو و کلاچ پرسرعت -->
         <div class="shs-slide" onclick="openCategoryModal('lent')" title="قطعات یدکی و تسهیلات اقساطی">
-          <img src="images/shop/banner-autoparts-white-v5.jpg?v=10.0_fakher" class="shs-banner-img-full" alt="خرید اقساطی قطعات فابریک و پرفورمنس">
+          <img loading="lazy" decoding="async"  src="images/shop/banner-autoparts-white-v5.webp?v=10.0_fakher" class="shs-banner-img-full" alt="خرید اقساطی قطعات فابریک و پرفورمنس">
         </div>
       </div>
     </div>
@@ -13907,7 +13916,7 @@ html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent;scrollbar-gutter:s
               <div class="scs-item" onclick="openSefrechiModal()" style="position:relative;">
                 <span style="position:absolute;top:-5px;right:-3px;background:linear-gradient(135deg, #2563EB, #1D4ED8);color:#FFFFFF;font-size:7.5px;font-weight:800;padding:1.5px 5.5px;border-radius:6px;box-shadow:0 2px 6px rgba(37,99,235,0.4);z-index:2;letter-spacing:0.2px;border:0.5px solid rgba(147,197,253,0.5);">صفرچی</span>
                 <div class="scs-box scs-blue">
-                  <img src="images/tiles/sefrechi.webp?v=11.0_extra_large" class="scs-img-car" alt="خرید خودرو صفر">
+                  <img loading="lazy" decoding="async"  src="images/tiles/sefrechi.webp?v=11.0_extra_large" class="scs-img-car" alt="خرید خودرو صفر">
                 </div>
                 <span class="scs-title" style="color:#1D4ED8;font-weight:700;">خرید خودرو صفر</span>
               </div>
@@ -13915,63 +13924,63 @@ html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent;scrollbar-gutter:s
               <div class="scs-item" onclick="openMotorBanoModal()" style="position:relative;">
                 <span style="position:absolute;top:-5px;right:-3px;background:linear-gradient(135deg, #FF3B94, #FF0F68);color:#FFFFFF;font-size:7.5px;font-weight:800;padding:1.5px 5.5px;border-radius:6px;box-shadow:0 2px 7px rgba(255,15,104,0.45);z-index:2;letter-spacing:0.2px;border:0.5px solid rgba(255,182,217,0.6);">موتوربانو</span>
                 <div class="scs-box scs-rose" style="background:linear-gradient(135deg, #FFF1F5, #FFE4ED);border-color:#FFCCD9;">
-                  <img src="images/tiles/motorbano.webp?v=4.0" alt="خرید موتور">
+                  <img loading="lazy" decoding="async"  src="images/tiles/motorbano.webp?v=4.0" alt="خرید موتور">
                 </div>
                 <span class="scs-title" style="color:#E6005C;font-weight:700;">خرید موتور</span>
               </div>
               <div class="scs-item active" onclick="openCategoryModal('oil')">
-                <div class="scs-box scs-emerald"><img src="images/tiles/روغن_موتور.webp?v=iranian_behran_oil_3d_v2.0" alt="روغن"></div>
+                <div class="scs-box scs-emerald"><img loading="lazy" decoding="async"  src="images/tiles/روغن_موتور.webp?v=iranian_behran_oil_3d_v2.0" alt="روغن"></div>
                 <span class="scs-title">روغن و فیلتر</span>
               </div>
               <!-- ۲. لنت و ترمز تخصصی (کالای زودفروش دوم) -->
               <div class="scs-item" onclick="openCategoryModal('lent')">
-                <div class="scs-box scs-red"><img src="images/tiles/لنت.webp" alt="لنت"></div>
+                <div class="scs-box scs-red"><img loading="lazy" decoding="async"  src="images/tiles/لنت.webp" alt="لنت"></div>
                 <span class="scs-title">لنت و ترمز</span>
               </div>
               <!-- ۳. باتری و برق خودرو (کالای زودفروش سوم: آی باتری / خرید باتری - تم نارنجی خوش‌رنگ) -->
               <div class="scs-item" onclick="openCategoryModal('battery')" style="position:relative;">
                 <span style="position:absolute;top:-5px;right:-3px;background:linear-gradient(135deg, #FF7A00, #FF5500);color:#FFFFFF;font-size:7.5px;font-weight:800;padding:1.5px 5.5px;border-radius:6px;box-shadow:0 2px 6px rgba(255,122,0,0.45);z-index:2;letter-spacing:0.2px;border:0.5px solid rgba(254,215,170,0.6);">آی باتری</span>
-                <div class="scs-box scs-amber"><img src="images/tiles/باتری.webp" alt="خرید باتری"></div>
+                <div class="scs-box scs-amber"><img loading="lazy" decoding="async"  src="images/tiles/باتری.webp" alt="خرید باتری"></div>
                 <span class="scs-title" style="color:#EA580C;font-weight:700;">خرید باتری</span>
               </div>
               <!-- ۴. دیسک و صفحه کلاچ (کالای زودفروش چهارم) -->
               <div class="scs-item" onclick="openCategoryModal('clutch')">
-                <div class="scs-box scs-blue"><img src="images/tiles/کلاچ.webp" alt="کلاچ"></div>
+                <div class="scs-box scs-blue"><img loading="lazy" decoding="async"  src="images/tiles/کلاچ.webp" alt="کلاچ"></div>
                 <span class="scs-title">دیسک و کلاچ</span>
               </div>
               <!-- ۵. شمع، وایر و سیستم جرقه -->
               <div class="scs-item" onclick="openCategoryModal('spark')">
-                <div class="scs-box scs-indigo"><img src="images/tiles/شمع.webp" alt="شمع"></div>
+                <div class="scs-box scs-indigo"><img loading="lazy" decoding="async"  src="images/tiles/شمع.webp" alt="شمع"></div>
                 <span class="scs-title">شمع و جرقه</span>
               </div>
               <!-- ۶. هدلایت و سیستم روشنایی -->
               <div class="scs-item" onclick="openCategoryModal('headlight')">
-                <div class="scs-box scs-cyan"><img src="images/tiles/هدلایت_و_چراغ.webp" alt="هدلایت"></div>
+                <div class="scs-box scs-cyan"><img loading="lazy" decoding="async"  src="images/tiles/هدلایت_و_چراغ.webp" alt="هدلایت"></div>
                 <span class="scs-title">هدلایت و چراغ</span>
               </div>
               <!-- سایر دسته‌بندی‌ها -->
               <div class="scs-item" onclick="openCategoryModal('tire')">
-                <div class="scs-box scs-slate"><img src="images/tiles/لاستیک.webp" alt="تایر"></div>
+                <div class="scs-box scs-slate"><img loading="lazy" decoding="async"  src="images/tiles/لاستیک.webp" alt="تایر"></div>
                 <span class="scs-title">تایر و رینگ</span>
               </div>
               <div class="scs-item" onclick="openCategoryModal('suspension')">
-                <div class="scs-box scs-rose"><img src="images/tiles/جلوبندی.webp" alt="جلوبندی"></div>
+                <div class="scs-box scs-rose"><img loading="lazy" decoding="async"  src="images/tiles/جلوبندی.webp" alt="جلوبندی"></div>
                 <span class="scs-title">جلوبندی و فنر</span>
               </div>
               <div class="scs-item" onclick="openCategoryModal('cooling')">
-                <div class="scs-box scs-sky"><img src="images/tiles/رادیاتور.webp" alt="رادیاتور"></div>
+                <div class="scs-box scs-sky"><img loading="lazy" decoding="async"  src="images/tiles/رادیاتور.webp" alt="رادیاتور"></div>
                 <span class="scs-title">خنک‌کننده آب</span>
               </div>
               <div class="scs-item" onclick="openCategoryModal('audio')">
-                <div class="scs-box scs-purple"><img src="images/tiles/سیستم_صوتی.webp" alt="صوتی"></div>
+                <div class="scs-box scs-purple"><img loading="lazy" decoding="async"  src="images/tiles/سیستم_صوتی.webp" alt="صوتی"></div>
                 <span class="scs-title">صوتی و مانیتور</span>
               </div>
               <div class="scs-item" onclick="openCategoryModal('body')">
-                <div class="scs-box scs-teal"><img src="images/tiles/آینه_و_بدنه.webp" alt="بدنه"></div>
+                <div class="scs-box scs-teal"><img loading="lazy" decoding="async"  src="images/tiles/آینه_و_بدنه.webp" alt="بدنه"></div>
                 <span class="scs-title">بدنه و آینه</span>
               </div>
               <div class="scs-item" onclick="openCategoryModal('tools')">
-                <div class="scs-box scs-orange"><img src="images/tiles/ابزار_و_امداد.webp" alt="ابزار"></div>
+                <div class="scs-box scs-orange"><img loading="lazy" decoding="async"  src="images/tiles/ابزار_و_امداد.webp" alt="ابزار"></div>
                 <span class="scs-title">ابزار و امداد</span>
               </div>
             </div>
@@ -14044,7 +14053,7 @@ html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent;scrollbar-gutter:s
               </div>
             </div>
             <div class="shcb-img-wrap">
-              <img src="images/tiles/باتری.webp" alt="باتری">
+              <img loading="lazy" decoding="async"  src="images/tiles/باتری.webp" alt="باتری">
             </div>
           </div>
 
@@ -14073,10 +14082,10 @@ html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent;scrollbar-gutter:s
           <!-- تبلیغ میان‌حلقه‌ای: معرفی حلقهٔ زیرین -->
                     <!-- چهار بنر مربعی دیجی‌کالایی -->
           <div class="quad-banners">
-            <div class="qb-tile" onclick="openCategoryModal('oil')" style="--qc:#B45309;--qbg:#FDE68A"><img src="images/tiles/روغن_موتور.webp" alt="روغن موتور"><span class="qb-cap">روغن موتور</span></div>
-            <div class="qb-tile" onclick="openCategoryModal('battery')" style="--qc:#EA580C;--qbg:#FDBA74"><img src="images/tiles/باتری.webp" alt="باتری"><span class="qb-cap">باتری</span></div>
-            <div class="qb-tile" onclick="openCategoryModal('lent')" style="--qc:#E11D48;--qbg:#FECDD3"><img src="images/tiles/لنت.webp" alt="لنت و ترمز"><span class="qb-cap">لنت و ترمز</span></div>
-            <div class="qb-tile" onclick="openCategoryModal('headlight')" style="--qc:#0891B2;--qbg:#A5F3FC"><img src="images/tiles/هدلایت_و_چراغ.webp" alt="هدلایت"><span class="qb-cap">هدلایت</span></div>
+            <div class="qb-tile" onclick="openCategoryModal('oil')" style="--qc:#B45309;--qbg:#FDE68A"><img loading="lazy" decoding="async"  src="images/tiles/روغن_موتور.webp" alt="روغن موتور"><span class="qb-cap">روغن موتور</span></div>
+            <div class="qb-tile" onclick="openCategoryModal('battery')" style="--qc:#EA580C;--qbg:#FDBA74"><img loading="lazy" decoding="async"  src="images/tiles/باتری.webp" alt="باتری"><span class="qb-cap">باتری</span></div>
+            <div class="qb-tile" onclick="openCategoryModal('lent')" style="--qc:#E11D48;--qbg:#FECDD3"><img loading="lazy" decoding="async"  src="images/tiles/لنت.webp" alt="لنت و ترمز"><span class="qb-cap">لنت و ترمز</span></div>
+            <div class="qb-tile" onclick="openCategoryModal('headlight')" style="--qc:#0891B2;--qbg:#A5F3FC"><img loading="lazy" decoding="async"  src="images/tiles/هدلایت_و_چراغ.webp" alt="هدلایت"><span class="qb-cap">هدلایت</span></div>
           </div>
                     </div>
 
@@ -14624,7 +14633,7 @@ html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent;scrollbar-gutter:s
     <div class="pdp-content-scroll">
       <!-- ۱. تصویر اصلی بزرگ محصول با استیج نوری لوکس -->
       <div class="pdp-hero-stage">
-        <img id="psmImage" src="images/tiles/باتری.webp" alt="تصویر محصول">
+        <img loading="lazy" decoding="async"  id="psmImage" src="images/tiles/باتری.webp" alt="تصویر محصول">
       </div>
 
       <div class="pdp-info-body">
@@ -14858,7 +14867,7 @@ html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent;scrollbar-gutter:s
     <div class="mb-content-scroll">
       <!-- تصویر بنر رسمی موتوربانو -->
       <div class="mb-hero-banner-card">
-        <img src="images/shop/banner-motorbano-white-v5.jpg?v=6.0" alt="جامعه بانوان موتور سوار ایران">
+        <img loading="lazy" decoding="async"  src="images/shop/banner-motorbano-white-v5.webp?v=6.0" alt="جامعه بانوان موتور سوار ایران">
       </div>
 
       <!-- ۳ ارزش کلیدی تصویر: همراهی و حمایت، تجربه و آموزش، اخبار و رویدادها -->
@@ -14921,7 +14930,7 @@ html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent;scrollbar-gutter:s
     <div class="sf-content-scroll">
       <!-- تصویر بنر رسمی و باکلاس صفرچی -->
       <div class="sf-hero-banner-card">
-        <img src="images/shop/banner-sefrchi-white-v5.jpg?v=10.0_fakher" alt="سامانه فروش آنلاین خودروهای صفر کیلومتر ایرانی صفرچی">
+        <img loading="lazy" decoding="async"  src="images/shop/banner-sefrchi-white-v5.webp?v=10.0_fakher" alt="سامانه فروش آنلاین خودروهای صفر کیلومتر ایرانی صفرچی">
       </div>
 
       <!-- ۳ ارزش کلیدی: کارشناسی رنگ و فنی، تحویل ۲۴ ساعته با خودروبر، سند کمپانی -->
@@ -14995,7 +15004,7 @@ html{scrollbar-width:thin;scrollbar-color:#93B4F5 transparent;scrollbar-gutter:s
         </div>
 
         <div style="width:100%;height:175px;display:flex;align-items:center;justify-content:center;background:#FFFFFF;margin-bottom:8px;">
-          <img id="csmMainImg" src="images/shop/sefrechi-tara-real.png?v=unified_showroom_v4.0" alt="خودرو" style="max-width:98%;max-height:98%;object-fit:contain;filter:drop-shadow(0 6px 14px rgba(15, 23, 42, 0.14));">
+          <img loading="lazy" decoding="async"  id="csmMainImg" src="images/shop/sefrechi-tara-real.webp?v=unified_showroom_v4.0" alt="خودرو" style="max-width:98%;max-height:98%;object-fit:contain;filter:drop-shadow(0 6px 14px rgba(15, 23, 42, 0.14));">
         </div>
 
         <!-- انتخاب رنگ بدنه فابریک -->
@@ -15292,7 +15301,7 @@ const sefrechiCarsList = [
     downPaymentFmt: '۴۵۰,۰۰۰,۰۰۰',
     monthlyInstallment: 26500000,
     monthlyInstallmentFmt: '۲۶,۵۰۰,۰۰۰',
-    img: 'images/shop/sefrechi-tara-real.png?v=unified_showroom_v4.0',
+    img: 'images/shop/sefrechi-tara-real.webp?v=unified_showroom_v4.0',
     options: [
       'سنسور پا بازکننده درب صندوق عقب (Kick Sensor)',
       'استارت دکمه‌ای و سیستم ورود بدون کلید (PEPS)',
@@ -15338,7 +15347,7 @@ const sefrechiCarsList = [
     downPaymentFmt: '۳۹۰,۰۰۰,۰۰۰',
     monthlyInstallment: 23800000,
     monthlyInstallmentFmt: '۲۳,۸۰۰,۰۰۰',
-    img: 'images/shop/sefrechi-shahin-real.png?v=unified_showroom_v4.0',
+    img: 'images/shop/sefrechi-shahin-real.webp?v=unified_showroom_v4.0',
     options: [
       'سانروف برقی دوحالته با آنتی‌ترپ',
       'کی‌لس استارت و دکمه ورود روی دستگیره‌ها',
@@ -15383,7 +15392,7 @@ const sefrechiCarsList = [
     downPaymentFmt: '۴۹۰,۰۰۰,۰۰۰',
     monthlyInstallment: 27200000,
     monthlyInstallmentFmt: '۲۷,۲۰۰,۰۰۰',
-    img: 'images/shop/sefrechi-dena-real.png?v=unified_showroom_v4.0',
+    img: 'images/shop/sefrechi-dena-real.webp?v=unified_showroom_v4.0',
     options: [
       'فرمان برقی D-Cut چرمی با کلیدهای کنترلی',
       'سنسور باران و سنسور نور خودکار (Auto Light)',
@@ -15426,7 +15435,7 @@ const sefrechiCarsList = [
     downPaymentFmt: '۴۲۰,۰۰۰,۰۰۰',
     monthlyInstallment: 24900000,
     monthlyInstallmentFmt: '۲۴,۹۰۰,۰۰۰',
-    img: 'images/shop/sefrechi-207-real.png?v=unified_showroom_v4.0',
+    img: 'images/shop/sefrechi-207-real.webp?v=unified_showroom_v4.0',
     options: [
       'سقف شیشه‌ای تمام پانوراما فابریک با سایه‌بان برقی',
       'سیستم کنترل پایداری الکترونیکی ESC',
@@ -15467,7 +15476,7 @@ const sefrechiCarsList = [
     downPaymentFmt: '۱۹۵,۰۰۰,۰۰۰',
     monthlyInstallment: 12800000,
     monthlyInstallmentFmt: '۱۲,۸۰۰,۰۰۰',
-    img: 'images/shop/sefrechi-quick-real.png?v=unified_showroom_v4.0',
+    img: 'images/shop/sefrechi-quick-real.webp?v=unified_showroom_v4.0',
     options: [
       'رینگ آلومینیومی اسپرت دو رنگ تراش‌خورده',
       'سیستم کنترل پایداری الکترونیکی ESC',
@@ -15507,7 +15516,7 @@ const sefrechiCarsList = [
     downPaymentFmt: '۳۴۰,۰۰۰,۰۰۰',
     monthlyInstallment: 21500000,
     monthlyInstallmentFmt: '۲۱,۵۰۰,۰۰۰',
-    img: 'images/shop/sefrechi-soren-real.png?v=unified_showroom_v4.0',
+    img: 'images/shop/sefrechi-soren-real.webp?v=unified_showroom_v4.0',
     options: [
       'مخزن گاز بزرگ ۱۰۰ لیتری با پیمایش بیش از ۳۰۰ کیلومتر',
       'سیستم کنترل پایداری ESC',
@@ -15547,7 +15556,7 @@ const sefrechiCarsList = [
     downPaymentFmt: '۱۷۰,۰۰۰,۰۰۰',
     monthlyInstallment: 9800000,
     monthlyInstallmentFmt: '۹,۸۰۰,۰۰۰',
-    img: 'images/shop/sefrechi-pride151-real.png?v=unified_showroom_v4.0',
+    img: 'images/shop/sefrechi-pride151-real.webp?v=unified_showroom_v4.0',
     options: [
       'کفی بار لاینر پاششی فابریک کارخانه ضدخش و ضدزنگ',
       'چراغ روشنایی روز (Daylight) با استاندارد ۸۵ گانه',
@@ -15591,7 +15600,7 @@ const sefrechiCarsList = [
     downPaymentFmt: '۶۰۰,۰۰۰,۰۰۰',
     monthlyInstallment: 38500000,
     monthlyInstallmentFmt: '۳۸,۵۰۰,۰۰۰',
-    img: 'images/shop/sefrechi-reera-real.png?v=reera_real_authentic_v7.0',
+    img: 'images/shop/sefrechi-reera-real.webp?v=reera_real_authentic_v7.0',
     options: [
       'سقف تمام شیشه‌ای پانوراما برقی مجهز به پرده برقی ضد تابش',
       'کلاستر و مانیتور مالتی‌مدیا یکپارچه دوگانه ۱۲ اینچی تمام دیجیتال',
@@ -15908,7 +15917,7 @@ function renderSefrechiOrderForm(){
   body.innerHTML = `
     <!-- پیش‌نمایش خودرو انتخابی -->
     <div class="sf-order-car-preview">
-      <img src="${car.img}" class="sf-order-car-thumb" alt="${car.name}">
+      <img loading="lazy" decoding="async"  src="${car.img}" class="sf-order-car-thumb" alt="${car.name}">
       <div style="flex:1;">
         <b style="font-size:13px;color:#111827;display:block;">${car.name}</b>
         <span style="font-size:10px;color:#6B7280;display:block;margin-top:2px;">${car.brandName} • مدل ${car.year} • صفر خشک کاردکس</span>
@@ -16109,7 +16118,7 @@ function renderSefrechiModalCatalog(brandFilter = 'all'){
       <div class="sf-pc-stage">
         <span style="position:absolute;top:6px;right:6px;background:linear-gradient(135deg, #2563EB, #1D4ED8);color:#FFFFFF;font-size:7px;font-weight:800;padding:1.5px 5.5px;border-radius:5px;z-index:2;box-shadow:0 2px 6px rgba(37,99,235,0.45);border:0.5px solid rgba(147,197,253,0.5);">صفر خشک</span>
         <span style="position:absolute;top:6px;left:6px;background:rgba(255,255,255,0.95);border:0.5px solid #DBEAFE;font-size:7px;font-weight:700;color:#1D4ED8;border-radius:5px;padding:1.5px 5px;z-index:2;">مدل ${car.year}</span>
-        <img src="${car.img}" alt="${car.name}">
+        <img loading="lazy" decoding="async"  src="${car.img}" alt="${car.name}">
       </div>
       <span class="sf-pc-tag">${car.brandName} • تحویل فوری</span>
       <div class="sf-pc-title">${car.name}</div>
@@ -16147,7 +16156,7 @@ function renderMotorBanoProducts(){
     };
     card.innerHTML = `
       <div class="mb-pc-stage">
-        <img src="${p.img}" alt="${p.title}">
+        <img loading="lazy" decoding="async"  src="${p.img}" alt="${p.title}">
       </div>
       <span class="mb-pc-tag">${p.tag}</span>
       <div class="mb-pc-title">${p.title}</div>
@@ -17075,7 +17084,7 @@ const categoryDataMap = {
         priceFmt: '۴,۱۰۰,۰۰۰ تومان',
         oldPriceFmt: '۵,۲۰۰,۰۰۰ تومان',
         discount: '۲۱٪',
-        img: 'images/shop/clutch-disc-thumb.png',
+        img: 'images/shop/clutch-disc-thumb.webp',
         rating: 5.0,
         compat: 'پژو ۲۰۶، ۲۰۷، پارس، ۴۰۵، سمند، دنا'
       },
@@ -17098,7 +17107,7 @@ const categoryDataMap = {
         priceFmt: '۳,۸۵۰,۰۰۰ تومان',
         oldPriceFmt: '۴,۹۰۰,۰۰۰ تومان',
         discount: '۲۱٪',
-        img: 'images/shop/clutch-disc-thumb.png',
+        img: 'images/shop/clutch-disc-thumb.webp',
         rating: 4.9,
         compat: 'پراید، تیبا، کوییک، ساینا، رنو ال ۹۰'
       },
@@ -17121,7 +17130,7 @@ const categoryDataMap = {
         priceFmt: '۳,۲۵۰,۰۰۰ تومان',
         oldPriceFmt: '۴,۱۰۰,۰۰۰ تومان',
         discount: '۲۱٪',
-        img: 'images/shop/clutch-disc-thumb.png',
+        img: 'images/shop/clutch-disc-thumb.webp',
         rating: 4.8,
         compat: 'پراید، کوییک، ساینا، پژو ۴۰۵'
       }
@@ -17362,7 +17371,7 @@ const categoryDataMap = {
         priceFmt: '۱,۸۵۰,۰۰۰ تومان',
         oldPriceFmt: '۲,۳۵۰,۰۰۰ تومان',
         discount: '۲۱٪',
-        img: 'images/shop/clutch-disc-thumb.png',
+        img: 'images/shop/clutch-disc-thumb.webp',
         rating: 4.8,
         compat: 'پراید، پژو ۲۰۶، ۲۰۷، پارس، سمند'
       }
@@ -17618,56 +17627,56 @@ function filterCarGroup(grp, btn){
 // ==================== پایگاه داده تصاویر نمای روبرو، پرژکتورها و فلاشر چشمک‌زن ۳۸ خودرو ====================
 const CAR_FRONT_DATABASE = {
   // ۱. خانواده پراید و وانت
-  'pride':        { img: 'images/cars_front/front-pride.png',  hlL: [33.2, 54.5], hlR: [67.0, 54.5], hzL: [30.2, 55.5], hzR: [69.8, 55.5] },
-  'pride151':     { img: 'images/cars_front/front-pride.png',  hlL: [33.2, 54.5], hlR: [67.0, 54.5], hzL: [30.2, 55.5], hzR: [69.8, 55.5] },
+  'pride':        { img: 'images/cars_front/front-pride.webp',  hlL: [33.2, 54.5], hlR: [67.0, 54.5], hzL: [30.2, 55.5], hzR: [69.8, 55.5] },
+  'pride151':     { img: 'images/cars_front/front-pride.webp',  hlL: [33.2, 54.5], hlR: [67.0, 54.5], hzL: [30.2, 55.5], hzR: [69.8, 55.5] },
   // ۲. خانواده تیبا، ساینا و کوییک (طراحی کاملاً مستقل و اختصاصی)
   'tiba':         { img: 'images/cars_front/front-tiba.png',   hlL: [32.3, 46.5], hlR: [67.3, 46.5], hzL: [27.8, 47.5], hzR: [71.8, 47.5] },
-  'quick':        { img: 'images/cars_front/front-quik.png',   hlL: [38.0, 50.0], hlR: [62.0, 50.0], hzL: [33.0, 50.0], hzR: [67.0, 50.0] },
-  'saina':        { img: 'images/cars_front/front-saina.png',  hlL: [31.1, 44.1], hlR: [68.2, 44.1], hzL: [26.6, 45.1], hzR: [72.7, 45.1] },
+  'quick':        { img: 'images/cars_front/front-quik.webp',   hlL: [38.0, 50.0], hlR: [62.0, 50.0], hzL: [33.0, 50.0], hzR: [67.0, 50.0] },
+  'saina':        { img: 'images/cars_front/front-saina.webp',  hlL: [31.1, 44.1], hlR: [68.2, 44.1], hzL: [26.6, 45.1], hzR: [72.7, 45.1] },
   // ۳. سایپا شاهین
-  'shahin':       { img: 'images/cars_front/front-shahin.png', hlL: [34.0, 48.5], hlR: [66.0, 48.5], hzL: [28.5, 49.0], hzR: [71.5, 49.0] },
+  'shahin':       { img: 'images/cars_front/front-shahin.webp', hlL: [34.0, 48.5], hlR: [66.0, 48.5], hzL: [28.5, 49.0], hzR: [71.5, 49.0] },
   // ۴. نیسان آبی زامیاد و پیکاپ‌ها
-  'nissan':       { img: 'images/cars_front/front-nissan.png', hlL: [29.8, 43.0], hlR: [70.2, 43.0], hzL: [35.0, 50.0], hzR: [65.0, 50.0] },
-  'kmc_t8':       { img: 'images/cars_front/front-nissan.png', hlL: [29.8, 43.0], hlR: [70.2, 43.0], hzL: [35.0, 50.0], hzR: [65.0, 50.0] },
+  'nissan':       { img: 'images/cars_front/front-nissan.webp', hlL: [29.8, 43.0], hlR: [70.2, 43.0], hzL: [35.0, 50.0], hzR: [65.0, 50.0] },
+  'kmc_t8':       { img: 'images/cars_front/front-nissan.webp', hlL: [29.8, 43.0], hlR: [70.2, 43.0], hzL: [35.0, 50.0], hzR: [65.0, 50.0] },
   // ۵. پژو ۲۰۶
   'peugeot206_2': { img: 'images/cars_front/front-206.png',    hlL: [36.5, 47.0], hlR: [63.5, 47.0], hzL: [40.0, 49.5], hzR: [60.0, 49.5] },
   'peugeot206_5': { img: 'images/cars_front/front-206.png',    hlL: [36.5, 47.0], hlR: [63.5, 47.0], hzL: [40.0, 49.5], hzR: [60.0, 49.5] },
   'runna':        { img: 'images/cars_front/front-206.png',    hlL: [36.5, 47.0], hlR: [63.5, 47.0], hzL: [40.0, 49.5], hzR: [60.0, 49.5] },
   // ۶. پژو ۲۰۷
-  'peugeot207':   { img: 'images/cars_front/front-207.png',    hlL: [33.0, 48.0], hlR: [67.0, 48.0], hzL: [28.5, 46.5], hzR: [71.5, 46.5] },
-  'peugeot2008':  { img: 'images/cars_front/front-207.png',    hlL: [33.0, 48.0], hlR: [67.0, 48.0], hzL: [28.5, 46.5], hzR: [71.5, 46.5] },
+  'peugeot207':   { img: 'images/cars_front/front-207.webp',    hlL: [33.0, 48.0], hlR: [67.0, 48.0], hzL: [28.5, 46.5], hzR: [71.5, 46.5] },
+  'peugeot2008':  { img: 'images/cars_front/front-207.webp',    hlL: [33.0, 48.0], hlR: [67.0, 48.0], hzL: [28.5, 46.5], hzR: [71.5, 46.5] },
   // ۷. پژو پارس و پژو ۴۰۵
-  'pars':         { img: 'images/cars_front/front-pars.png',   hlL: [32.0, 50.0], hlR: [68.0, 50.0], hzL: [27.8, 49.5], hzR: [72.2, 49.5] },
-  'peugeot405':   { img: 'images/cars_front/front-pars.png',   hlL: [32.0, 50.0], hlR: [68.0, 50.0], hzL: [27.8, 49.5], hzR: [72.2, 49.5] },
+  'pars':         { img: 'images/cars_front/front-pars.webp',   hlL: [32.0, 50.0], hlR: [68.0, 50.0], hzL: [27.8, 49.5], hzR: [72.2, 49.5] },
+  'peugeot405':   { img: 'images/cars_front/front-pars.webp',   hlL: [32.0, 50.0], hlR: [68.0, 50.0], hzL: [27.8, 49.5], hzR: [72.2, 49.5] },
   // ۸. سمند و سورن پلاس (طراحی تفکیک‌شده و اختصاصی)
-  'samand':       { img: 'images/cars_front/front-samand.png', hlL: [29.4, 46.2], hlR: [67.9, 46.2], hzL: [24.9, 47.2], hzR: [72.4, 47.2] },
-  'soren':        { img: 'images/cars_front/front-soren.png',  hlL: [32.5, 48.5], hlR: [67.5, 48.5], hzL: [29.5, 49.0], hzR: [70.5, 49.0] },
+  'samand':       { img: 'images/cars_front/front-samand.webp', hlL: [29.4, 46.2], hlR: [67.9, 46.2], hzL: [24.9, 47.2], hzR: [72.4, 47.2] },
+  'soren':        { img: 'images/cars_front/front-soren.webp',  hlL: [32.5, 48.5], hlR: [67.5, 48.5], hzL: [29.5, 49.0], hzR: [70.5, 49.0] },
   // ۹. دنا و دنا پلاس و تارا (تارا با طراحی مستقل اختصاصی)
-  'dena':         { img: 'images/cars_front/front-dena.png',   hlL: [32.0, 46.5], hlR: [68.0, 46.5], hzL: [33.5, 49.5], hzR: [66.5, 49.5] },
-  'dena_turbo':   { img: 'images/cars_front/front-dena.png',   hlL: [32.0, 46.5], hlR: [68.0, 46.5], hzL: [33.5, 49.5], hzR: [66.5, 49.5] },
+  'dena':         { img: 'images/cars_front/front-dena.webp',   hlL: [32.0, 46.5], hlR: [68.0, 46.5], hzL: [33.5, 49.5], hzR: [66.5, 49.5] },
+  'dena_turbo':   { img: 'images/cars_front/front-dena.webp',   hlL: [32.0, 46.5], hlR: [68.0, 46.5], hzL: [33.5, 49.5], hzR: [66.5, 49.5] },
   'tara':         { img: 'images/cars_front/front-tara.png',   hlL: [36.9, 52.1], hlR: [62.9, 52.1], hzL: [32.4, 53.1], hzR: [67.4, 53.1] },
   // ۱۰. رنو تندر ۹۰، ساندرو و مگان
-  'l90':          { img: 'images/cars_front/front-l90.png',    hlL: [33.5, 53.0], hlR: [66.5, 53.0], hzL: [29.0, 53.0], hzR: [71.0, 53.0] },
-  'sandero':      { img: 'images/cars_front/front-l90.png',    hlL: [33.5, 53.0], hlR: [66.5, 53.0], hzL: [29.0, 53.0], hzR: [71.0, 53.0] },
-  'megane':       { img: 'images/cars_front/front-l90.png',    hlL: [33.5, 53.0], hlR: [66.5, 53.0], hzL: [29.0, 53.0], hzR: [71.0, 53.0] },
+  'l90':          { img: 'images/cars_front/front-l90.webp',    hlL: [33.5, 53.0], hlR: [66.5, 53.0], hzL: [29.0, 53.0], hzR: [71.0, 53.0] },
+  'sandero':      { img: 'images/cars_front/front-l90.webp',    hlL: [33.5, 53.0], hlR: [66.5, 53.0], hzL: [29.0, 53.0], hzR: [71.0, 53.0] },
+  'megane':       { img: 'images/cars_front/front-l90.webp',    hlL: [33.5, 53.0], hlR: [66.5, 53.0], hzL: [29.0, 53.0], hzR: [71.0, 53.0] },
   // ۱۱. خودروهای چینی، کراس‌اوور و شاسی‌بلند
   'mvm315':       { img: 'images/cars_front/front-206.png',    hlL: [36.5, 47.0], hlR: [63.5, 47.0], hzL: [40.0, 49.5], hzR: [60.0, 49.5] },
-  'mvm_x22':      { img: 'images/cars_front/front-207.png',    hlL: [33.0, 48.0], hlR: [67.0, 48.0], hzL: [28.5, 46.5], hzR: [71.5, 46.5] },
-  'mvm_x33':      { img: 'images/cars_front/front-shahin.png', hlL: [34.0, 48.5], hlR: [66.0, 48.5], hzL: [28.5, 49.0], hzR: [71.5, 49.0] },
-  'tiggo5':       { img: 'images/cars_front/front-shahin.png', hlL: [34.0, 48.5], hlR: [66.0, 48.5], hzL: [28.5, 49.0], hzR: [71.5, 49.0] },
-  'tiggo7':       { img: 'images/cars_front/front-shahin.png', hlL: [34.0, 48.5], hlR: [66.0, 48.5], hzL: [28.5, 49.0], hzR: [71.5, 49.0] },
-  'arrizo5':      { img: 'images/cars_front/front-dena.png',   hlL: [32.0, 46.5], hlR: [68.0, 46.5], hzL: [33.5, 49.5], hzR: [66.5, 49.5] },
-  'jac_j4':       { img: 'images/cars_front/front-shahin.png', hlL: [34.0, 48.5], hlR: [66.0, 48.5], hzL: [28.5, 49.0], hzR: [71.5, 49.0] },
-  'jac_s5':       { img: 'images/cars_front/front-shahin.png', hlL: [34.0, 48.5], hlR: [66.0, 48.5], hzL: [28.5, 49.0], hzR: [71.5, 49.0] },
-  'brilliance':   { img: 'images/cars_front/front-shahin.png', hlL: [34.0, 48.5], hlR: [66.0, 48.5], hzL: [28.5, 49.0], hzR: [71.5, 49.0] },
-  'haima_s7':     { img: 'images/cars_front/front-shahin.png', hlL: [34.0, 48.5], hlR: [66.0, 48.5], hzL: [28.5, 49.0], hzR: [71.5, 49.0] },
-  'fidelity':     { img: 'images/cars_front/front-shahin.png', hlL: [34.0, 48.5], hlR: [66.0, 48.5], hzL: [28.5, 49.0], hzR: [71.5, 49.0] },
-  'dignity':      { img: 'images/cars_front/front-shahin.png', hlL: [34.0, 48.5], hlR: [66.0, 48.5], hzL: [28.5, 49.0], hzR: [71.5, 49.0] },
+  'mvm_x22':      { img: 'images/cars_front/front-207.webp',    hlL: [33.0, 48.0], hlR: [67.0, 48.0], hzL: [28.5, 46.5], hzR: [71.5, 46.5] },
+  'mvm_x33':      { img: 'images/cars_front/front-shahin.webp', hlL: [34.0, 48.5], hlR: [66.0, 48.5], hzL: [28.5, 49.0], hzR: [71.5, 49.0] },
+  'tiggo5':       { img: 'images/cars_front/front-shahin.webp', hlL: [34.0, 48.5], hlR: [66.0, 48.5], hzL: [28.5, 49.0], hzR: [71.5, 49.0] },
+  'tiggo7':       { img: 'images/cars_front/front-shahin.webp', hlL: [34.0, 48.5], hlR: [66.0, 48.5], hzL: [28.5, 49.0], hzR: [71.5, 49.0] },
+  'arrizo5':      { img: 'images/cars_front/front-dena.webp',   hlL: [32.0, 46.5], hlR: [68.0, 46.5], hzL: [33.5, 49.5], hzR: [66.5, 49.5] },
+  'jac_j4':       { img: 'images/cars_front/front-shahin.webp', hlL: [34.0, 48.5], hlR: [66.0, 48.5], hzL: [28.5, 49.0], hzR: [71.5, 49.0] },
+  'jac_s5':       { img: 'images/cars_front/front-shahin.webp', hlL: [34.0, 48.5], hlR: [66.0, 48.5], hzL: [28.5, 49.0], hzR: [71.5, 49.0] },
+  'brilliance':   { img: 'images/cars_front/front-shahin.webp', hlL: [34.0, 48.5], hlR: [66.0, 48.5], hzL: [28.5, 49.0], hzR: [71.5, 49.0] },
+  'haima_s7':     { img: 'images/cars_front/front-shahin.webp', hlL: [34.0, 48.5], hlR: [66.0, 48.5], hzL: [28.5, 49.0], hzR: [71.5, 49.0] },
+  'fidelity':     { img: 'images/cars_front/front-shahin.webp', hlL: [34.0, 48.5], hlR: [66.0, 48.5], hzL: [28.5, 49.0], hzR: [71.5, 49.0] },
+  'dignity':      { img: 'images/cars_front/front-shahin.webp', hlL: [34.0, 48.5], hlR: [66.0, 48.5], hzL: [28.5, 49.0], hzR: [71.5, 49.0] },
   // ۱۲. پیکان
-  'peykan':       { img: 'images/cars_front/front-pride.png',  hlL: [33.2, 54.5], hlR: [67.0, 54.5], hzL: [30.2, 55.5], hzR: [69.8, 55.5] },
+  'peykan':       { img: 'images/cars_front/front-pride.webp',  hlL: [33.2, 54.5], hlR: [67.0, 54.5], hzL: [30.2, 55.5], hzR: [69.8, 55.5] },
   // ۱۳. وارداتی
-  'santafe':      { img: 'images/cars_front/front-shahin.png', hlL: [34.0, 48.5], hlR: [66.0, 48.5], hzL: [28.5, 49.0], hzR: [71.5, 49.0] },
-  'cerato':       { img: 'images/cars_front/front-shahin.png', hlL: [34.0, 48.5], hlR: [66.0, 48.5], hzL: [28.5, 49.0], hzR: [71.5, 49.0] }
+  'santafe':      { img: 'images/cars_front/front-shahin.webp', hlL: [34.0, 48.5], hlR: [66.0, 48.5], hzL: [28.5, 49.0], hzR: [71.5, 49.0] },
+  'cerato':       { img: 'images/cars_front/front-shahin.webp', hlL: [34.0, 48.5], hlR: [66.0, 48.5], hzL: [28.5, 49.0], hzR: [71.5, 49.0] }
 };
 
 function getCarFrontConfig(carKey){
@@ -18039,7 +18048,7 @@ function renderVehicleProfileHub(carKey = currentSelectedCar){
     card.innerHTML = `
       <span class="vph-discount-tag">${item.discount}</span>
       <div class="vph-item-stage">
-        <img src="${item.img}" alt="${item.title}">
+        <img loading="lazy" decoding="async"  src="${item.img}" alt="${item.title}">
       </div>
       <div>
         <div class="vph-item-cat">${item.cat}</div>
@@ -18192,7 +18201,7 @@ function renderCategoryProducts(products){
     const isBat = (p.cat === 'battery' || (p.title && p.title.includes('باتری')));
     card.innerHTML = `
       <div class="cpc-img-wrap">
-        <img src="${p.img}" alt="${p.title}">
+        <img loading="lazy" decoding="async"  src="${p.img}" alt="${p.title}">
       </div>
       <div class="tc-info">
         <div class="tc-brand-row">
@@ -18545,7 +18554,7 @@ function renderShowdownContent(){
         ${isBest ? '<div class="cmp-choice-tag"><svg viewBox="0 0 24 24" width="9" height="9" fill="currentColor" stroke="none" style="display:inline-block; vertical-align:middle; margin-left:3px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>پیشنهاد برتر ارزش خرید</div>' : ''}
         <button class="cmp-del-btn" onclick="removeFromCompare('${p.id}')" title="حذف از مقایسه"><svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
         <div class="cmp-stage">
-          <img src="${p.img}" alt="${p.title}">
+          <img loading="lazy" decoding="async"  src="${p.img}" alt="${p.title}">
         </div>
         <div>
           <span class="cmp-brand-badge">${p.brand}</span>
@@ -18763,7 +18772,7 @@ function renderCartItems(){
     const isItemServ = (item.title && (item.title.includes('باتری') || item.title.includes('تعویض در محل')));
     row.innerHTML = `
       <div class="cc-item-info">
-        <img src="${item.img}" class="cc-item-img" alt="${item.title}">
+        <img loading="lazy" decoding="async"  src="${item.img}" class="cc-item-img" alt="${item.title}">
         <div>
           <div class="cc-item-name">${item.title}</div>
           <div style="display:flex;align-items:center;gap:6px;margin-top:2px;">
@@ -19039,7 +19048,7 @@ function renderOrdersList(filter){
     // محتوای اقلام
     const itemsHtml = order.items.map(item => `
       <div class="ord-item-row">
-        <img class="ord-item-thumb" src="${item.img}" alt="${item.title}">
+        <img loading="lazy" decoding="async"  class="ord-item-thumb" src="${item.img}" alt="${item.title}">
         <div class="ord-item-details">
           <div class="ord-item-title">${item.title}</div>
           <div class="ord-item-sub">
@@ -19557,7 +19566,7 @@ const storyContentMap = {
     title: 'مهرداد پاکزاد • دیسک و صفحه والئو سبز',
     sub: 'دنا پلاس • خرید تایید شده دیروز',
     avatar: 'VK',
-    img: 'images/shop/clutch-disc-thumb.png',
+    img: 'images/shop/clutch-disc-thumb.webp',
     rating: 'امتیاز: ۵.۰ از ۵.۰ (خریدار تایید شده)',
     quote: '«کلاچ به معنای واقعی پنبه شد! لرزش دنده یک کاملاً از بین رفت و شتاب ماشین برگشت به روز اول. گارانتی طلایی شرکتی هم همراه بسته بود.»'
   },
@@ -19573,7 +19582,7 @@ const storyContentMap = {
     title: 'فرشید نادری • تعویض باتری در محل',
     sub: 'کوییک R • سفارش نصب فوری',
     avatar: 'MR',
-    img: 'images/photo1/battery.png',
+    img: 'images/photo1/battery.webp',
     rating: 'امتیاز: ۵.۰ از ۵.۰ (خریدار تایید شده)',
     quote: '«باتری ماشین صبح خوابیده بود، درخواست دادم ۲۵ دقیقه بعد تکنسین با پیک رسید، رایگان تست دینام و استارت گرفت و باتری اوربیتال با ۱۸ ماه گارانتی نصب کرد.»'
   },
@@ -19801,7 +19810,7 @@ function renderModernShopProducts(list = curatedShopProducts){
     card.innerHTML = `
       <div>
         <div class="smp-img-box" onclick="openCategoryModal('${p.cat}')">
-          <img src="${p.img}" alt="${p.title}">
+          <img loading="lazy" decoding="async"  src="${p.img}" alt="${p.title}">
           <span class="smp-discount-badge">${p.discount}</span>
         </div>
         <div class="smp-brand">${p.brand}</div>
@@ -20054,7 +20063,7 @@ function renderAppleProducts(products = appleProductsCatalog){
     card.innerHTML = `
       <div>
         <div class="apg-stage" onclick="openCategoryModal('${p.cat}')">
-          <img src="${p.img}" alt="${p.title}">
+          <img loading="lazy" decoding="async"  src="${p.img}" alt="${p.title}">
           <span class="apg-discount-tag">${p.discount}</span>
         </div>
         <div class="apg-badge">${p.brand}</div>
@@ -22321,7 +22330,7 @@ function renderPanelList(sid){
   if(!list.length){box.innerHTML='<span style="font-size:10px;color:#94A3B8">هنوز محصولی ثبت نکرده‌اید.</span>';return}
   list.forEach(p=>{
     const row=document.createElement('div'); row.className='mk-prod';
-    row.innerHTML=`<img src="${p.img}"><div style="flex:1"><b>${p.title}</b><span>${MK_CAT[p.cat]||''} | ${mkFa(p.price)} تومان</span></div><button class="mk-del" onclick="delProduct('${p.id}')">حذف</button>`;
+    row.innerHTML=`<img loading="lazy" decoding="async"  src="${p.img}"><div style="flex:1"><b>${p.title}</b><span>${MK_CAT[p.cat]||''} | ${mkFa(p.price)} تومان</span></div><button class="mk-del" onclick="delProduct('${p.id}')">حذف</button>`;
     box.appendChild(row);
   });
 }
@@ -22379,6 +22388,9 @@ window.addEventListener('load',()=>setTimeout(mkFitFlow,400));
   // ظهور نرم بخش‌ها هنگام اسکرول
   const io = new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('rv-in'); io.unobserve(e.target); } }); }, {rootMargin:'300px 0px', threshold:0});
   document.querySelectorAll('.quad-banners,.shop-carousel-section').forEach(el=>{ el.classList.add('rv'); io.observe(el); });
+  // توقف انیمیشن‌های پیوسته وقتی از دید خارج‌اند (صرفه‌جویی GPU)
+  const ioA = new IntersectionObserver(es=>{ es.forEach(e=>{ e.target.classList.toggle('anim-off', !e.isIntersecting); }); }, {rootMargin:'160px 0px', threshold:0});
+  document.querySelectorAll('.vph-blend,.ring-ad,.quad-banners,.shs-banner-img-full').forEach(el=>{ ioA.observe(el); });
 })();
 
 </script>
