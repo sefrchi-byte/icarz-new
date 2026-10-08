@@ -12867,3 +12867,20 @@ a,.menu-item,.qb-tile,.pill,.icon-btn,.tc-add-btn,.nav-item,.rc-cta,.cta,.vph-sw
 .drawer-panel,[class$="-modal"]{-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
 
 #ring-motorbano .rc-cta{background:#B80050}
+
+/* ==== minimal: tiny chips, two sides on top ==== */
+.tc-flag{position:absolute;top:8px;right:8px;left:auto;z-index:2;font-size:9px;font-weight:800;padding:2px 6px;border-radius:8px;line-height:1.6;white-space:nowrap;border:none;box-shadow:none;background:rgba(100,116,139,.10);color:#475569}
+.tc-flag-glass,.tc-flag-off,.tc-flag-red{left:8px;right:auto}
+.tc-flag-blue{background:rgba(37,99,235,.10);color:#1D4ED8}
+.tc-flag-pink{background:rgba(230,0,92,.08);color:#E6005C}
+.tc-flag-off{background:rgba(184,0,80,.08);color:#B80050}
+.tc-flag-red{background:rgba(185,28,28,.08);color:#B91C1C}
+.tc-card{border:1px solid rgba(15,23,42,.05);border-radius:18px;box-shadow:0 1px 2px rgba(15,23,42,.03)}
+.tc-card:hover{box-shadow:0 6px 18px -8px rgba(15,23,42,.10)}
+.tc-stage{border-radius:13px}
+.tapsi-carousel-track{gap:14px;padding:4px 10px 12px}
+
+/* plus icon always white */
+.tc-add-btn{color:#FFFFFF!important}
+.tc-add-btn svg{stroke:#FFFFFF!important}
+.tc-add-btn:not([style*="background"]){background:linear-gradient(135deg,#2563EB,#1D4ED8)!important;border:none!important;box-shadow:0 2px 7px rgba(37,99,235,.32)!important}

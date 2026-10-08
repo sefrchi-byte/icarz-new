@@ -490,8 +490,8 @@ function renderSefrechiSliderCards(brandFilter = 'all'){
     card.innerHTML = `
       <!-- استیج خودرو متناسب با سایر کارت‌های کالا -->
       <div class="tc-stage" style="position:relative;background:#F8FAFC;">
-        <span style="position:absolute;top:6px;right:6px;background:linear-gradient(135deg, #2563EB, #1D4ED8);color:#FFFFFF;font-size:12px;font-weight:800;padding:1.5px 5.5px;border-radius:5px;z-index:2;box-shadow:0 2px 6px rgba(37,99,235,0.45);border:0.5px solid rgba(147,197,253,0.5);">صفر خشک</span>
-        <span style="position:absolute;top:6px;left:6px;background:rgba(255,255,255,0.95);border:0.5px solid #DBEAFE;font-size:12px;font-weight:700;color:#1D4ED8;border-radius:5px;padding:1.5px 5px;z-index:2;">مدل ${car.year}</span>
+        <span class="tc-flag tc-flag-blue">صفر خشک</span>
+        <span class="tc-flag tc-flag-glass">مدل ${car.year}</span>
         <img src="${car.img}" alt="${car.name}" loading="lazy">
       </div>
 
@@ -538,8 +538,8 @@ function renderMotorbanoSliderCards(){
     card.innerHTML = `
       <!-- استیج محصول موتوربانو با پس‌زمینه لطیف و هماهنگ -->
       <div class="tc-stage" style="position:relative;background:#FFF5F8;display:flex;align-items:center;justify-content:center;">
-        <span style="position:absolute;top:6px;right:6px;background:linear-gradient(135deg, #FF3B94, #FF0F68);color:#FFFFFF;font-size:12px;font-weight:800;padding:1.5px 5px;border-radius:5px;z-index:2;box-shadow:0 2px 6px rgba(255,15,104,0.4);border:0.5px solid rgba(255,182,217,0.6);">ویژه بانوان</span>
-        <span style="position:absolute;top:6px;left:6px;background:rgba(255,255,255,0.95);border:0.5px solid #FFCCD9;font-size:12px;font-weight:700;color:#E6005C;border-radius:5px;padding:1.5px 5px;z-index:2;">${p.discount || 'تخفیف ویژه'}</span>
+        <span class="tc-flag tc-flag-pink">ویژه بانوان</span>
+        <span class="tc-flag tc-flag-off">${p.discount || 'تخفیف ویژه'}</span>
         <img src="${p.img}" alt="${p.title}" loading="lazy" style="max-height:76px;max-width:96px;object-fit:contain;filter:drop-shadow(0 3px 6px rgba(0,0,0,0.08));">
       </div>
 
@@ -950,8 +950,8 @@ function renderSefrechiModalCatalog(brandFilter = 'all'){
 
     card.innerHTML = `
       <div class="sf-pc-stage">
-        <span style="position:absolute;top:6px;right:6px;background:linear-gradient(135deg, #2563EB, #1D4ED8);color:#FFFFFF;font-size:12px;font-weight:800;padding:1.5px 5.5px;border-radius:5px;z-index:2;box-shadow:0 2px 6px rgba(37,99,235,0.45);border:0.5px solid rgba(147,197,253,0.5);">صفر خشک</span>
-        <span style="position:absolute;top:6px;left:6px;background:rgba(255,255,255,0.95);border:0.5px solid #DBEAFE;font-size:12px;font-weight:700;color:#1D4ED8;border-radius:5px;padding:1.5px 5px;z-index:2;">مدل ${car.year}</span>
+        <span class="tc-flag tc-flag-blue">صفر خشک</span>
+        <span class="tc-flag tc-flag-glass">مدل ${car.year}</span>
         <img loading="lazy" decoding="async"  src="${car.img}" alt="${car.name}">
       </div>
       <span class="sf-pc-tag">${car.brandName} • تحویل فوری</span>
@@ -7070,7 +7070,7 @@ function renderMarketCards(){
     const card=document.createElement('div'); card.className='tc-card';
     card.innerHTML=`
       <div class="tc-stage" style="position:relative;background:#F8FAFC;">
-        ${off?`<span style="position:absolute;top:6px;left:6px;background:#FEF2F2;border:0.5px solid #FECACA;color:#DC2626;font-size:12px;font-weight:800;padding:1.5px 5px;border-radius:5px;z-index:2">−${mkFa(off)}٪</span>`:''}
+        ${off?`<span class="tc-flag tc-flag-red">−${mkFa(off)}٪</span>`:''}
         <img src="${p.img}" alt="${p.title}" loading="lazy">
         <span class="mk-seller-badge">🏪 ${s.store}</span>
       </div>
