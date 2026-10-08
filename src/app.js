@@ -490,8 +490,8 @@ function renderSefrechiSliderCards(brandFilter = 'all'){
     card.innerHTML = `
       <!-- استیج خودرو متناسب با سایر کارت‌های کالا -->
       <div class="tc-stage" style="position:relative;background:#F8FAFC;">
-        <span style="position:absolute;top:6px;right:6px;background:linear-gradient(135deg, #2563EB, #1D4ED8);color:#FFFFFF;font-size:7px;font-weight:800;padding:1.5px 5.5px;border-radius:5px;z-index:2;box-shadow:0 2px 6px rgba(37,99,235,0.45);border:0.5px solid rgba(147,197,253,0.5);">صفر خشک</span>
-        <span style="position:absolute;top:6px;left:6px;background:rgba(255,255,255,0.95);border:0.5px solid #DBEAFE;font-size:7px;font-weight:700;color:#1D4ED8;border-radius:5px;padding:1.5px 5px;z-index:2;">مدل ${car.year}</span>
+        <span style="position:absolute;top:6px;right:6px;background:linear-gradient(135deg, #2563EB, #1D4ED8);color:#FFFFFF;font-size:12px;font-weight:800;padding:1.5px 5.5px;border-radius:5px;z-index:2;box-shadow:0 2px 6px rgba(37,99,235,0.45);border:0.5px solid rgba(147,197,253,0.5);">صفر خشک</span>
+        <span style="position:absolute;top:6px;left:6px;background:rgba(255,255,255,0.95);border:0.5px solid #DBEAFE;font-size:12px;font-weight:700;color:#1D4ED8;border-radius:5px;padding:1.5px 5px;z-index:2;">مدل ${car.year}</span>
         <img src="${car.img}" alt="${car.name}" loading="lazy">
       </div>
 
@@ -508,10 +508,10 @@ function renderSefrechiSliderCards(brandFilter = 'all'){
       <!-- قیمت و دکمه انتخاب سریع -->
       <div class="tc-foot">
         <div class="tc-price-wrap">
-          <span class="tc-old" style="font-size:8px;color:#64748B;">اقساط از ${car.monthlyInstallmentFmt} ت</span>
+          <span class="tc-old" style="font-size:12px;color:#64748B;">اقساط از ${car.monthlyInstallmentFmt} ت</span>
           <div class="tc-price">${car.cashPriceFmt} <span>تومان</span></div>
         </div>
-        <button class="tc-add-btn" onclick="event.stopPropagation(); openSefrechiCarSpecModal(\'${car.id}\')" title="مشاهده و ثبت خرید خودرو" style="background:linear-gradient(135deg, #2563EB, #1D4ED8);box-shadow:0 3px 8px rgba(37,99,235,0.38);"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <button class="tc-add-btn" aria-label="افزودن به سبد خرید" onclick="event.stopPropagation(); openSefrechiCarSpecModal(\'${car.id}\')" title="مشاهده و ثبت خرید خودرو" style="background:linear-gradient(135deg, #2563EB, #1D4ED8);box-shadow:0 3px 8px rgba(37,99,235,0.38);"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
     `;
     track.appendChild(card);
@@ -538,8 +538,8 @@ function renderMotorbanoSliderCards(){
     card.innerHTML = `
       <!-- استیج محصول موتوربانو با پس‌زمینه لطیف و هماهنگ -->
       <div class="tc-stage" style="position:relative;background:#FFF5F8;display:flex;align-items:center;justify-content:center;">
-        <span style="position:absolute;top:6px;right:6px;background:linear-gradient(135deg, #FF3B94, #FF0F68);color:#FFFFFF;font-size:7px;font-weight:800;padding:1.5px 5px;border-radius:5px;z-index:2;box-shadow:0 2px 6px rgba(255,15,104,0.4);border:0.5px solid rgba(255,182,217,0.6);">ویژه بانوان</span>
-        <span style="position:absolute;top:6px;left:6px;background:rgba(255,255,255,0.95);border:0.5px solid #FFCCD9;font-size:7px;font-weight:700;color:#E6005C;border-radius:5px;padding:1.5px 5px;z-index:2;">${p.discount || 'تخفیف ویژه'}</span>
+        <span style="position:absolute;top:6px;right:6px;background:linear-gradient(135deg, #FF3B94, #FF0F68);color:#FFFFFF;font-size:12px;font-weight:800;padding:1.5px 5px;border-radius:5px;z-index:2;box-shadow:0 2px 6px rgba(255,15,104,0.4);border:0.5px solid rgba(255,182,217,0.6);">ویژه بانوان</span>
+        <span style="position:absolute;top:6px;left:6px;background:rgba(255,255,255,0.95);border:0.5px solid #FFCCD9;font-size:12px;font-weight:700;color:#E6005C;border-radius:5px;padding:1.5px 5px;z-index:2;">${p.discount || 'تخفیف ویژه'}</span>
         <img src="${p.img}" alt="${p.title}" loading="lazy" style="max-height:76px;max-width:96px;object-fit:contain;filter:drop-shadow(0 3px 6px rgba(0,0,0,0.08));">
       </div>
 
@@ -556,10 +556,10 @@ function renderMotorbanoSliderCards(){
       <!-- قیمت و دکمه انتخاب سریع -->
       <div class="tc-foot">
         <div class="tc-price-wrap">
-          <span class="tc-old" style="font-size:8px;color:#94A3B8;">${p.oldPrice ? p.oldPrice.toLocaleString('fa-IR') : 'اقساط ۴ ماهه'}</span>
-          <div class="tc-price" style="font-size:11px;font-weight:800;color:#0F172A;">${p.price.toLocaleString('fa-IR')} <span>تومان</span></div>
+          <span class="tc-old" style="font-size:12px;color:#64748B;">${p.oldPrice ? p.oldPrice.toLocaleString('fa-IR') : 'اقساط ۴ ماهه'}</span>
+          <div class="tc-price" style="font-size:12.5px;font-weight:800;color:#0F172A;">${p.price.toLocaleString('fa-IR')} <span>تومان</span></div>
         </div>
-        <button class="tc-add-btn" onclick="event.stopPropagation(); openProductSpecModal(\'${p.id}\')" title="مشاهده مشخصات و خرید" style="background:linear-gradient(135deg, #FF3B94, #FF0F68);box-shadow:0 3px 8px rgba(255,15,104,0.35);"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <button class="tc-add-btn" aria-label="افزودن به سبد خرید" onclick="event.stopPropagation(); openProductSpecModal(\'${p.id}\')" title="مشاهده مشخصات و خرید" style="background:linear-gradient(135deg, #FF3B94, #FF0F68);box-shadow:0 3px 8px rgba(255,15,104,0.35);"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
     `;
     track.appendChild(card);
@@ -598,7 +598,7 @@ function openSefrechiCarSpecModal(carId){
   const swatchesContainer = document.getElementById('csmColorSwatches');
   if(swatchesContainer){
     swatchesContainer.innerHTML = car.colors.map((col, idx) => {
-      const dotBg = col.includes('سفید') ? '#FFFFFF' : (col.includes('مشکی') ? '#1E293B' : (col.includes('قرمز') ? '#E11D48' : (col.includes('نقره') ? '#CBD5E1' : '#94A3B8')));
+      const dotBg = col.includes('سفید') ? '#FFFFFF' : (col.includes('مشکی') ? '#1E293B' : (col.includes('قرمز') ? '#E11D48' : (col.includes('نقره') ? '#CBD5E1' : '#64748B')));
       const isAct = idx === 0 ? 'border:2px solid #0F172A;transform:scale(1.2);' : '';
       return `<span class="sf-card-dot" style="background:${dotBg};width:14px;height:14px;${isAct}" onclick="setSpecColor('${col}', this)" title="${col}"></span>`;
     }).join('');
@@ -739,7 +739,7 @@ function renderSefrechiOrderForm(){
 
   const colorButtonsHtml = car.colors.map((col, idx) => {
     const isAct = col === selectedSefrechiColor;
-    const dotColor = col.includes('سفید') ? '#FFFFFF' : (col.includes('مشکی') ? '#1E293B' : (col.includes('قرمز') ? '#E11D48' : '#94A3B8'));
+    const dotColor = col.includes('سفید') ? '#FFFFFF' : (col.includes('مشکی') ? '#1E293B' : (col.includes('قرمز') ? '#E11D48' : '#64748B'));
     return `
       <div class="sf-color-opt ${isAct ? 'active' : ''}" onclick="selectSefrechiColor('${col}', this)">
         <span class="sf-color-dot" style="background:${dotColor};"></span>
@@ -754,8 +754,8 @@ function renderSefrechiOrderForm(){
       <img loading="lazy" decoding="async"  src="${car.img}" class="sf-order-car-thumb" alt="${car.name}">
       <div style="flex:1;">
         <b style="font-size:13px;color:#111827;display:block;">${car.name}</b>
-        <span style="font-size:10px;color:#6B7280;display:block;margin-top:2px;">${car.brandName} • مدل ${car.year} • صفر خشک کاردکس</span>
-        <div style="font-size:10px;color:#2563EB;margin-top:3px;font-weight:600;">${car.transmission}</div>
+        <span style="font-size:12px;color:#6B7280;display:block;margin-top:2px;">${car.brandName} • مدل ${car.year} • صفر خشک کاردکس</span>
+        <div style="font-size:12px;color:#2563EB;margin-top:3px;font-weight:600;">${car.transmission}</div>
       </div>
     </div>
 
@@ -784,11 +784,11 @@ function renderSefrechiOrderForm(){
     <div class="sf-form-group">
       <label class="sf-form-label">شیوه تحویل:</label>
       <div style="display:flex;gap:8px;">
-        <label style="flex:1;background:#F9FAFB;border:1px solid #D1D5DB;border-radius:8px;padding:7px;font-size:10.5px;color:#111827;display:flex;align-items:center;gap:6px;cursor:pointer;">
+        <label style="flex:1;background:#F9FAFB;border:1px solid #D1D5DB;border-radius:8px;padding:7px;font-size:12px;color:#111827;display:flex;align-items:center;gap:6px;cursor:pointer;">
           <input type="radio" name="sfDeliveryMode" checked>
           <span>🚛 خودروبر کفی درب منزل (رایگان)</span>
         </label>
-        <label style="flex:1;background:#FFFFFF;border:1px solid #E5E7EB;border-radius:8px;padding:7px;font-size:10.5px;color:#6B7280;display:flex;align-items:center;gap:6px;cursor:pointer;">
+        <label style="flex:1;background:#FFFFFF;border:1px solid #E5E7EB;border-radius:8px;padding:7px;font-size:12px;color:#6B7280;display:flex;align-items:center;gap:6px;cursor:pointer;">
           <input type="radio" name="sfDeliveryMode">
           <span>🏢 تحویل حضوری در سالن صفرچی</span>
         </label>
@@ -798,24 +798,24 @@ function renderSefrechiOrderForm(){
     <!-- مشخصات خریدار -->
     <div class="sf-form-group">
       <label class="sf-form-label">نام و نام خانوادگی خریدار (جهت صدور سند کمپانی):</label>
-      <input type="text" id="sfCustomerName" value="آرش کاظمی" style="padding:8px 12px;border:1px solid #D1D5DB;border-radius:8px;font-size:11px;font-family:inherit;width:100%;box-sizing:border-box;">
+      <input type="text" id="sfCustomerName" value="آرش کاظمی" style="padding:8px 12px;border:1px solid #D1D5DB;border-radius:8px;font-size:12.5px;font-family:inherit;width:100%;box-sizing:border-box;">
     </div>
 
     <div class="sf-form-group">
       <label class="sf-form-label">آدرس تحویل با خودروبر کفی درب منزل:</label>
-      <input type="text" id="sfDeliveryAddress" value="تهران، خیابان آزادی، تقاطع نواب، پلاک ۲۴" style="padding:8px 12px;border:1px solid #D1D5DB;border-radius:8px;font-size:11px;font-family:inherit;width:100%;box-sizing:border-box;">
+      <input type="text" id="sfDeliveryAddress" value="تهران، خیابان آزادی، تقاطع نواب، پلاک ۲۴" style="padding:8px 12px;border:1px solid #D1D5DB;border-radius:8px;font-size:12.5px;font-family:inherit;width:100%;box-sizing:border-box;">
     </div>
 
     <div class="sf-form-group">
       <label class="sf-form-label">شماره تلفن همراه خریدار:</label>
-      <input type="tel" id="sfCustomerPhone" value="۰۹۱۲۳۴۵۶۷۸۹" style="padding:8px 12px;border:1px solid #D1D5DB;border-radius:8px;font-size:11px;font-family:inherit;width:100%;box-sizing:border-box;direction:ltr;text-align:right;">
+      <input type="tel" id="sfCustomerPhone" value="۰۹۱۲۳۴۵۶۷۸۹" style="padding:8px 12px;border:1px solid #D1D5DB;border-radius:8px;font-size:12.5px;font-family:inherit;width:100%;box-sizing:border-box;direction:ltr;text-align:right;">
     </div>
 
     <!-- خلاصه صورتحساب -->
     <div class="sf-order-pricing-summary">
       <div class="sf-ops-row">
         <span>مبلغ پرداختی این مرحله:</span>
-        <b style="font-family:'YekanBakhFaNum';font-size:11.5px;">${finalPrice.toLocaleString('fa-IR')} تومان</b>
+        <b style="font-family:'YekanBakhFaNum';font-size:13px;">${finalPrice.toLocaleString('fa-IR')} تومان</b>
       </div>
       ${isInstallment ? `
       <div class="sf-ops-row">
@@ -950,13 +950,13 @@ function renderSefrechiModalCatalog(brandFilter = 'all'){
 
     card.innerHTML = `
       <div class="sf-pc-stage">
-        <span style="position:absolute;top:6px;right:6px;background:linear-gradient(135deg, #2563EB, #1D4ED8);color:#FFFFFF;font-size:7px;font-weight:800;padding:1.5px 5.5px;border-radius:5px;z-index:2;box-shadow:0 2px 6px rgba(37,99,235,0.45);border:0.5px solid rgba(147,197,253,0.5);">صفر خشک</span>
-        <span style="position:absolute;top:6px;left:6px;background:rgba(255,255,255,0.95);border:0.5px solid #DBEAFE;font-size:7px;font-weight:700;color:#1D4ED8;border-radius:5px;padding:1.5px 5px;z-index:2;">مدل ${car.year}</span>
+        <span style="position:absolute;top:6px;right:6px;background:linear-gradient(135deg, #2563EB, #1D4ED8);color:#FFFFFF;font-size:12px;font-weight:800;padding:1.5px 5.5px;border-radius:5px;z-index:2;box-shadow:0 2px 6px rgba(37,99,235,0.45);border:0.5px solid rgba(147,197,253,0.5);">صفر خشک</span>
+        <span style="position:absolute;top:6px;left:6px;background:rgba(255,255,255,0.95);border:0.5px solid #DBEAFE;font-size:12px;font-weight:700;color:#1D4ED8;border-radius:5px;padding:1.5px 5px;z-index:2;">مدل ${car.year}</span>
         <img loading="lazy" decoding="async"  src="${car.img}" alt="${car.name}">
       </div>
       <span class="sf-pc-tag">${car.brandName} • تحویل فوری</span>
       <div class="sf-pc-title">${car.name}</div>
-      <div class="sf-pc-price">${car.cashPriceFmt} <span style="font-size:9.5px;font-weight:500;color:#64748B;">تومان</span></div>
+      <div class="sf-pc-price">${car.cashPriceFmt} <span style="font-size:12px;font-weight:500;color:#64748B;">تومان</span></div>
       <div class="sf-pc-inst">اقساط از ${car.monthlyInstallmentFmt} ت/ماه</div>
       <button class="sf-pc-btn" onclick="event.stopPropagation(); openSefrechiCarSpecModal('${car.id}')">مشاهده مشخصات و خرید</button>
     `;
@@ -994,7 +994,7 @@ function renderMotorBanoProducts(){
       </div>
       <span class="mb-pc-tag">${p.tag}</span>
       <div class="mb-pc-title">${p.title}</div>
-      <div class="mb-pc-price">${p.price.toLocaleString('fa-IR')} <span style="font-size:10px;font-weight:400;color:#64748B;">تومان</span></div>
+      <div class="mb-pc-price">${p.price.toLocaleString('fa-IR')} <span style="font-size:12px;font-weight:400;color:#64748B;">تومان</span></div>
       <button class="mb-pc-btn">مشاهده مشخصات و خرید</button>
     `;
     c.appendChild(card);
@@ -2411,11 +2411,11 @@ function renderCarPickerList(keyword = '', group = 'all'){
     };
 
     let groupBadge = '';
-    if(car.group === 'saipa') groupBadge = '<span style="background:#FFF7ED; color:#EA580C; padding:1px 5px; border-radius:4px; font-size:8.5px; font-weight:800;">سایپا</span>';
-    else if(car.group === 'ikco') groupBadge = '<span style="background:#EFF6FF; color:#2563EB; padding:1px 5px; border-radius:4px; font-size:8.5px; font-weight:800;">ایران‌خودرو</span>';
-    else if(car.group === 'renault') groupBadge = '<span style="background:#FEFCE8; color:#CA8A04; padding:1px 5px; border-radius:4px; font-size:8.5px; font-weight:800;">رنو</span>';
-    else if(car.group === 'chinese') groupBadge = '<span style="background:#FDF2F8; color:#DB2777; padding:1px 5px; border-radius:4px; font-size:8.5px; font-weight:800;">چینی و مونتاژ</span>';
-    else if(car.group === 'import') groupBadge = '<span style="background:#F0FDF4; color:#16A34A; padding:1px 5px; border-radius:4px; font-size:8.5px; font-weight:800;">وارداتی</span>';
+    if(car.group === 'saipa') groupBadge = '<span style="background:#FFF7ED; color:#EA580C; padding:1px 5px; border-radius:4px; font-size:12px; font-weight:800;">سایپا</span>';
+    else if(car.group === 'ikco') groupBadge = '<span style="background:#EFF6FF; color:#2563EB; padding:1px 5px; border-radius:4px; font-size:12px; font-weight:800;">ایران‌خودرو</span>';
+    else if(car.group === 'renault') groupBadge = '<span style="background:#FEFCE8; color:#CA8A04; padding:1px 5px; border-radius:4px; font-size:12px; font-weight:800;">رنو</span>';
+    else if(car.group === 'chinese') groupBadge = '<span style="background:#FDF2F8; color:#DB2777; padding:1px 5px; border-radius:4px; font-size:12px; font-weight:800;">چینی و مونتاژ</span>';
+    else if(car.group === 'import') groupBadge = '<span style="background:#F0FDF4; color:#16A34A; padding:1px 5px; border-radius:4px; font-size:12px; font-weight:800;">وارداتی</span>';
 
     const carImgSrc = getCarRealShowroomImage(key);
     const carCleanTitle = car.name.split('/')[0].trim();
@@ -3051,7 +3051,7 @@ function renderCategoryProducts(products){
           ${p.oldPriceFmt ? `<span class="tc-old">${oldPriceFormatted}</span>` : ''}
           <div class="tc-price">${priceFormatted}</div>
         </div>
-        <button class="tc-add-btn" onclick="event.stopPropagation(); addToCart(this, \'${p.title}\', \'${p.id}\', ${p.price})" title="افزودن به سبد"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <button class="tc-add-btn" aria-label="افزودن به سبد خرید" onclick="event.stopPropagation(); addToCart(this, \'${p.title}\', \'${p.id}\', ${p.price})" title="افزودن به سبد"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>
     `;
     gridEl.appendChild(card);
@@ -3394,7 +3394,7 @@ function renderShowdownContent(){
           <span class="cmp-brand-badge">${p.brand}</span>
           <div class="cmp-title" title="${p.title}">${p.title}</div>
           <div class="cmp-price-row">
-            <span class="cmp-final-price">${p.price.toLocaleString('fa-IR')} <small style="font-size:8px;">تومان</small></span>
+            <span class="cmp-final-price">${p.price.toLocaleString('fa-IR')} <small style="font-size:12px;">تومان</small></span>
             <span class="cmp-old-price">${p.oldPrice.toLocaleString('fa-IR')}</span>
             <br>
             <span class="cmp-inst-pill">۴ قسط ${p.inst}</span>
@@ -3417,7 +3417,7 @@ function renderShowdownContent(){
       title: 'شرایط قیمت، تخفیف و تسهیلات مالی',
       icon: '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#059669" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>',
       rows: [
-        { label: 'قیمت پرداختی', getVal: p => `<b style="color:#059669; font-size:11.5px;">${p.price.toLocaleString('fa-IR')} تومان</b>` },
+        { label: 'قیمت پرداختی', getVal: p => `<b style="color:#059669; font-size:13px;">${p.price.toLocaleString('fa-IR')} تومان</b>` },
         { label: 'سود تخفیف', getVal: p => `<span class="cmp-badge-highlight">${(p.oldPrice - p.price).toLocaleString('fa-IR')} تومان سود (${p.discount})</span>` },
         { label: 'خرید ۴ قسطه', getVal: p => `<span class="cmp-badge-blue">۴ قسط ${p.inst} (بدون سود)</span>` },
         { label: 'شیوه ارسال', getVal: p => p.shipping }
@@ -3596,7 +3596,7 @@ function renderCartItems(){
   listEl.innerHTML = '';
 
   if(cartList.length === 0){
-    listEl.innerHTML = '<div style="text-align:center; padding:20px; color:#94A3B8; font-size:11.5px;">سبد خرید شما در حال حاضر خالی است.</div>';
+    listEl.innerHTML = '<div style="text-align:center; padding:20px; color:#64748B; font-size:13px;">سبد خرید شما در حال حاضر خالی است.</div>';
     return;
   }
 
@@ -3619,7 +3619,7 @@ function renderCartItems(){
       </div>
       <div class="cc-item-qty">
         <button class="cc-qty-btn" onclick="changeCartQty(${idx}, 1)">+</button>
-        <span style="font-size:11px; font-weight:800; min-width:14px; text-align:center;">${item.qty}</span>
+        <span style="font-size:12.5px; font-weight:800; min-width:14px; text-align:center;">${item.qty}</span>
         <button class="cc-qty-btn" onclick="changeCartQty(${idx}, -1)">-</button>
       </div>
     `;
@@ -3865,7 +3865,7 @@ function renderOrdersList(filter){
   if(filtered.length === 0){
     container.innerHTML = `
       <div style="text-align:center;padding:40px 20px;color:#64748B;">
-        <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="#94A3B8" stroke-width="1.5" style="margin:0 auto 12px;display:block;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/></svg>
+        <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="#64748B" stroke-width="1.5" style="margin:0 auto 12px;display:block;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/></svg>
         <b style="font-size:14px;color:#1E293B;display:block;margin-bottom:4px;">هیچ سفارشی در این بخش یافت نشد</b>
         <span style="font-size:12px;">سفارشات جدید و خریدهای شما در این قسمت نمایش داده می‌شوند.</span>
       </div>
@@ -4201,7 +4201,7 @@ function openInvoiceModal(orderId){
       <td>${idx + 1}</td>
       <td class="desc">
         <b>${item.title}</b>
-        <div style="font-size:9px;color:#64748B;">${item.warranty}</div>
+        <div style="font-size:12px;color:#64748B;">${item.warranty}</div>
       </td>
       <td>${item.qty} عدد</td>
       <td>${item.price.toLocaleString('fa-IR')}</td>
@@ -5638,7 +5638,7 @@ function __buildTopicCarousel(topicKey, adaptedTopics){
             ${p.oldPrice ? `<span class="tc-old">${p.oldPrice.toLocaleString('fa-IR')}</span>` : ''}
             <div class="tc-price">${p.price.toLocaleString('fa-IR')} <span>تومان</span></div>
           </div>
-          <button class="tc-add-btn" onclick="event.stopPropagation(); addToCart(this, \'${p.title}\', \'${p.id}\', ${p.price})" title="افزودن به سبد"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <button class="tc-add-btn" aria-label="افزودن به سبد خرید" onclick="event.stopPropagation(); addToCart(this, \'${p.title}\', \'${p.id}\', ${p.price})" title="افزودن به سبد"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
         </div>
       `;
       track.appendChild(card);
@@ -7070,7 +7070,7 @@ function renderMarketCards(){
     const card=document.createElement('div'); card.className='tc-card';
     card.innerHTML=`
       <div class="tc-stage" style="position:relative;background:#F8FAFC;">
-        ${off?`<span style="position:absolute;top:6px;left:6px;background:#FEF2F2;border:0.5px solid #FECACA;color:#DC2626;font-size:7px;font-weight:800;padding:1.5px 5px;border-radius:5px;z-index:2">−${mkFa(off)}٪</span>`:''}
+        ${off?`<span style="position:absolute;top:6px;left:6px;background:#FEF2F2;border:0.5px solid #FECACA;color:#DC2626;font-size:12px;font-weight:800;padding:1.5px 5px;border-radius:5px;z-index:2">−${mkFa(off)}٪</span>`:''}
         <img src="${p.img}" alt="${p.title}" loading="lazy">
         <span class="mk-seller-badge">🏪 ${s.store}</span>
       </div>
@@ -7080,7 +7080,7 @@ function renderMarketCards(){
       </div>
       <div class="tc-foot">
         <div class="tc-price-wrap">${p.old?`<span class="tc-old">${mkFa(p.old)}</span>`:''}<div class="tc-price">${mkFa(p.price)} <span>تومان</span></div></div>
-        <button class="tc-add-btn" style="background:linear-gradient(135deg,#059669,#047857);box-shadow:0 3px 8px rgba(5,150,105,.38)" onclick="showToast('به سبد خرید اضافه شد ✔')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <button class="tc-add-btn" aria-label="افزودن به سبد خرید" style="background:linear-gradient(135deg,#059669,#047857);box-shadow:0 3px 8px rgba(5,150,105,.38)" onclick="showToast('به سبد خرید اضافه شد ✔')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
       </div>`;
     t.appendChild(card);
   });
@@ -7126,7 +7126,7 @@ function openSellerPanel(){
 function renderPanelList(sid){
   const box=document.getElementById('spList'); box.innerHTML='';
   const list=mkGet(MK_P,[]).filter(p=>p.sellerId===sid);
-  if(!list.length){box.innerHTML='<span style="font-size:10px;color:#94A3B8">هنوز محصولی ثبت نکرده‌اید.</span>';return}
+  if(!list.length){box.innerHTML='<span style="font-size:12px;color:#64748B">هنوز محصولی ثبت نکرده‌اید.</span>';return}
   list.forEach(p=>{
     const row=document.createElement('div'); row.className='mk-prod';
     row.innerHTML=`<img loading="lazy" decoding="async"  src="${p.img}"><div style="flex:1"><b>${p.title}</b><span>${MK_CAT[p.cat]||''} | ${mkFa(p.price)} تومان</span></div><button class="mk-del" onclick="delProduct('${p.id}')">حذف</button>`;
@@ -7192,3 +7192,5 @@ window.addEventListener('load',()=>setTimeout(mkFitFlow,400));
   document.querySelectorAll('.vph-blend,.ring-ad,.quad-banners,.shs-banner-img-full').forEach(el=>{ ioA.observe(el); });
 })();
 
+
+if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}
