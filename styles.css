@@ -6,7 +6,7 @@
 @font-face{font-family:'YekanBakhFaNum';src:url('fonts/YekanBakhFaNum-ExtraBold.otf') format('opentype');font-weight:800;font-display:swap}
 *{margin:0;padding:0;box-sizing:border-box;font-family:'YekanBakhFaNum',sans-serif;-webkit-tap-highlight-color:transparent}
 body{background:#eef1f6;display:flex;justify-content:center;padding:20px 0;min-height:100vh}
-.phone{width:100%;max-width:100%;min-height:100vh;background:linear-gradient(135deg, #4354A4 0%, #306E82 50%, #2A6658 100%);border-radius:0;overflow:hidden;position:relative;box-shadow:none;display:flex;flex-direction:column}
+.phone{width:100%;max-width:100%;min-height:100vh;background:linear-gradient(135deg, #4354A4 0%, #306E82 50%, #2A6658 100%);border-radius:0;overflow:visible;position:relative;box-shadow:none;display:flex;flex-direction:column}
 .status-bar{height:36px;display:flex;justify-content:space-between;align-items:center;padding:0 22px;color:#1E293B;font-size:15px;font-weight:500;direction:ltr;z-index:2}
 .battery{border:1.5px solid rgba(255,255,255,.9);border-radius:8px;padding:1px 6px;font-size:11px;display:flex;align-items:center;position:relative}
 .battery::after{content:'';width:2px;height:6px;background:rgba(255,255,255,.9);position:absolute;right:-4px;border-radius:0 2px 2px 0}
@@ -83,7 +83,7 @@ body{background:#eef1f6;display:flex;justify-content:center;padding:20px 0;min-h
 
 .sheet{background:white;border-radius:32px 32px 0 0;flex:1;padding:10px 12px 0;position:relative;box-shadow:0 -4px 24px rgba(0,0,0,.08);z-index:2;display:flex;flex-direction:column}
 .handle{width:38px;height:4px;background:#E5E7EB;border-radius:10px;margin:4px auto 14px}
-.sheet-content{flex:1;overflow-y:auto;scrollbar-width:none;max-height:680px}
+.sheet-content{flex:1;overflow-y:visible;max-height:none}
 .sheet-content::-webkit-scrollbar{display:none}
 .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px 8px;margin-bottom:8px}
 .menu-item{display:flex;flex-direction:column;align-items:center;gap:7px;padding:4px 2px;cursor:pointer;position:relative;transition:transform .15s cubic-bezier(.2,.8,.2,1)}
@@ -4550,7 +4550,6 @@ body{background:#eef1f6;display:flex;justify-content:center;padding:20px 0;min-h
   display: flex;
   gap: 11px;
   overflow-x: auto;
-  touch-action: pan-x;
   padding: 4px 6px 12px;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
@@ -12831,7 +12830,7 @@ html .car-picker-modal,html .top-actions .icon-btn,html .header-ticker,html div.
 .top-actions .icon-btn{background:rgba(255,255,255,.24)!important}
 .pdp-top-nav,.pdp-bottom-bar{background:rgba(255,255,255,.97)!important}
 .anim-off,.anim-off::before,.anim-off::after,.anim-off *,.anim-off *::before,.anim-off *::after{animation-play-state:paused!important}
-.shop-carousel-section,.quad-banners{content-visibility:auto;contain-intrinsic-size:auto 500px}
+
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01s!important;animation-iteration-count:1!important;transition-duration:.01s!important}}
 /* ===== ریسپانسیو موبایل/تبلت/دسکتاپ (نسخه هاست) ===== */
 .status-bar,.system-nav{display:none!important}
@@ -12869,4 +12868,4 @@ html .car-picker-modal,html .top-actions .icon-btn,html .header-ticker,html div.
 html{-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 a,.menu-item,.qb-tile,.pill,.icon-btn,.tc-add-btn,.nav-item,.rc-cta,.cta,.vph-switch-action-btn{touch-action:manipulation;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 .menu-item:active,.qb-tile:active,.pill:active,.icon-btn:active,.tc-add-btn:active,.nav-item:active,.rc-cta:active,.cta:active,.vph-switch-action-btn:active{transform:scale(.96)!important;transition:transform .09s cubic-bezier(.2,.8,.2,1)!important}
-.sheet-content,.drawer-panel,[class$="-modal"]{-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+.drawer-panel,[class$="-modal"]{-webkit-overflow-scrolling:touch;overscroll-behavior:contain}

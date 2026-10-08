@@ -5472,13 +5472,6 @@ function attachDragScrollToElement(slider){
 
   slider.style.cursor = 'grab';
   
-  // غیرفعال‌سازی درگ تصاویر
-  slider.querySelectorAll('img').forEach(img => {
-    img.setAttribute('draggable', 'false');
-    img.style.userSelect = 'none';
-    img.style.webkitUserDrag = 'none';
-    img.style.pointerEvents = 'none';
-  });
 
   if(slider._pointerAttached) return;
   slider._pointerAttached = true;
@@ -5491,26 +5484,6 @@ function attachDragScrollToElement(slider){
 
   // استفاده از Pointer Events برای سازگاری همزمان با ماوس، لمس دست، ترک‌پد و قلم
   slider.addEventListener('pointerdown', (e) => {
-    if(e.pointerType !== 'mouse'){
-      // دستیار عمودی لمس: افقی بومی (pan-x)، عمودی با مومنتوم به صفحه forwarded
-      let sx=e.clientX, sy=e.clientY, lastY=e.clientY, vel=0, active=false, raf=0;
-      const move=ev=>{
-        const dy=ev.clientY-sy, dx=ev.clientX-sx;
-        if(!active && Math.abs(dy)>8 && Math.abs(dy)>Math.abs(dx)*1.2) active=true;
-        if(active){ const step=ev.clientY-lastY; lastY=ev.clientY; vel=0.8*step+0.2*vel; window.scrollBy(0,-step); }
-      };
-      const up=()=>{
-        slider.removeEventListener('pointermove',move);
-        if(active){ cancelAnimationFrame(raf);
-          const fling=()=>{ vel*=0.94; if(Math.abs(vel)>0.5){ window.scrollBy(0,-vel); raf=requestAnimationFrame(fling); } };
-          raf=requestAnimationFrame(fling);
-        }
-      };
-      slider.addEventListener('pointermove',move);
-      slider.addEventListener('pointerup',up,{once:true});
-      slider.addEventListener('pointercancel',up,{once:true});
-      return;
-    }
     if(e.button !== 0) return;
     isDown = true;
     hasMoved = false;
@@ -5577,6 +5550,7 @@ function attachDragScrollToElement(slider){
 
 // فعال‌سازی روی تمامی کاروسل‌ها، نوار کاشی‌ها و دسته‌ها
 function enableDragScroll(){
+  return; // اسکرول ۱۰۰٪ بومی (بدون لیسنرهای درگ که زنجیرهٔ لمس را می‌شکنند)
   const selectors = [
     '#shopCatScroller',
     '.shop-cat-scroller',
